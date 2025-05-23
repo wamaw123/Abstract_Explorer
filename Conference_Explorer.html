@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conference Abstract Explorer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="explorer_styles.css"> <script src="studies_data.js"></script> 
+</head>
+<body class="flex flex-col min-h-screen">
+
+    <header class="main-header py-4">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex items-center"> 
+            <img src="iconn.png" alt="Explorer Icon" class="header-icon"> 
+            <h1 class="text-2xl sm:text-3xl font-bold tracking-tight">Conference Abstract Explorer</h1>
+        </div>
+    </header>
+
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8 flex-grow">
+        <div id="initializationMessage" class="hidden">
+            <p>Abstract data could not be loaded. Please ensure 'studies_data.js' is present and correctly formatted.</p>
+        </div>
+
+        <div id="explorerContent"> 
+            <div id="searchBarContainer" class="mb-6">
+                <label for="searchInput" class="sr-only">Search Abstracts</label>
+                <div class="relative rounded-md shadow-sm">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <input type="search" name="searchInput" id="searchInput" class="block w-full pl-10 sm:text-sm border-gray-300 rounded-md py-2.5" placeholder="Search by keyword, title, drug, cancer type...">
+                </div>
+            </div>
+
+            <div class="favorites-filter-container flex items-center justify-start space-x-3">
+                <h3 class="text-lg font-semibold text-sobi-dark-blue">Show:</h3>
+                <button id="showAllBtn" class="favorite-filter-btn active">All Abstracts</button>
+                <button id="showFavoritesBtn" class="favorite-filter-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 inline-block mr-1.5 heart-icon-fav-filter">
+                        <path d="M9.653 16.915l-.005-.003-.019-.01a20.759 20.759 0 01-1.162-.682 22.045 22.045 0 01-2.582-2.15A15.697 15.697 0 012 8.688c0-3.065 2.11-5.858 5.207-5.858 1.785 0 3.328.871 4.237 2.24.908-1.369 2.452-2.24 4.237-2.24 3.096 0 5.206 2.792 5.206 5.857 0 2.823-1.581 5.377-3.318 7.401a22.049 22.049 0 01-2.582 2.15 20.753 20.753 0 01-1.162.682l-.019.01-.005.003h-.002a.739.739 0 01-.69.001l-.002-.001z" />
+                    </svg>
+                    Favorites Only
+                </button>
+            </div>
+
+            <div id="topFilterControls" class="top-filter-bar pt-4"> 
+                <div id="cancerTypeFilterGroupTop">
+                    <h3 class="filter-group-title text-lg font-semibold text-sobi-dark-blue mb-3">Filter by Cancer Type</h3>
+                    <div class="top-filter-buttons-container" data-filter-category="cancerTypes">
+                        </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8">
+                <aside class="md:col-span-3 aside-sticky">
+                    <div class="sidebar-card space-y-6">
+                        <div>
+                            <h2 class="filter-section-title">Refine Search</h2>
+                            <div id="therapyLineFilterGroupLeft">
+                                <h3 class="filter-group-title">Line of Therapy</h3>
+                                <div class="space-y-2" data-filter-category="lineOfTherapy">
+                                    </div>
+                            </div>
+                        </div>
+                        <div id="evidenceTypeFilterGroupLeft">
+                            <h3 class="filter-group-title">Evidence Type</h3>
+                            <div class="space-y-2" data-filter-category="evidenceType">
+                                </div>
+                        </div>
+                        <button id="resetFilters" class="w-full btn btn-reset mt-4">Reset All Filters</button>
+                    </div>
+                </aside>
+
+                <main class="md:col-span-6"> 
+                    <div id="resultsCount" class="mb-4 text-md font-medium text-sobi-medium-gray-text"></div>
+                    <div id="studyResults" class="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-5"> 
+                        </div>
+                </main>
+
+                <aside class="md:col-span-3 aside-sticky">
+                     <div class="sidebar-card space-y-6">
+                        <div id="drugFilterGroupRight">
+                            <h2 class="filter-section-title">Drug / Therapy</h2>
+                            <h3 class="filter-group-title">Class / Specific</h3>
+                            <div class="space-y-2" data-filter-category="drugs">
+                                </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+
+    <footer class="main-footer text-center p-5 mt-auto">
+        Conference Abstract Explorer &copy; <span id="currentYear"></span>. For research and informational purposes only.
+    </footer>
+
+    <script defer src="explorer_app.js"></script> 
+</body>
+</html>

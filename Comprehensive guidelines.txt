@@ -1,0 +1,126 @@
+Comprehensive Guideline: Creating HTML Abstract Summary Slides (SOBI Themed)
+Version: 6.0 (Reflecting all instructions up to current date, including reference format, critical assessment, specific metadata rules, and studies_data.js update policy)
+
+Objective: To produce a clear, concise, scientifically accurate, and visually appealing single-page HTML representation of a medical abstract, suitable for quick review, understanding of key findings, and integration into a filterable "Conference Abstract Explorer."
+
+I. Initial Setup & Abstract Analysis:
+
+Receive Inputs:
+
+Primary: The medical abstract text.
+
+Secondary (Optional):
+
+Images of tables (e.g., detailed efficacy/safety data).
+
+Images of figures (e.g., Kaplan-Meier curves).
+
+Core Information Extraction & Critical Assessment:
+
+Thoroughly read the abstract and any supplementary materials.
+
+Critical Assessment for Content Integrity:
+
+Identify ALL critical elements of the study. If relevant information is present that doesn't fit neatly into a standard section (e.g., unique study design aspects, specific patient subgroup considerations not typically charted, important mechanistic insights), this information MUST be incorporated. This can be achieved by:
+
+Adding a new, appropriately titled subsection within an existing relevant card (e.g., a special note in "Methods" or "Results").
+
+Creating a small, dedicated text block or mini-table if the information is distinct and significant.
+
+Integrating it into the narrative of an existing section if it flows logically.
+
+Conversely, if a standard section (e.g., PK/Biomarkers, detailed breakdown of a specific AE if not a major focus) has no corresponding data or only trivial data in the abstract, that specific subsection should be omitted to maintain conciseness and avoid empty placeholders. Alternatively, a brief note like "Data not presented" or "To be presented" can be used if appropriate for context (e.g., for PK/Biomarkers if mentioned as an endpoint but no results given).
+
+The goal is a balance between comprehensiveness of critical information and conciseness of the overall summary. Scientific accuracy and relevance are paramount.
+
+Extract Key Information for All Sections (including Visual Abstract): (Comprehensive list as per Guideline v5)
+
+II. Visual Abstract Creation (Top of Page):
+
+(This section remains the same as defined in Guideline v5, focusing on a 4-block graphical overview: Population & Aim, Intervention, Key Efficacy, Key Safety/Conclusion, using SOBI theme and clear SVG icons with explicit theme colors.)
+
+III. HTML Structure & SOBI Theming (Main Content):
+
+HTML Boilerplate: Standard HTML5, meta tags, links to Tailwind CSS, D3.js, and Inter font.
+
+<head> Metadata Tags (for Conference Explorer):
+
+<meta name="study:id" content="[unique-study-identifier]">
+
+<meta name="study:title" content="[Abstract Number - Concise title for explorer list]">
+
+<meta name="study:fileName" content="Abstracts/[ActualHTMLFileName.html]">
+
+<meta name="study:cancerTypes" content="[Comma-separated list]">
+
+Cancer Type Logic (Strict Adherence):
+
+Only terms from the pre-approved list must be used: DLBCL, HGBCL, FL, B-NHL, MZL, LBCL.
+
+If the abstract mentions a specific type not on this list (e.g., "FL G3B", "Aggressive B-cell Lymphoma NOS"), it must be mapped to the closest equivalent(s) on the approved list. For example, "FL G3B" maps to "FL". General terms like "Aggressive Lymphoma" should not be used as a tag if they are not on the approved list; instead, tag with the specific aggressive lymphoma types from the list if mentioned (e.g., DLBCL, HGBCL).
+
+Hierarchical Tagging: If a listed cancer type is a subtype of another listed cancer type, all applicable parent categories from the approved list must also be included.
+
+Example 1: If "DLBCL" is mentioned, tags must include: DLBCL,LBCL,B-NHL.
+
+Example 2: If "FL" (Follicular Lymphoma) is mentioned, tags must include: FL,B-NHL.
+
+Example 3: If "HGBCL" is mentioned, tags must include: HGBCL,LBCL,B-NHL.
+
+If unsure about mapping or hierarchy for a mentioned cancer type, clarification must be sought. Do not invent new tags.
+
+<meta name="study:lineOfTherapy" content="[e.g., 1L, 2L, 3L+]">
+
+<meta name="study:evidenceType" content="[Clinical trial OR Real-world evidence]">
+
+<meta name="study:drugs" content="[Comma-separated list]">
+
+Drug Tagging Logic (Strict Adherence):
+
+List specific novel agents and their general classes.
+
+Chemotherapy / CIT Components: For standard chemotherapy drugs in a backbone regimen (e.g., CHP in Pola-R-CHP), do NOT list individual chemo drugs. Instead, use the collective term "Chemotherapy". If an immunotherapy (like Rituximab) is part of this backbone, also include "CIT". The specific immunotherapy agent (e.g., Rituximab) should still be listed individually with its class (e.g., "Monoclonal Antibody").
+
+CSS Styling: All styles managed in the external abstract_styles.css. The HTML <head> links to this file. The <body> tag should have class="abstract-page-body". Inline <style> blocks are removed from HTML files.
+
+Overall Page Layout (Post Visual Abstract): Standardized.
+
+IV. Content Population - Main Sections:
+
+(Detailed breakdown of Header, Background, Aims, Methods & Study Design with Schema, Patient Characteristics, Safety, Efficacy, PK/ADA/Biomarkers, Summary, Abbreviations, Reference, and Footer as previously established.)
+
+Reference Card Update:
+
+The reference format is: "FirstAuthorName Initials, SecondAuthorName Initials, ThirdAuthorName Initials, et al. TITLE OF THE PRESENTATION IN SENTENCE CASE (EXCEPT FOR PROPER NOUNS LIKE GENE NAMES, DRUG NAMES, ACRONYMS LIKE 'B-CELL', 'DLBCL', ETC.). Abstract #XXXX presented at European Haematology Association (EHA) June DD–DD, YYYY, City, Country."
+
+The "EHA Library. Author L. Date; ID; Abstract#" part is removed.
+
+Title Formatting:
+
+Abstract titles in the main header (<h1>) and Visual Abstract title should be in Sentence case, except for proper nouns, acronyms (e.g., DLBCL, R-CHOP), gene names (e.g., TP53), etc., which retain their standard capitalization. Abstract numbers should prefix these titles.
+
+V. studies_data.js Integration & Updates:
+
+For every new HTML abstract file created:
+
+Generate a corresponding JavaScript object.
+
+fileName must start with Abstracts/.
+
+title in this JS object should also include the abstract number.
+
+All metadata fields must strictly follow the rules in III.2 (Cancer Types, Drugs, Evidence Type) and IV (Reference title case).
+
+Add isFavorite: false by default.
+
+Provide this new object to be added to the studies array.
+
+When an existing HTML abstract file is updated:
+
+If metadata changes, the corresponding object in studies_data.js MUST also be updated.
+
+Provide the updated object or specify changes.
+
+VI. Final Review & Quality Checks:
+
+(Standard checks remain crucial. Pay special attention to critical content assessment, strict adherence to metadata rules including title casing in references, and correct file paths and abstract numbering in studies_data.js.)
