@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="study:id" content="lotis-5">
+    <meta name="study:title" content="LOTIS-5: Loncastuximab Tesirine + Rituximab in R/R DLBCL/HGBL">
+    <meta name="study:fileName" content="LOTIS-5.html">
+    <meta name="study:cancerTypes" content="DLBCL,HGBL,B-NHL">
+    <meta name="study:lineOfTherapy" content="2L">
+    <meta name="study:evidenceType" content="Clinical trial">
+    <meta name="study:drugs" content="ADC,Loncastuximab Tesirine,Monoclonal Antibody,Rituximab">
+
+    <title>LOTIS-5: Updated Safety Run-in Results Summary (SOBI Themed v4)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* SOBI Inspired Color Palette */
+        :root {
+            --sobi-dark-blue: #0A2F5C;
+            --sobi-orange: #F37021; /* Used for SD or other categories */
+            --sobi-teal: #009B9E;   /* Used for CR */
+            --sobi-yellow: #FFC107; /* Used for PR */
+            --sobi-light-gray-bg: #F8F9FA;
+            --sobi-white: #FFFFFF;
+            --sobi-dark-text: #212529;
+            --sobi-medium-gray-text: #6c757d; /* Used for PD or non-response */
+            --sobi-light-teal-bg: #E0F2F7;
+            --sobi-light-orange-bg: #FFF0E5;
+            --sobi-card-border: #DEE2E6;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--sobi-light-gray-bg);
+            color: var(--sobi-dark-text);
+            font-size: 16px; 
+        }
+        .slide-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 25px;
+            background-color: var(--sobi-white);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--sobi-card-border);
+        }
+
+        /* Visual Abstract Styles */
+        .visual-abstract-container {
+            background-color: var(--sobi-white); 
+            padding: 1.5rem; 
+            border-radius: 0.75rem; 
+            box-shadow: 0 6px 12px rgba(0,0,0,0.07); 
+            margin-bottom: 2rem; 
+            border: 2px solid var(--sobi-teal); 
+        }
+        .visual-abstract-title {
+            font-size: 1.375rem; 
+            font-weight: 700; 
+            color: var(--sobi-dark-blue);
+            margin-bottom: 1.5rem; 
+            text-align: center;
+            border-bottom: 2px solid var(--sobi-orange);
+            padding-bottom: 0.75rem;
+        }
+        .visual-abstract-grid { display: grid; gap: 1.5rem; }
+        @media (min-width: 768px) { .visual-abstract-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+        @media (min-width: 1024px) { .visual-abstract-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+        .visual-abstract-item {
+            background-color: var(--sobi-light-gray-bg); 
+            padding: 1.25rem; 
+            border-radius: 0.5rem; 
+            border: 1px solid var(--sobi-card-border);
+            display: flex; flex-direction: column; align-items: center; text-align: center;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .visual-abstract-item:hover { transform: translateY(-3px); box-shadow: 0 8px 16px rgba(0,0,0,0.1); }
+        .visual-abstract-item svg { width: 3rem; height: 3rem; margin-bottom: 1rem; }
+        .visual-abstract-item h4 { font-size: 1rem; font-weight: 600; color: var(--sobi-dark-blue); margin-bottom: 0.5rem; }
+        .visual-abstract-item p { font-size: 0.875rem; color: var(--sobi-dark-text); line-height: 1.5; }
+        .visual-abstract-item .highlight-value { font-size: 1.5rem; font-weight: 700; color: var(--sobi-orange); display: block; margin-top: 0.5rem; }
+
+        /* General Content Styles */
+        .header-title { color: var(--sobi-dark-blue); border-bottom: 3px solid var(--sobi-orange); padding-bottom: 12px; margin-bottom: 25px; font-size: 2.25rem; }
+        .sub-header { color: var(--sobi-dark-text); font-size: 1.20rem; }
+        .meta-info { color: var(--sobi-medium-gray-text); font-size: 0.875rem; }
+        .section-title { color: var(--sobi-dark-blue); font-weight: 700; margin-top: 25px; margin-bottom: 15px; font-size: 1.4rem; border-left: 5px solid var(--sobi-teal); padding-left: 10px; }
+        .sub-section-title { font-size: 1.1rem; font-weight: 600; color: var(--sobi-dark-blue); margin-top: 15px; margin-bottom: 10px; }
+        .card { background-color: var(--sobi-white); border: 1px solid var(--sobi-card-border); border-radius: 8px; padding: 20px; margin-bottom: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        .table-container { overflow-x: auto; margin-top: 10px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid var(--sobi-card-border); padding: 10px; text-align: left; font-size: 0.875rem; vertical-align: top; }
+        th { background-color: var(--sobi-light-teal-bg); color: var(--sobi-dark-blue); font-weight: 600; }
+        .highlight { color: var(--sobi-orange); font-weight: 600; }
+        .footer-info { font-size: 0.85rem; color: var(--sobi-medium-gray-text); margin-top: 35px; text-align: center; border-top: 1px solid var(--sobi-card-border); padding-top: 20px; }
+        
+        /* Chart and Plot Styles */
+        .chart-container { display: flex; justify-content: center; align-items: center; flex-direction: column; min-height: 300px; padding: 10px; background-color: #fdfdfd; border-radius: 6px; margin-top: 10px; }
+        .axis-text { font-size: 0.8rem; fill: var(--sobi-medium-gray-text); }
+        .chart-label { font-size: 0.85rem; font-weight: 500; }
+        .legend { display: flex; justify-content: center; flex-wrap: wrap; margin-top: 15px; }
+        .legend-item { display: flex; align-items: center; margin-right: 15px; margin-bottom: 5px; font-size: 0.8rem; color: var(--sobi-dark-text); }
+        .legend-item:last-child { margin-right: 0; }
+        .legend-color-box { width: 12px; height: 12px; margin-right: 6px; border-radius: 2px; flex-shrink: 0; }
+
+        /* Infographics, Lists, Footnotes */
+        .infographic-item { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 15px; border-radius: 8px; margin-bottom:10px; }
+        .infographic-item.orange-theme { background-color: var(--sobi-light-orange-bg); }
+        .infographic-item.teal-theme { background-color: var(--sobi-light-teal-bg); }
+        .infographic-icon { font-size: 2.8rem; margin-bottom: 10px; }
+        .icon-orange { color: var(--sobi-orange); }
+        .icon-teal { color: var(--sobi-teal); }
+        .infographic-value { font-size: 1.75rem; font-weight: 700; color: var(--sobi-dark-blue); }
+        .infographic-label { font-size: 0.9rem; color: var(--sobi-dark-text); }
+        .list-disc li, .list-circle li { margin-bottom: 5px; }
+        .safety-table td ul { list-style-position: inside; padding-left: 0; }
+        .safety-table td ul li { margin-bottom: 2px; }
+        .abbreviations-list p, .reference-section p { font-size: 0.875rem; line-height: 1.6; color: var(--sobi-dark-text); }
+        .footnote-text { font-size: 0.8rem; color: var(--sobi-medium-gray-text); margin-top: 10px; line-height: 1.4; }
+        .footnote-text p { margin-bottom: 5px; }
+
+        /* Study Design Schema Styles */
+        .study-design-schema { margin-top: 20px; padding: 15px; background-color: var(--sobi-light-gray-bg); border: 1px solid var(--sobi-card-border); border-radius: 6px; font-size: 0.85rem; }
+        .schema-title { font-weight: 600; color: var(--sobi-dark-blue); margin-bottom: 15px; text-align: center; }
+        .schema-phases { display: flex; flex-direction: column; gap: 10px; }
+        .schema-phase-group { display: flex; align-items: stretch; gap: 5px; margin-bottom: 10px; }
+        .schema-phase, .schema-assessment, .schema-arrow { padding: 8px 10px; border-radius: 4px; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        .schema-phase { background-color: var(--sobi-light-teal-bg); color: var(--sobi-dark-blue); border: 1px solid var(--sobi-teal); flex-grow: 1; }
+        .schema-phase strong { font-weight: 600; display: block; margin-bottom: 3px; }
+        .schema-phase span { font-size: 0.8rem; }
+        .schema-arrow { font-size: 1.5rem; color: var(--sobi-dark-blue); align-self: center; padding: 0 5px; }
+        .schema-assessment-points { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 5px; margin-top: 5px; padding: 8px 0; border-top: 1px dashed var(--sobi-card-border); border-bottom: 1px dashed var(--sobi-card-border); }
+        .schema-assessment-points span { font-size: 0.75rem; color: var(--sobi-medium-gray-text); background-color: var(--sobi-light-orange-bg); padding: 3px 6px; border-radius: 3px; border: 1px solid var(--sobi-orange); }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="visual-abstract-container">
+            <h2 class="visual-abstract-title">Visual Summary: LOTIS-5 Safety Run-in (Lonca-R in R/R DLBCL/HGBL)</h2>
+            <div class="visual-abstract-grid">
+                <div class="visual-abstract-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--sobi-teal)"> 
+                        <path d="M12 6.096c-1.058 0-2.02.468-2.704 1.248-.685.78-.996 1.788-.996 2.856s.311 2.076.996 2.856C9.98 13.84 10.942 14.31 12 14.31s2.02-.468 2.704-1.248.996-1.788.996-2.856-.311-2.076-.996-2.856C14.02 6.564 13.058 6.096 12 6.096zM12 12.81c-.53 0-1.008-.222-1.352-.588-.344-.366-.528-.852-.528-1.422s.184-1.056.528-1.422C10.992 9.012 11.47 8.79 12 8.79s1.008.222 1.352.588.528.852.528 1.422-.184-1.056-.528 1.422C13.008 12.588 12.53 12.81 12 12.81zm6.708 3.672A7.47 7.47 0 0012.024 15c-1.404 0-2.706.39-3.816 1.056A4.476 4.476 0 004.5 19.686V21h15v-1.314a4.476 4.476 0 00-3.792-3.624zM6.024 16.56c.84-.468 1.848-.768 2.904-.924A5.928 5.928 0 0112.024 15a5.928 5.928 0 013.096.636c1.056.156 2.064.456 2.904.924A2.988 2.988 0 0019.5 18.018V19.5h-15v-1.482a2.988 2.988 0 001.524-2.458zM4.5 7.032c0-1.068.312-2.076.996-2.856S7.2 3 8.256 3A7.47 7.47 0 0112.024 1.5c1.404 0 2.706.39 3.816 1.056A4.476 4.476 0 0119.5 6.186V7.5H4.5v-.468zM18 4.56c-.84.468-1.848.768-2.904-.924A5.928 5.928 0 0012.024 6a5.928 5.928 0 00-3.096.636 7.524 7.524 0 00-2.904.924A2.988 2.988 0 014.5 7.482V6H3V4.5A1.5 1.5 0 014.5 3h15A1.5 1.5 0 0121 4.5V6h-1.5v1.482a2.988 2.988 0 01-1.524 2.458L18 4.56z" />
+                    </svg>
+                    <h4>Population & Aim</h4>
+                    <p>N=20 R/R DLBCL/HGBL Pts (Safety Run-in). Aim: Evaluate Lonca-R safety & efficacy.</p>
+                </div>
+                <div class="visual-abstract-item">
+                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--sobi-teal)"> <path fill-rule="evenodd" d="M12.75 2.25a.75.75 0 00-1.5 0v1.566l-1.877-.704a.75.75 0 00-.696 1.36L10.28 5.83 8.92 4.08a.75.75 0 00-1.2.9l1.217 1.593-1.913.071a.75.75 0 00-.424 1.425l1.969.591-1.606 1.194a.75.75 0 00.872 1.227l1.83-1.362.062 1.917a.75.75 0 001.45.325l.89-1.832 1.537 1.23a.75.75 0 001.16-.948l-1.38-1.724 1.96-.368a.75.75 0 00.468-1.397l-1.928-.723 1.282-1.538a.75.75 0 00-.958-1.154l-1.762 1.057V2.25zM12 15.75a.75.75 0 01.75.75v4.5a.75.75 0 01-1.5 0V16.5a.75.75 0 01.75-.75z" clip-rule="evenodd" />
+                        <path d="M3.375 12.75a.75.75 0 000 1.5h17.25a.75.75 0 000-1.5H3.375z" />
+                    </svg>
+                    <h4>Intervention</h4>
+                    <p>Lonca + Rituximab (Lonca-R) Q3W (≤8 cycles). C1-2: Lonca 150µg/kg; C3-8: Lonca 75µg/kg.</p>
+                </div>
+                <div class="visual-abstract-item">
+                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--sobi-orange)"> <path d="M3 13.5a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 13.5zM3 8.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 8.25zM3 18.75a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 18.75zM20.25 3a.75.75 0 00-.75.75v16.5a.75.75 0 001.5 0V3.75a.75.75 0 00-.75-.75z" />
+                        <path fill-rule="evenodd" d="M9.97 4.28a.75.75 0 01.75-.75H12a.75.75 0 01.75.75v10.174l3.108-3.293a.75.75 0 111.084 1.038l-4.5 4.75a.75.75 0 01-1.084 0l-4.5-4.75a.75.75 0 111.084-1.038L9.97 14.454V4.28z" clip-rule="evenodd" />
+                    </svg>
+                    <h4>Key Efficacy (N=20)</h4>
+                    <p>ORR: <span class="highlight-value">80%</span>CR: <span class="highlight-value">50%</span> Median PFS: 8.3 mos.</p>
+                </div>
+                <div class="visual-abstract-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--sobi-orange)"> <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm.092 14.444a.75.75 0 01-.092 0l-3.75-3.75a.75.75 0 111.06-1.06L12 14.813l3.182-3.182a.75.75 0 111.06 1.06l-3.75 3.75a.75.75 0 01-.53.22z" clip-rule="evenodd" />
+                    </svg>
+                    <h4>Safety & Conclusion</h4>
+                    <p>No new safety signals. Most common Gr ≥3 TEAEs: GGT↑ (25%), neutropenia (20%). Encouraging activity.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-bold header-title">UPDATED SAFETY RUN-IN RESULTS FROM LOTIS-5</h1>
+            <p class="text-xl sub-header">A Phase 3, Randomized Trial of Loncastuximab Tesirine with Rituximab versus Immunochemotherapy in Patients with R/R DLBCL/HGBL</p>
+            <p class="text-sm meta-info mt-2">Prof. Carmelo Carlo-Stella, et al. | EHA Library PS1957 | Abstract Release: 05/14/25 | Presentation: 06/14/2025</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-x-8 gap-y-6">
+            <div>
+                <div class="card">
+                    <h2 class="section-title">Background</h2>
+                    <ul class="list-disc list-inside text-sm space-y-1 pl-2">
+                        <li>Loncastuximab tesirine (Lonca): CD19-targeted ADC, FDA/EMA-approved for R/R DLBCL/HGBL (≥2 prior therapies).</li>
+                        <li>Preclinical evidence: Adding rituximab (R) to anti-CD19 ADC may enhance tumor control.</li>
+                        <li>LOTIS-5 (NCT04384484): Phase 3 trial evaluating Lonca-R vs R-immunochemotherapy in transplant-ineligible R/R DLBCL/HGBL.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h2 class="section-title">Study Aims (Safety Run-in)</h2>
+                    <p class="text-sm mb-1">Describe safety and efficacy of Lonca-R.</p>
+                    <p class="text-sm">Explore correlations of clinical activity with tumor/blood biomarkers.</p>
+                </div>
+
+                <div class="card">
+                    <h2 class="section-title">Methods & Study Design (Safety Run-in)</h2>
+                     <ul class="list-disc list-inside text-sm space-y-1 mb-3 pl-2">
+                        <li>Single-arm safety run-in part of LOTIS-5.</li>
+                        <li>Primary & Secondary Endpoints: Safety, ORR/CRR, PFS, DOR, OS.</li>
+                    </ul>
+                    <div class="study-design-schema">
+                        <h3 class="schema-title">LOTIS-5 Safety Run-in: Lonca-R Treatment Schema</h3>
+                        <div class="schema-phases">
+                            <div class="schema-phase-group">
+                                <div class="schema-phase"><strong>Cycles 1-2 (Q3W)</strong><span>Lonca 150 µg/kg<br>Rituximab 375 mg/m<sup>2</sup></span></div>
+                            </div>
+                            <div class="flex justify-center"><span class="schema-arrow text-2xl self-center my-1">➔</span></div>
+                            <div class="schema-phase-group">
+                                <div class="schema-phase"><strong>Cycles 3-8 (Q3W, ≤6 additional)</strong><span>Lonca 75 µg/kg<br>Rituximab 375 mg/m<sup>2</sup></span></div>
+                            </div>
+                        </div>
+                        <div class="schema-assessment-points mt-4">
+                           <span>Safety Assessment (Ongoing)</span>
+                           <span>Efficacy Assessment (ORR, CRR, DOR, PFS, OS)</span>
+                        </div>
+                         <div class="schema-assessment-points mt-2">
+                           <span>PK Assessment</span>
+                           <span>ADA Assessment</span>
+                           <span>ctDNA Assessment</span>
+                           <span>CD19 IHC</span>
+                        </div>
+                        <div class="text-center mt-3 text-xs text-gray-600">Total ≤8 Cycles of Lonca-R</div>
+                    </div>
+                </div>
+
+                 <div class="card">
+                    <h2 class="section-title">Patient Characteristics (Safety Run-in, N=20)</h2>
+                    <p class="text-xs meta-info mb-2">Data cut-off: October 4, 2024</p>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Characteristic</th>
+                                    <th>Value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>DLBCL / HGBL, n</td><td>18 / 2</td></tr>
+                                <tr><td>Median Age, years (range)</td><td>74.5 (35-93)</td></tr>
+                                <tr><td>Median Prior Therapies, n (range)</td><td>1 (1-7)</td></tr>
+                                <tr><td>≥2 Prior Therapies, n (%)</td><td>8 (40%)</td></tr>
+                                <tr><td>Refractory Pts, n (%)</td><td>4 (20%)</td></tr>
+                                <tr><td>Median Lonca-R Cycles, n (range)</td><td>5 (1-8)</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                 <div class="card">
+                    <h2 class="section-title">Safety Summary (Safety Run-in, N=20)</h2>
+                     <div class="table-container">
+                        <table class="safety-table">
+                            <thead>
+                                <tr>
+                                    <th>Adverse Event Category</th>
+                                    <th>Details</th>
+                                    <th>Incidence, n (%)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Any TEAE (≥1)</td>
+                                    <td>All patients</td>
+                                    <td>20 (100%)</td>
+                                </tr>
+                                <tr>
+                                    <td>Grade ≥3 TEAEs</td>
+                                    <td>Any</td>
+                                    <td>11 (55%)</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2">Most Common Grade ≥3 TEAEs</td>
+                                    <td>Increased GGT</td>
+                                    <td>5 (25%)</td>
+                                </tr>
+                                <tr>
+                                    <td>Neutropenia</td>
+                                    <td>4 (20%)</td>
+                                </tr>
+                                <tr>
+                                    <td>SAEs</td>
+                                    <td>Any</td>
+                                    <td>9 (45%)</td>
+                                </tr>
+                                <tr>
+                                    <td>Most Common SAE</td>
+                                    <td>Infection</td>
+                                    <td>6 (30%)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 class="section-title">Efficacy Results (Safety Run-in, N=20)</h2>
+                    <p class="text-xs meta-info mb-2">Median follow-up: 10.8 months (range 1.9-39.7)</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                        <div class="infographic-item orange-theme">
+                            <div class="infographic-icon icon-orange">📊</div>
+                            <div class="infographic-value">80%</div>
+                            <div class="infographic-label">Overall Response Rate (ORR)</div>
+                        </div>
+                        <div class="infographic-item teal-theme">
+                            <div class="infographic-icon icon-teal">🎯</div>
+                            <div class="infographic-value">50%</div>
+                            <div class="infographic-label">Complete Response (CR)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-container mb-6">
+                        <svg id="lotis5ResponseStackedChart" width="350" height="300"></svg>
+                        <div id="lotis5ResponseLegend" class="legend"></div>
+                    </div>
+
+                    <h3 class="sub-section-title">Table 1: Efficacy results for the LOTIS-5 safety run-in</h3>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Efficacy Outcomes</th>
+                                    <th>Value</th>
+                                    <th>95% CI</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td colspan="3" class="font-semibold bg-gray-100">Efficacy outcomes in safety run-in population (N=20)</td></tr>
+                                <tr>
+                                    <td>Overall response rate, n (%)</td>
+                                    <td>16 (80.0)</td>
+                                    <td>56.3-94.3</td>
+                                </tr>
+                                <tr>
+                                    <td>Complete response, n (%)</td>
+                                    <td>10 (50.0)<sup>a</sup></td>
+                                    <td>27.2-72.8</td>
+                                </tr>
+                                <tr>
+                                    <td>Median progression-free survival, months</td>
+                                    <td>8.31</td>
+                                    <td>4.53-NE</td>
+                                </tr>
+                                <tr><td colspan="3" class="font-semibold bg-gray-100 mt-2">Efficacy outcomes in responders (n=16)</td></tr>
+                                <tr>
+                                    <td>Median duration of response, months</td>
+                                    <td>8.02</td>
+                                    <td>3.19-NE</td>
+                                </tr>
+                                <tr>
+                                    <td>Events, n (%)</td>
+                                    <td>5 (31.3)</td>
+                                    <td></td>
+                                </tr>
+                                <tr><td colspan="3" class="font-semibold bg-gray-100 mt-2">Efficacy outcomes in complete responders (n=10)</td></tr>
+                                <tr>
+                                    <td>Median duration of response, months</td>
+                                    <td>NE</td>
+                                    <td>3.19-NE</td>
+                                </tr>
+                                <tr>
+                                    <td>Events, n (%)</td>
+                                    <td>3 (30.0)</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="footnote-text">
+                        <p><sup>a</sup>One patient who achieved CR was refractory to most recent prior treatment.</p>
+                        <p>Abbreviations: NE, not estimable.</p>
+                        <p>Response was sustained beyond end of treatment (EOT) in 5 pts; 1 went to SCT and 4 maintained CR for 28.5+ months beyond EOT.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h2 class="section-title">PK, ADA & Biomarker Insights</h2>
+                    <ul class="list-disc list-inside text-sm space-y-1 pl-2">
+                        <li><strong>Pharmacokinetics (PK):</strong>
+                            <ul class="list-circle list-inside ml-4 mt-1">
+                                <li>Lonca-R: Median C<sub>max</sub> & C<sub>trough</sub> lower in C1 vs C2 for total & conjugated antibodies.</li>
+                                <li>Lonca-R vs Monotherapy: Lower median C<sub>max</sub> at C1; C<sub>trough</sub> comparable.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Anti-Drug Antibodies (ADA):</strong> No pre- or postdose ADA positivity observed.</li>
+                        <li><strong>CD19 IHC Expression (n=16 tumors):</strong> 12 had H-scores ≥150. No correlation with BOR/PFS.</li>
+                        <li><strong>Circulating Tumor DNA (ctDNA):</strong>
+                            <ul class="list-circle list-inside ml-4 mt-1">
+                                <li>7/8 pts had ctDNA results at baseline & C3D1.</li>
+                                <li>ctDNA decrease from baseline noted at C3D1 in all 7 pts.</li>
+                                <li>All 3 CR pts with ctDNA results reached MRD negativity at C3D1.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mt-6">
+            <h2 class="section-title">Summary & Conclusion</h2>
+            <ul class="list-disc list-inside text-sm space-y-1 pl-2">
+                <li>Fixed treatment duration of Lonca-R showed <strong class="highlight">no new safety signals</strong> and was manageable.</li>
+                <li>Demonstrated <strong class="highlight">encouraging antitumor activity</strong> in R/R DLBCL/HGBL pts.</li>
+                <li>Signs of <strong class="highlight">durable response</strong> observed, with some CRs maintained >28 months after EOT.</li>
+                <li>Lonca-R resulted in a lower median C<sub>max</sub> than monotherapy in C1; C<sub>trough</sub> was comparable. No ADAs detected.</li>
+                <li>CD19 staining was not predictive of efficacy.</li>
+                <li>Response to therapy was associated with early ctDNA decrease; all 3 CR pts with ctDNA results were MRD negative at C3D1.</li>
+                <li>Additional analyses will be presented.</li>
+            </ul>
+        </div>
+
+        <div class="card mt-6 abbreviations-list">
+            <h2 class="section-title">Abbreviations</h2>
+            <p>
+                ADA, anti-drug antibodies; ADC, antibody-drug conjugate; BOR, best overall response; C1/C2/C3D1, cycle 1/cycle 2/cycle 3 day 1; CD, cluster of differentiation; CI, confidence interval; C<sub>max</sub>, maximum concentration; CR, complete response; CRR, complete response rate; ctDNA, circulating tumor DNA; C<sub>trough</sub>, trough concentration; DLBCL, diffuse large B-cell lymphoma; DOR, duration of response; EMA, European Medicines Agency; EOT, end of treatment; FDA, Food and Drug Administration; GGT, gamma-glutamyl transferase; HGBL, high-grade B-cell lymphoma; IHC, immunohistochemistry; Lonca, loncastuximab tesirine; Lonca-R, loncastuximab tesirine + rituximab; MRD, minimal residual disease; NE, not estimable; ORR, overall response rate; OS, overall survival; PFS, progression-free survival; PK, pharmacokinetics; PR, partial response; PRR, partial response rate; pts, patients; Q3W, every 3 weeks; R, rituximab; R/R, relapsed/refractory; SAE, serious adverse event; SCT, stem cell transplant; TEAE, treatment-emergent adverse event.
+            </p>
+        </div>
+
+        <div class="card mt-6 reference-section">
+            <h2 class="section-title">Reference</h2>
+            <p>
+                Carlo-Stella C, Kwiatek M, Depaus J, et al. UPDATED SAFETY RUN-IN RESULTS FROM LOTIS-5: A PHASE 3, RANDOMIZED TRIAL OF LONCASTUXIMAB TESIRINE WITH RITUXIMAB VERSUS IMMUNOCHEMOTHERAPY IN PATIENTS WITH R/R DLBCL/HGBL. Abstract #PS1957 presented at European Haematology Association (EHA) June 12–15, 2025, Milan, Italy.
+            </p>
+        </div>
+
+
+        <div class="footer-info">
+            <p>LOTIS-5 (NCT04384484) | EHA Library PS1957 | Data Cut-off: October 4, 2024</p>
+            <p>For Research & Informational Purposes Only.</p>
+        </div>
+    </div>
+
+    <script>
+        function drawStackedBarChart(containerId, legendContainerId, chartData, chartTitle) {
+            const svg = d3.select(containerId);
+            const legendContainer = d3.select(legendContainerId);
+
+            svg.selectAll("*").remove();
+            legendContainer.selectAll("*").remove();
+
+            let containerWidth = 350;
+            const chartWrapper = svg.node() ? svg.node().closest('.chart-container') : null;
+            if (chartWrapper) {
+                containerWidth = chartWrapper.getBoundingClientRect().width * 0.8; 
+            }
+            containerWidth = Math.max(containerWidth, 250);
+
+            const svgWidth = containerWidth;
+            const svgHeight = +svg.attr("height");
+
+            const margin = { top: 40, right: 20, bottom: 50, left: 60 }; 
+            const chartWidth = svgWidth - margin.left - margin.right;
+            const chartHeight = svgHeight - margin.top - margin.bottom;
+
+            if (chartWidth <= 0 || chartHeight <=0) return;
+
+            const g = svg.append("g")
+                .attr("transform", `translate(${margin.left},${margin.top})`);
+
+            const categories = ["Response"]; 
+            const stack = d3.stack().keys(chartData.keys);
+            const stackedData = stack([chartData.values]); // Pass an array with one object for a single bar
+
+            const xScale = d3.scaleBand()
+                .domain(categories)
+                .range([0, chartWidth])
+                .padding(0.7); 
+
+            const yScale = d3.scaleLinear()
+                .domain([0, 100]) 
+                .range([chartHeight, 0]);
+
+            g.append("g")
+                .attr("transform", `translate(0,${chartHeight})`)
+                .call(d3.axisBottom(xScale).tickValues([])) 
+                .select(".domain").remove(); 
+
+            g.append("g")
+                .call(d3.axisLeft(yScale).ticks(5).tickFormat(d => d + "%"))
+                .selectAll("text")
+                .attr("class", "axis-text")
+                .style("font-size", "10px");
+            
+            g.append("g")			
+                .attr("class", "grid")
+                .call(d3.axisLeft(yScale)
+                    .ticks(5)
+                    .tickSize(-chartWidth)
+                    .tickFormat("")
+                )
+                .selectAll("line")
+                .style("stroke", "#e0e0e0")
+                .style("stroke-opacity", "0.7");
+
+            const color = d3.scaleOrdinal()
+                .domain(chartData.keys)
+                .range(chartData.colors);
+
+            g.selectAll(".serie")
+                .data(stackedData)
+                .enter().append("g")
+                  .attr("class", "serie")
+                .selectAll("rect")
+                .data(d => d) 
+                .enter().append("rect")
+                    .attr("x", d => xScale(categories[0]))
+                    .attr("y", d => yScale(d[1]))
+                    .attr("height", d => yScale(d[0]) - yScale(d[1]))
+                    .attr("width", xScale.bandwidth())
+                    .attr("fill", (d, i, nodes) => { 
+                        const seriesKey = d3.select(nodes[i].parentNode).datum().key;
+                        return color(seriesKey);
+                    })
+                    .attr("rx", 3).attr("ry", 3);
+            
+            stackedData.forEach((series) => {
+                series.forEach((d) => { 
+                    const y0 = d[0];
+                    const y1 = d[1];
+                    const percentage = y1 - y0;
+                    if (percentage > 4) { 
+                        g.append("text")
+                            .attr("class", "chart-label")
+                            .attr("x", xScale(categories[0]) + xScale.bandwidth() / 2)
+                            .attr("y", yScale(y0 + percentage / 2) + 4) 
+                            .attr("text-anchor", "middle")
+                            .style("fill", (series.key === "CR" || series.key === "PD" || series.key === "No Response/PD") ? "white" : "var(--sobi-dark-blue)") 
+                            .style("font-size", "10px")
+                            .text(`${percentage.toFixed(1)}%`);
+                    }
+                });
+            });
+
+            if (chartData.orr) {
+                 g.append("text")
+                    .attr("class", "chart-label")
+                    .attr("x", xScale(categories[0]) + xScale.bandwidth() / 2)
+                    .attr("y", yScale(chartData.orr) - 12) 
+                    .attr("text-anchor", "middle")
+                    .style("font-weight", "600")
+                    .style("fill", "var(--sobi-dark-blue)")
+                    .text(`ORR: ${chartData.orr.toFixed(1)}%`);
+            }
+            
+            svg.append("text")
+                .attr("x", svgWidth / 2)
+                .attr("y", margin.top / 2 + 5)
+                .attr("text-anchor", "middle")
+                .style("font-size", "13px")
+                .style("font-weight", "600")
+                .style("fill", "var(--sobi-dark-blue)")
+                .text(chartTitle);
+
+            const legendData = chartData.keys.map(key => ({
+                label: `${key} (${chartData.values[key].toFixed(1)}%)`,
+                color: color(key)
+            }));
+            const legendItems = legendContainer.selectAll(".legend-item")
+                .data(legendData).enter().append("div").attr("class", "legend-item");
+            legendItems.append("div").attr("class", "legend-color-box").style("background-color", d => d.color);
+            legendItems.append("span").text(d => d.label);
+        }
+
+        // Data for LOTIS-5 Safety Run-in Response Chart (N=20)
+        const lotis5ResponseChartData = {
+            keys: ["CR", "PR", "No Response/PD"], 
+            values: { 
+                CR: 50.0, 
+                PR: 30.0, 
+                "No Response/PD": 20.0 
+            }, 
+            colors: ["var(--sobi-teal)", "var(--sobi-yellow)", "var(--sobi-medium-gray-text)"],
+            orr: 80.0 
+        };
+        
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        };
+
+        const debouncedDrawLotis5Chart = debounce(() => drawStackedBarChart("#lotis5ResponseStackedChart", "#lotis5ResponseLegend", lotis5ResponseChartData, "Response in Safety Run-in (N=20)"), 250);
+        
+        window.addEventListener('resize', () => {
+            debouncedDrawLotis5Chart();
+        });
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            debouncedDrawLotis5Chart();
+        });
+        if (document.readyState === "complete" || document.readyState === "interactive") {
+             setTimeout(() => {
+                debouncedDrawLotis5Chart();
+             }, 0); 
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Visual HTML Editor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧱</text></svg>">
+</head>
+<body class="bg-gradient-to-br from-slate-900 to-slate-700 text-slate-100 font-sans flex flex-col min-h-screen" id="editorBody">
+
+    <header class="bg-slate-800/70 backdrop-blur-md text-white p-3 shadow-xl sticky top-0 z-50" id="mainHeader">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-xl sm:text-2xl font-semibold flex items-center">
+                <i class="fas fa-drafting-compass mr-2 text-sky-400"></i>Enhanced Editor
+            </h1>
+            <div class="flex space-x-3">
+                <input type="file" id="fileInput" accept=".html,.htm" class="hidden">
+                <button id="loadButton" 
+                        class="bg-sky-500 hover:bg-sky-600 text-white font-semibold py-2 px-5 rounded-full shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-opacity-75 transition-all duration-150 ease-in-out flex items-center space-x-2" 
+                        title="Load HTML File">
+                    <i class="fas fa-folder-open"></i> <span class="hidden sm:inline">Load</span>
+                </button>
+                <button id="saveButton" 
+                        class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-5 rounded-full shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-75 transition-all duration-150 ease-in-out flex items-center space-x-2" 
+                        title="Save HTML File">
+                    <i class="fas fa-save"></i> <span class="hidden sm:inline">Save</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto p-4 flex-grow flex flex-col" id="mainContent">
+        <div id="toolbar" class="bg-slate-800/60 backdrop-blur-md p-2 rounded-t-lg shadow-lg mb-0.5 flex items-center space-x-1 flex-wrap justify-start">
+            {/* ... existing toolbar buttons ... */}
+            <button data-command="bold" class="toolbar-button" title="Bold (Ctrl+B)"><i class="fas fa-bold"></i></button>
+            <button data-command="italic" class="toolbar-button" title="Italic (Ctrl+I)"><i class="fas fa-italic"></i></button>
+            <button data-command="underline" class="toolbar-button" title="Underline (Ctrl+U)"><i class="fas fa-underline"></i></button>
+            <button data-command="strikeThrough" class="toolbar-button" title="Strikethrough"><i class="fas fa-strikethrough"></i></button>
+            <button data-command="removeFormat" class="toolbar-button" title="Clear Formatting"><i class="fas fa-remove-format"></i></button>
+            <span class="toolbar-divider"></span>
+
+            <select data-command="fontName" class="toolbar-select" title="Font Family">
+                <option value="Arial">Arial</option><option value="Verdana">Verdana</option><option value="Georgia">Georgia</option><option value="Times New Roman">Times New Roman</option><option value="Courier New">Courier New</option><option value="Comic Sans MS">Comic Sans</option> <option value="Impact">Impact</option><option value="Tahoma">Tahoma</option><option value="Trebuchet MS">Trebuchet</option>
+            </select>
+            <select data-command="fontSize" class="toolbar-select" title="Font Size">
+                <option value="1">8pt</option><option value="2">10pt</option><option value="3" selected>12pt</option><option value="4">14pt</option><option value="5">18pt</option><option value="6">24pt</option><option value="7">36pt</option>
+            </select>
+            <label class="toolbar-button has-input" title="Text Color">
+                <i class="fas fa-palette"></i><input type="color" data-command="foreColor" class="toolbar-color-picker" value="#cbd5e1">
+            </label>
+            <label class="toolbar-button has-input" title="Background Color">
+                <i class="fas fa-fill-drip"></i><input type="color" data-command="backColor" class="toolbar-color-picker" value="#334155">
+            </label>
+            <span class="toolbar-divider"></span>
+
+            <select data-command="formatBlock" class="toolbar-select" title="Format Block">
+                <option value="P">Paragraph</option><option value="H1">Heading 1</option><option value="H2">Heading 2</option><option value="H3">Heading 3</option><option value="H4">Heading 4</option><option value="H5">Heading 5</option><option value="H6">Heading 6</option><option value="BLOCKQUOTE">Blockquote</option><option value="PRE">Code Block</option>
+            </select>
+            <button data-command="insertUnorderedList" class="toolbar-button" title="Bulleted List"><i class="fas fa-list-ul"></i></button>
+            <button data-command="insertOrderedList" class="toolbar-button" title="Numbered List"><i class="fas fa-list-ol"></i></button>
+            <button data-command="justifyLeft" class="toolbar-button" title="Align Left"><i class="fas fa-align-left"></i></button>
+            <button data-command="justifyCenter" class="toolbar-button" title="Align Center"><i class="fas fa-align-center"></i></button>
+            <button data-command="justifyRight" class="toolbar-button" title="Align Right"><i class="fas fa-align-right"></i></button>
+            <button data-command="justifyFull" class="toolbar-button" title="Align Justify"><i class="fas fa-align-justify"></i></button>
+            <span class="toolbar-divider"></span>
+
+            <button data-command="createLink" class="toolbar-button" title="Insert/Edit Link (Ctrl+K)"><i class="fas fa-link"></i></button>
+            <button data-command="insertImage" class="toolbar-button" title="Insert Image"><i class="fas fa-image"></i></button>
+            <button data-command="insertHorizontalRule" class="toolbar-button" title="Insert Horizontal Rule"><i class="fas fa-minus"></i></button>
+            <button data-command="insertTable" class="toolbar-button" title="Insert Table"><i class="fas fa-table"></i></button>
+            <span class="toolbar-divider"></span>
+
+            {/* New "Insert Block" button */}
+            <button data-command="insertBlock" class="toolbar-button" title="Insert Content Block"><i class="fas fa-cubes"></i></button>
+            <span class="toolbar-divider"></span>
+
+            <button data-command="undo" class="toolbar-button" title="Undo (Ctrl+Z)"><i class="fas fa-undo"></i></button>
+            <button data-command="redo" class="toolbar-button" title="Redo (Ctrl+Y)"><i class="fas fa-redo"></i></button>
+            <span class="toolbar-divider"></span>
+
+            <button id="toggleHtmlView" class="toolbar-button" title="Toggle HTML Source View"><i class="fas fa-code"></i></button>
+            <button id="toggleFullScreen" class="toolbar-button" title="Toggle Full Screen"><i class="fas fa-expand"></i></button>
+        </div>
+
+        <div id="editorWrapper" class="flex-grow flex flex-col relative">
+            <div id="editorContainer" class="flex-grow flex flex-col relative bg-slate-200/10 backdrop-blur-sm border border-slate-700 rounded-b-lg shadow-2xl">
+                <iframe id="editorFrame"
+                        class="w-full h-full border-0 flex-grow min-h-[400px] sm:min-h-[500px] bg-transparent"
+                        src="about:blank">
+                </iframe>
+                <div id="htmlSourceViewContainer" class="absolute top-0 left-0 bg-slate-950/95 backdrop-blur-sm font-mono p-0 border-0 rounded-b-lg shadow-inner overflow-auto h-full w-full hidden">
+                    <pre class="language-html h-full m-0"><code id="htmlSourceView" class="language-html h-full block p-4 focus:outline-none focus:ring-2 focus:ring-sky-500" spellcheck="false" contenteditable="true" data-gramm="false" data-gramm_editor="false"></code></pre>
+                </div>
+            </div>
+        </div>
+         <div id="statusBar" class="text-xs text-slate-400 p-1 text-right bg-slate-800/50 backdrop-blur-sm rounded-b-lg -mt-px">
+            Word Count: <span id="wordCount">0</span>
+        </div>
+    </main>
+
+    <div id="modalOverlay" class="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 z-[100] hidden">
+        {/* ... existing modals (Link, Image, Table) ... */}
+        <div id="linkModal" class="modal-content bg-slate-800 p-6 rounded-lg shadow-xl w-full max-w-md hidden">
+            <h3 id="linkModalTitle" class="text-xl font-semibold mb-4 text-sky-400">Insert Link</h3>
+            <label for="linkUrl" class="block mb-1 text-sm font-medium text-slate-300">URL:</label>
+            <input type="url" id="linkUrl" class="modal-input bg-slate-700 border-slate-600 text-slate-100 mb-4" placeholder="https://example.com" required>
+            <label for="linkText" class="block mb-1 text-sm font-medium text-slate-300">Text to display (optional):</label>
+            <input type="text" id="linkText" class="modal-input bg-slate-700 border-slate-600 text-slate-100 mb-6" placeholder="Link text">
+            <div class="flex justify-end space-x-3">
+                <button id="cancelLinkModal" class="modal-button bg-slate-600 hover:bg-slate-500">Cancel</button>
+                <button id="confirmLinkModal" class="modal-button bg-sky-500 hover:bg-sky-600">Insert Link</button>
+            </div>
+        </div>
+
+        <div id="imageModal" class="modal-content bg-slate-800 p-6 rounded-lg shadow-xl w-full max-w-md hidden">
+            <h3 id="imageModalTitle" class="text-xl font-semibold mb-4 text-sky-400">Insert Image</h3>
+            <label for="imageUrl" class="block mb-1 text-sm font-medium text-slate-300">Image URL:</label>
+            <input type="url" id="imageUrl" class="modal-input bg-slate-700 border-slate-600 text-slate-100 mb-2" placeholder="https://example.com/image.jpg">
+            <p class="text-center my-2 text-slate-400 text-xs">OR</p>
+            <label for="imageFileUpload" class="block mb-1 text-sm font-medium text-slate-300">Upload Local Image:</label>
+            <input type="file" id="imageFileUpload" accept="image/*" class="block w-full text-sm text-slate-400 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-sky-600 file:text-sky-50 hover:file:bg-sky-700 cursor-pointer mb-3">
+            <label for="imageAlt" class="block mb-1 text-sm font-medium text-slate-300">Alternative text:</label>
+            <input type="text" id="imageAlt" class="modal-input bg-slate-700 border-slate-600 text-slate-100 mb-2" placeholder="Descriptive text" required>
+            <div class="grid grid-cols-2 gap-3 mb-6">
+                <div>
+                    <label for="imageWidth" class="block mb-1 text-sm font-medium text-slate-300">Width (e.g., 100px, 50%):</label>
+                    <input type="text" id="imageWidth" class="modal-input bg-slate-700 border-slate-600 text-slate-100" placeholder="auto">
+                </div>
+                <div>
+                    <label for="imageHeight" class="block mb-1 text-sm font-medium text-slate-300">Height (e.g., 100px, auto):</label>
+                    <input type="text" id="imageHeight" class="modal-input bg-slate-700 border-slate-600 text-slate-100" placeholder="auto">
+                </div>
+            </div>
+            <div class="flex justify-end space-x-3">
+                <button id="cancelImageModal" class="modal-button bg-slate-600 hover:bg-slate-500">Cancel</button>
+                <button id="confirmImageModal" class="modal-button bg-sky-500 hover:bg-sky-600">Insert Image</button>
+            </div>
+        </div>
+
+        <div id="tableModal" class="modal-content bg-slate-800 p-6 rounded-lg shadow-xl w-full max-w-xs hidden">
+            <h3 class="text-xl font-semibold mb-4 text-sky-400">Insert Table</h3>
+            <label for="tableRows" class="block mb-1 text-sm font-medium text-slate-300">Rows:</label>
+            <input type="number" id="tableRows" class="modal-input bg-slate-700 border-slate-600 text-slate-100 mb-4" value="2" min="1">
+            <label for="tableCols" class="block mb-1 text-sm font-medium text-slate-300">Columns:</label>
+            <input type="number" id="tableCols" class="modal-input bg-slate-700 border-slate-600 text-slate-100 mb-6" value="2" min="1">
+            <div class="flex justify-end space-x-3">
+                <button id="cancelTableModal" class="modal-button bg-slate-600 hover:bg-slate-500">Cancel</button>
+                <button id="confirmTableModal" class="modal-button bg-sky-500 hover:bg-sky-600">Insert Table</button>
+            </div>
+        </div>
+
+        <div id="blocksModal" class="modal-content bg-slate-800 p-6 rounded-lg shadow-xl w-full max-w-2xl hidden">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-semibold text-sky-400">Insert Content Block</h3>
+                <button id="cancelBlocksModal" class="text-slate-400 hover:text-sky-400 text-2xl">&times;</button>
+            </div>
+            <div id="blocksGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-h-[60vh] overflow-y-auto p-1 custom-scrollbar">
+                {/* Blocks will be populated by JavaScript */}
+            </div>
+        </div>
+    </div>
+
+    <div id="customContextMenu" class="fixed bg-slate-700 text-slate-100 border border-slate-600 rounded-md shadow-xl py-1 z-[150] hidden text-sm">
+        {/* ... existing context menu items ... */}
+        <button data-action="context-copy" class="context-menu-item"><i class="fas fa-copy w-4 mr-2"></i>Copy</button>
+        <button data-action="context-paste-normal" class="context-menu-item"><i class="fas fa-paste w-4 mr-2"></i>Paste</button>
+        <button data-action="context-paste-plain" class="context-menu-item"><i class="fas fa-file-alt w-4 mr-2"></i>Paste as Plain Text</button>
+        <hr class="border-slate-600 my-1">
+        <button data-action="context-edit-image" class="context-menu-item hidden"><i class="fas fa-edit w-4 mr-2"></i>Edit Image...</button>
+        <button data-action="context-edit-link" class="context-menu-item hidden"><i class="fas fa-pen-to-square w-4 mr-2"></i>Edit Link...</button>
+        <button data-action="context-remove-link" class="context-menu-item hidden"><i class="fas fa-unlink w-4 mr-2"></i>Remove Link</button>
+    </div>
+
+    <footer class="bg-slate-800/50 backdrop-blur-sm text-slate-400 text-center p-3 mt-auto text-sm" id="mainFooter">
+        <p>&copy; 2024 Enhanced Visual HTML Editor. For local use.</p>
+    </footer>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/normalize-whitespace/prism-normalize-whitespace.min.js"></script>
+
+    <script src="script.js"></script>
+</body>
+</html>

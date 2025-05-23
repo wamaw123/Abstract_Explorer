@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="study:id" content="lotis-7">
+    <meta name="study:title" content="LOTIS-7: Loncastuximab Tesirine + Glofitamab in R/R DLBCL">
+    <meta name="study:fileName" content="LOTIS-7.html">
+    <meta name="study:cancerTypes" content="DLBCL,Follicular Lymphoma,Marginal zone lymphoma,B-NHL">
+    <meta name="study:lineOfTherapy" content="2L">
+    <meta name="study:evidenceType" content="Clinical trial">
+    <meta name="study:drugs" content="ADC,Loncastuximab Tesirine,Bispecific antibodies,Glofitamab">
+
+    <title>LOTIS-7: Initial Results Summary (SOBI Themed v3)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* SOBI Inspired Color Palette */
+        :root {
+            --sobi-dark-blue: #0A2F5C;
+            --sobi-orange: #F37021; /* Used for SD in new charts */
+            --sobi-teal: #009B9E;   /* Used for CR in new charts */
+            --sobi-yellow: #FFC107; /* Used for PR in new charts */
+            --sobi-light-gray-bg: #F8F9FA;
+            --sobi-white: #FFFFFF;
+            --sobi-dark-text: #212529;
+            --sobi-medium-gray-text: #6c757d; /* Used for PD in new charts */
+            --sobi-light-teal-bg: #E0F2F7;
+            --sobi-light-orange-bg: #FFF0E5;
+            --sobi-card-border: #DEE2E6;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--sobi-light-gray-bg);
+            color: var(--sobi-dark-text);
+            font-size: 16px; 
+        }
+        .slide-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 25px;
+            background-color: var(--sobi-white);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--sobi-card-border);
+        }
+
+        /* Visual Abstract Styles */
+        .visual-abstract-container {
+            background-color: var(--sobi-white); 
+            padding: 1.5rem; 
+            border-radius: 0.75rem; 
+            box-shadow: 0 6px 12px rgba(0,0,0,0.07); 
+            margin-bottom: 2rem; 
+            border: 2px solid var(--sobi-teal); 
+        }
+        .visual-abstract-title {
+            font-size: 1.375rem; 
+            font-weight: 700; 
+            color: var(--sobi-dark-blue);
+            margin-bottom: 1.5rem; 
+            text-align: center;
+            border-bottom: 2px solid var(--sobi-orange);
+            padding-bottom: 0.75rem;
+        }
+        .visual-abstract-grid { display: grid; gap: 1.5rem; }
+        @media (min-width: 768px) { .visual-abstract-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+        @media (min-width: 1024px) { .visual-abstract-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+        .visual-abstract-item {
+            background-color: var(--sobi-light-gray-bg); 
+            padding: 1.25rem; 
+            border-radius: 0.5rem; 
+            border: 1px solid var(--sobi-card-border);
+            display: flex; flex-direction: column; align-items: center; text-align: center;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .visual-abstract-item:hover { transform: translateY(-3px); box-shadow: 0 8px 16px rgba(0,0,0,0.1); }
+        .visual-abstract-item svg { width: 3rem; height: 3rem; margin-bottom: 1rem; }
+        .visual-abstract-item h4 { font-size: 1rem; font-weight: 600; color: var(--sobi-dark-blue); margin-bottom: 0.5rem; }
+        .visual-abstract-item p { font-size: 0.875rem; color: var(--sobi-dark-text); line-height: 1.5; }
+        .visual-abstract-item .highlight-value { font-size: 1.5rem; font-weight: 700; color: var(--sobi-orange); display: block; margin-top: 0.5rem; }
+
+        /* General Content Styles */
+        .header-title { color: var(--sobi-dark-blue); border-bottom: 3px solid var(--sobi-orange); padding-bottom: 12px; margin-bottom: 25px; font-size: 2.25rem; }
+        .sub-header { color: var(--sobi-dark-text); font-size: 1.20rem; }
+        .meta-info { color: var(--sobi-medium-gray-text); font-size: 0.875rem; }
+        .section-title { color: var(--sobi-dark-blue); font-weight: 700; margin-top: 25px; margin-bottom: 15px; font-size: 1.4rem; border-left: 5px solid var(--sobi-teal); padding-left: 10px; }
+        .sub-section-title { font-size: 1.1rem; font-weight: 600; color: var(--sobi-dark-blue); margin-top: 15px; margin-bottom: 10px; }
+        .card { background-color: var(--sobi-white); border: 1px solid var(--sobi-card-border); border-radius: 8px; padding: 20px; margin-bottom: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        .table-container { overflow-x: auto; margin-top: 10px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid var(--sobi-card-border); padding: 10px; text-align: left; font-size: 0.875rem; vertical-align: top; }
+        th { background-color: var(--sobi-light-teal-bg); color: var(--sobi-dark-blue); font-weight: 600; }
+        .highlight { color: var(--sobi-orange); font-weight: 600; }
+        .footer-info { font-size: 0.85rem; color: var(--sobi-medium-gray-text); margin-top: 35px; text-align: center; border-top: 1px solid var(--sobi-card-border); padding-top: 20px; }
+        
+        /* Chart and Plot Styles */
+        .chart-container { display: flex; justify-content: center; align-items: center; flex-direction: column; min-height: 300px; padding: 10px; background-color: #fdfdfd; border-radius: 6px; margin-top: 10px; }
+        .axis-text { font-size: 0.8rem; fill: var(--sobi-medium-gray-text); }
+        .chart-label { font-size: 0.85rem; font-weight: 500; }
+        .legend { display: flex; justify-content: center; flex-wrap: wrap; margin-top: 15px; }
+        .legend-item { display: flex; align-items: center; margin-right: 15px; margin-bottom: 5px; font-size: 0.8rem; color: var(--sobi-dark-text); }
+        .legend-item:last-child { margin-right: 0; }
+        .legend-color-box { width: 12px; height: 12px; margin-right: 6px; border-radius: 2px; flex-shrink: 0; }
+
+        /* Infographics, Lists, Footnotes */
+        .infographic-item { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 15px; border-radius: 8px; margin-bottom:10px; }
+        .infographic-item.orange-theme { background-color: var(--sobi-light-orange-bg); }
+        .infographic-item.teal-theme { background-color: var(--sobi-light-teal-bg); }
+        .infographic-icon { font-size: 2.8rem; margin-bottom: 10px; }
+        .icon-orange { color: var(--sobi-orange); }
+        .icon-teal { color: var(--sobi-teal); }
+        .infographic-value { font-size: 1.75rem; font-weight: 700; color: var(--sobi-dark-blue); }
+        .infographic-label { font-size: 0.9rem; color: var(--sobi-dark-text); }
+        .list-disc li, .list-circle li { margin-bottom: 5px; }
+        .safety-table td ul { list-style-position: inside; padding-left: 0; }
+        .safety-table td ul li { margin-bottom: 2px; }
+        .abbreviations-list p, .reference-section p { font-size: 0.875rem; line-height: 1.6; color: var(--sobi-dark-text); }
+        .footnote-text { font-size: 0.8rem; color: var(--sobi-medium-gray-text); margin-top: 10px; line-height: 1.4; }
+        .footnote-text p { margin-bottom: 5px; }
+
+        /* Study Design Schema Styles */
+        .study-design-schema { margin-top: 20px; padding: 15px; background-color: var(--sobi-light-gray-bg); border: 1px solid var(--sobi-card-border); border-radius: 6px; font-size: 0.85rem; }
+        .schema-title { font-weight: 600; color: var(--sobi-dark-blue); margin-bottom: 15px; text-align: center; }
+        .schema-phases { display: flex; flex-direction: column; gap: 10px; }
+        .schema-phase-group { display: flex; align-items: stretch; gap: 5px; margin-bottom: 10px; }
+        .schema-phase, .schema-assessment, .schema-arrow, .schema-enrollment { padding: 8px 10px; border-radius: 4px; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        .schema-enrollment { background-color: var(--sobi-orange); color: var(--sobi-white); border: 1px solid var(--sobi-orange); min-width: 100px; }
+        .schema-phase { background-color: var(--sobi-light-teal-bg); color: var(--sobi-dark-blue); border: 1px solid var(--sobi-teal); flex-grow: 1; }
+        .schema-phase strong { font-weight: 600; display: block; margin-bottom: 3px; }
+        .schema-phase span, .schema-phase div { font-size: 0.8rem; }
+        .schema-arrow { font-size: 1.5rem; color: var(--sobi-dark-blue); align-self: center; padding: 0 5px; }
+        .schema-assessment-points { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 5px; margin-top: 5px; padding: 8px 0; border-top: 1px dashed var(--sobi-card-border); border-bottom: 1px dashed var(--sobi-card-border); }
+        .schema-assessment-points span { font-size: 0.75rem; color: var(--sobi-medium-gray-text); background-color: var(--sobi-light-orange-bg); padding: 3px 6px; border-radius: 3px; border: 1px solid var(--sobi-orange); }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="visual-abstract-container">
+            <h2 class="visual-abstract-title">Visual Summary: LOTIS-7 (Loncastuximab Tesirine + Glofitamab in R/R DLBCL)</h2>
+            <div class="visual-abstract-grid">
+                <div class="visual-abstract-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--sobi-teal)">
+                        <path d="M12 6.096c-1.058 0-2.02.468-2.704 1.248-.685.78-.996 1.788-.996 2.856s.311 2.076.996 2.856C9.98 13.84 10.942 14.31 12 14.31s2.02-.468 2.704-1.248.996-1.788.996-2.856-.311-2.076-.996-2.856C14.02 6.564 13.058 6.096 12 6.096zM12 12.81c-.53 0-1.008-.222-1.352-.588-.344-.366-.528-.852-.528-1.422s.184-1.056.528-1.422C10.992 9.012 11.47 8.79 12 8.79s1.008.222 1.352.588.528.852.528 1.422-.184-1.056-.528 1.422C13.008 12.588 12.53 12.81 12 12.81zm6.708 3.672A7.47 7.47 0 0012.024 15c-1.404 0-2.706.39-3.816 1.056A4.476 4.476 0 004.5 19.686V21h15v-1.314a4.476 4.476 0 00-3.792-3.624zM6.024 16.56c.84-.468 1.848-.768 2.904-.924A5.928 5.928 0 0112.024 15a5.928 5.928 0 013.096.636c1.056.156 2.064.456 2.904.924A2.988 2.988 0 0019.5 18.018V19.5h-15v-1.482a2.988 2.988 0 001.524-2.458zM4.5 7.032c0-1.068.312-2.076.996-2.856S7.2 3 8.256 3A7.47 7.47 0 0112.024 1.5c1.404 0 2.706.39 3.816 1.056A4.476 4.476 0 0119.5 6.186V7.5H4.5v-.468zM18 4.56c-.84.468-1.848.768-2.904-.924A5.928 5.928 0 0012.024 6a5.928 5.928 0 00-3.096.636 7.524 7.524 0 00-2.904.924A2.988 2.988 0 014.5 7.482V6H3V4.5A1.5 1.5 0 014.5 3h15A1.5 1.5 0 0121 4.5V6h-1.5v1.482a2.988 2.988 0 01-1.524 2.458L18 4.56z" />
+                    </svg>
+                    <h4>Population & Aim</h4>
+                    <p>N=31 R/R B-NHL (DLBCL, FL, MZL). Aim: Safety/tolerability & MTD/RED of Lonca + Glofit.</p>
+                </div>
+                <div class="visual-abstract-item">
+                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="var(--sobi-teal)">
+                        <path d="M32 60 V40 M20 40 L32 40 L44 40 M20 40 L12 28 L4 20 M44 40 L52 28 L60 20 M12 28 L16 24 M52 28 L48 24" stroke="var(--sobi-teal)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                        <circle cx="4" cy="20" r="3" fill="var(--sobi-orange)"/> <circle cx="60" cy="20" r="3" fill="var(--sobi-yellow)"/> </svg>
+                    <h4>Intervention</h4>
+                    <p>Loncastuximab (CD19 ADC) + Glofitamab (CD20xCD3 BiTE). Dose escalation & expansion.</p>
+                </div>
+                <div class="visual-abstract-item">
+                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--sobi-orange)">
+                        <path d="M3 13.5a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 13.5zM3 8.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 8.25zM3 18.75a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 18.75zM20.25 3a.75.75 0 00-.75.75v16.5a.75.75 0 001.5 0V3.75a.75.75 0 00-.75-.75z" />
+                        <path fill-rule="evenodd" d="M9.97 4.28a.75.75 0 01.75-.75H12a.75.75 0 01.75.75v10.174l3.108-3.293a.75.75 0 111.084 1.038l-4.5 4.75a.75.75 0 01-1.084 0l-4.5-4.75a.75.75 0 111.084-1.038L9.97 14.454V4.28z" clip-rule="evenodd" />
+                    </svg>
+                    <h4>Key Efficacy (N=22)</h4>
+                    <p>ORR: <span class="highlight-value">95.5%</span>CRR: <span class="highlight-value">90.9%</span> Median DOR: Not Reached.</p>
+                </div>
+                <div class="visual-abstract-item">
+                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--sobi-orange)">
+                        <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm.092 14.444a.75.75 0 01-.092 0l-3.75-3.75a.75.75 0 111.06-1.06L12 14.813l3.182-3.182a.75.75 0 111.06 1.06l-3.75 3.75a.75.75 0 01-.53.22z" clip-rule="evenodd" />
+                    </svg>
+                    <h4>Safety & Conclusion</h4>
+                    <p>Manageable safety. Most common Gr≥3 TEAE: Neutropenia (32.3%). Encouraging efficacy.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-bold header-title">INITIAL RESULTS FROM LOTIS-7</h1>
+            <p class="text-xl sub-header">A Phase 1b Study of Loncastuximab Tesirine (Lonca) + Glofitamab (Glofit) in R/R Diffuse Large B-Cell Lymphoma (DLBCL)</p>
+            <p class="text-sm meta-info mt-2">Juan Pablo Alderuccio, et al. | EHA Library PS1911 | Abstract Release: 05/14/25 | Presentation: 06/14/2025</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-x-8 gap-y-6">
+            <div>
+                <div class="card">
+                    <h2 class="section-title">Background</h2>
+                    <ul class="list-disc list-inside text-sm space-y-1 pl-2">
+                        <li>Loncastuximab tesirine (Lonca): CD19-targeted antibody-drug conjugate.</li>
+                        <li>Glofitamab (Glofit): CD20×CD3 bispecific T-cell engager.</li>
+                        <li>Both FDA/EMA-approved for R/R DLBCL (≥3rd line).</li>
+                        <li>LOTIS-7 (NCT04970901): Open-label, multicenter, phase 1b trial evaluating Lonca + Glofit in R/R B-NHL (DLBCL, FL, MZL).</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h2 class="section-title">Study Aims</h2>
+                    <p class="text-sm mb-1"><strong class="highlight">Primary:</strong> Characterize safety/tolerability, identify MTD/RED.</p>
+                    <p class="text-sm mb-1"><strong class="highlight">Secondary:</strong> Evaluate antitumor effects, PK, ADAs.</p>
+                    <p class="text-sm"><strong class="highlight">Exploratory:</strong> Correlate biomarkers/PK with clinical activity.</p>
+                </div>
+
+                <div class="card">
+                    <h2 class="section-title">Methods & Study Design</h2>
+                     <ul class="list-disc list-inside text-sm space-y-1 mb-3 pl-2">
+                        <li>Open-label, multicenter, phase 1b trial.</li>
+                        <li>Eligible Pts: R/R B-NHL (DLBCL, FL, MZL), ≥1 prior systemic therapy.</li>
+                    </ul>
+                    <div class="study-design-schema">
+                        <h3 class="schema-title">LOTIS-7 Treatment Schema (Lonca + Glofit)</h3>
+                        <div class="schema-phases">
+                            <div class="schema-phase-group">
+                                <div class="schema-enrollment"><strong>Patient Enrollment</strong><span>R/R B-NHL<br/>≥1 Prior Therapy</span></div>
+                            </div>
+                            <div class="flex justify-center"><span class="schema-arrow text-2xl self-center my-1">▼</span></div>
+                            <div class="schema-phase-group">
+                                <div class="schema-phase">
+                                    <strong>Part 1: Dose Escalation (Lonca)</strong>
+                                    <span>90, 120, or 150 µg/kg Q3W</span>
+                                    <span>Glofit: 30mg Q3W (step-up)</span>
+                                    <div class="text-xs mt-1">(Lonca ≤8 cycles, Glofit ≤12 cycles)</div>
+                                </div>
+                            </div>
+                            <div class="flex justify-center"><span class="schema-arrow text-2xl self-center my-1">▼</span></div>
+                            <div class="schema-phase-group">
+                                <div class="schema-phase">
+                                    <strong>Part 2: Dose Expansion (Lonca)</strong>
+                                    <span>120 or 150 µg/kg Q3W</span>
+                                    <span class="text-xs">(Reduced to 75 µg/kg for cycles ≥3 if initial dose ≥120 µg/kg)</span>
+                                    <span>Glofit: 30mg Q3W (step-up)</span>
+                                     <div class="text-xs mt-1">(Lonca ≤8 cycles, Glofit ≤12 cycles)</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="schema-assessment-points mt-4">
+                           <span>Safety/Tolerability (Primary)</span>
+                           <span>MTD/RED (Primary)</span>
+                        </div>
+                        <div class="schema-assessment-points mt-2">
+                           <span>Antitumor Effects</span>
+                           <span>PK Assessment</span>
+                           <span>ADA Assessment</span>
+                           <span>Biomarkers</span>
+                        </div>
+                        <div class="text-center mt-3 text-xs text-gray-600">Fixed duration treatment: Lonca ≤8 cycles, Glofitamab ≤12 cycles</div>
+                    </div>
+                </div>
+
+                 <div class="card">
+                    <h2 class="section-title">Patient Characteristics (N=31)</h2>
+                    <p class="text-xs meta-info mb-2">As of 17 Jan 2025</p>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Characteristic</th>
+                                    <th>Value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Median Age (years)</td><td>73</td></tr>
+                                <tr><td>DLBCL</td><td>45.2%</td></tr>
+                                <tr><td>HGBCL</td><td>16.1%</td></tr>
+                                <tr><td>≥2 Prior Therapies</td><td>61.3%</td></tr>
+                                <tr><td>Prior CAR-T Therapy</td><td>19.4%</td></tr>
+                                <tr><td>Refractory to Primary Therapy</td><td>45.2%</td></tr>
+                                <tr><td>Refractory to Last Therapy</td><td>61.3%</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="card">
+                    <h2 class="section-title">Efficacy Results (Evaluable Population, N=22)</h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                        <div class="infographic-item orange-theme">
+                            <div class="infographic-icon icon-orange">📊</div>
+                            <div class="infographic-value">95.5%</div>
+                            <div class="infographic-label">Overall Response Rate (ORR)</div>
+                        </div>
+                        <div class="infographic-item teal-theme">
+                            <div class="infographic-icon icon-teal">🎯</div>
+                            <div class="infographic-value">90.9%</div>
+                            <div class="infographic-label">Complete Response Rate (CRR)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-container mb-6">
+                        <svg id="lotis7ResponseStackedChart" width="350" height="300"></svg>
+                        <div id="lotis7ResponseLegend" class="legend"></div>
+                    </div>
+
+                    <h3 class="sub-section-title">Table 1: Best Overall Response and Duration of Response</h3>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Efficacy Measures</th>
+                                    <th>120 µg/kg (n=11)</th>
+                                    <th>150 µg/kg (n=11)</th>
+                                    <th>Total (N=22)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td colspan="4" class="font-semibold bg-gray-100">Best overall response<sup>a</sup></td></tr>
+                                <tr>
+                                    <td>ORR (CR+PR), n (%) [95% CI]</td>
+                                    <td>10 (90.9) [58.7-99.8]</td>
+                                    <td>11 (100.0) [71.5-100]</td>
+                                    <td>21 (95.5) [77.2-99.9]</td>
+                                </tr>
+                                <tr>
+                                    <td>CR*, n (%) [95% CI]</td>
+                                    <td>10 (90.9) [58.7-99.8]</td>
+                                    <td>10 (90.9) [58.7-99.8]</td>
+                                    <td>20 (90.9) [70.8-98.9]</td>
+                                </tr>
+                                <tr>
+                                    <td>PR, n (%)</td>
+                                    <td>0</td>
+                                    <td>1 (9.1)</td>
+                                    <td>1 (4.5)</td>
+                                </tr>
+                                <tr>
+                                    <td>SD, n (%)</td>
+                                    <td>1 (9.1)</td>
+                                    <td>0 (0)</td>
+                                    <td>1 (4.5)</td>
+                                </tr>
+                                <tr>
+                                    <td>PD, n (%)</td>
+                                    <td>0 (0)</td>
+                                    <td>0 (0)</td>
+                                    <td>0 (0)</td>
+                                </tr>
+                                <tr><td colspan="4" class="font-semibold bg-gray-100 mt-2">Duration of response<sup>b</sup> (in Responders)</td></tr>
+                                <tr>
+                                    <td><em>Evaluable patients</em></td>
+                                    <td><em>(n=10)</em></td>
+                                    <td><em>(n=11)</em></td>
+                                    <td><em>(n=21)</em></td>
+                                </tr>
+                                <tr>
+                                    <td>Event, n (%)</td>
+                                    <td>0 (0)</td>
+                                    <td>1 (9.1)</td>
+                                    <td>1 (4.8)</td>
+                                </tr>
+                                <tr>
+                                    <td>Median</td>
+                                    <td>NE</td>
+                                    <td>NE</td>
+                                    <td>NE</td>
+                                </tr>
+                                <tr>
+                                    <td>Probability to maintain event free for 6 months (95% CI)</td>
+                                    <td>100 (100-100)</td>
+                                    <td>87.5 (38.7-98.1)</td>
+                                    <td>92.9 (59.1-99.0)</td>
+                                </tr>
+                                <tr>
+                                    <td>Probability to maintain event free for 12 months (95% CI)</td>
+                                    <td>100 (100-100)</td>
+                                    <td>87.5 (38.7-98.1)</td>
+                                    <td>92.9 (59.1-99.0)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="footnote-text">
+                        <p>CR, complete response; NE, not estimable; ORR, overall response rate; PD, progressive disease; PR, partial response; SD, stable disease.</p>
+                        <p>*A total of 4 pts (2 each at 120 µg/kg and 150 µg/kg) had their first CR assessment within 3 weeks (1 treatment cycle) after the data cut (17Jan2025) and are included as CRs in the table.</p>
+                        <p><sup>a</sup>The efficacy evaluable population (n=22) included all patients who received ≥1 dose of study drug with a valid baseline and ≥1 valid postbaseline disease assessment. Patients who do not have a postbaseline assessment owing to early clinical progression or death were also included.</p>
+                        <p><sup>b</sup>In the efficacy population, duration of response and probability to maintain event free was evaluated in responders (n=21), including all patients who had a best response of PR or CR.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2 class="section-title">Safety Summary (N=31)</h2>
+                    <div class="table-container">
+                        <table class="safety-table">
+                            <thead>
+                                <tr>
+                                    <th>Adverse Event Category</th>
+                                    <th>Details / Grade</th>
+                                    <th>Incidence (%)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Most Common TEAE (Grade ≥3)</td>
+                                    <td>Neutropenia</td>
+                                    <td>32.3%</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="3">Cytokine Release Syndrome (CRS)</td>
+                                    <td>Grade 1</td>
+                                    <td>29.0%</td>
+                                </tr>
+                                <tr>
+                                    <td>Grade 2</td>
+                                    <td>9.7%</td>
+                                </tr>
+                                <tr>
+                                    <td>Grade ≥3</td>
+                                    <td>0%</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2">Immune Effector Cell-Associated Neurotoxicity Syndrome (ICANS)</td>
+                                    <td>Grade 1/2</td>
+                                    <td>0% / 6.5%</td>
+                                </tr>
+                                <tr>
+                                    <td>Grade ≥3</td>
+                                    <td>0%</td>
+                                </tr>
+                                <tr>
+                                    <td>Other Grade 3/4 TEAEs of Interest</td>
+                                    <td>
+                                        <ul class="list-disc">
+                                            <li>Generalized edema</li>
+                                            <li>Pericardial effusion</li>
+                                            <li>Photosensitivity reaction</li>
+                                            <li>Rash</li>
+                                            <li>Sepsis</li>
+                                            <li>Pneumonia</li>
+                                        </ul>
+                                    </td>
+                                    <td>Each 3.2%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2 class="section-title">PK, ADA & Biomarker Insights</h2>
+                    <ul class="list-disc list-inside text-sm space-y-1 pl-2">
+                        <li><strong>PK:</strong> Lonca + Glofit vs Lonca alone: comparable exposure (AUClast), lower Cmax. Moderate to high PK variability (cycles 1/2).</li>
+                        <li><strong>ADAs:</strong> Low incidence (4.7% of pts).</li>
+                        <li><strong>Immune Response <span class="text-xs meta-info">(as of 4 Oct 2024)</span>:</strong>
+                            <ul class="list-circle list-inside ml-4 mt-1">
+                                <li>T-cell margination appreciable.</li>
+                                <li>Increased circulating activated CD4+ and CD8+ T cells.</li>
+                                <li>Modulation & increase trend in monocytes & NK cells.</li>
+                                <li>Cytokine profiles indicated immune activation (IL-6 modest).</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mt-6">
+            <h2 class="section-title">Summary & Conclusion</h2>
+            <ul class="list-disc list-inside text-sm space-y-1 pl-2">
+                <li>Lonca + Glofit combination showed a <strong class="highlight">manageable safety profile</strong> in R/R B-NHL, consistent with individual drug profiles.</li>
+                <li><strong class="highlight">Encouraging efficacy</strong> observed in heavily pretreated aggressive lymphoma patients.</li>
+                <li>Combination induced T-cell margination and sustained circulating CD4+ and CD8+ T-cell activation.</li>
+                <li>Results support that Lonca <strong class="highlight">complements Glofit’s mechanism</strong> and may provide <strong class="highlight">additive efficacy</strong>.</li>
+                <li>Updated data will be presented.</li>
+            </ul>
+        </div>
+
+        <div class="card mt-6 abbreviations-list">
+            <h2 class="section-title">Abbreviations</h2>
+            <p>
+                ADAs, anti-drug antibodies; AUClast, area under the curve from time zero to the last measurable concentration; B-NHL, B-cell non-Hodgkin lymphoma; CAR-T, chimeric antigen receptor T-cell therapy; CD, cluster of differentiation; CI, confidence interval; Cmax, maximum concentration; CR, complete response; CRR, complete response rate; CRS, cytokine release syndrome; DLBCL, diffuse large B-cell lymphoma; DOR, duration of response; EMA, European Medicines Agency; FDA, Food and Drug Administration; FL, follicular lymphoma; Glofit, glofitamab; Gr, grade; HGBCL, high-grade B-cell lymphoma; ICANS, immune effector cell-associated neurotoxicity syndrome; IL-6, interleukin-6; Lonca, loncastuximab tesirine; MTD, maximum tolerated dose; MZL, marginal zone lymphoma; NE, not estimable; NK, natural killer; ORR, overall response rate; PD, progressive disease; PK, pharmacokinetics; PR, partial response; PRR, partial response rate; pts, patients; Q3W, every 3 weeks; R/R, relapsed/refractory; RED, recommended expansion dose; SD, stable disease; TEAE, treatment-emergent adverse event.
+            </p>
+        </div>
+
+        <div class="card mt-6 reference-section">
+            <h2 class="section-title">Reference</h2>
+            <p>
+                Alderuccio JP, Okada C, Crochet G, et al. INITIAL RESULTS FROM LOTIS-7: A PHASE 1B STUDY OF LONCASTUXIMAB TESIRINE PLUS GLOFITAMAB IN PATIENTS WITH RELAPSED/REFRACTORY (R/R) DIFFUSE LARGE B-CELL LYMPHOMA (DLBCL). Abstract #PS1911 presented at European Haematology Association (EHA) June 12–15, 2025, Milan, Italy.
+            </p>
+        </div>
+
+
+        <div class="footer-info">
+            <p>LOTIS-7 (NCT04970901) | EHA Library PS1911 | Data Cut-off: Jan 17, 2025 (Safety/Efficacy) & Oct 4, 2024 (Biomarkers)</p>
+            <p>For Research & Informational Purposes Only.</p>
+        </div>
+    </div>
+
+    <script>
+        function drawStackedBarChart(containerId, legendContainerId, chartData, chartTitle) {
+            const svg = d3.select(containerId);
+            const legendContainer = d3.select(legendContainerId);
+
+            svg.selectAll("*").remove();
+            legendContainer.selectAll("*").remove();
+
+            let containerWidth = 350;
+            const chartWrapper = svg.node() ? svg.node().closest('.chart-container') : null;
+            if (chartWrapper) {
+                containerWidth = chartWrapper.getBoundingClientRect().width * 0.8; 
+            }
+            containerWidth = Math.max(containerWidth, 250);
+
+            const svgWidth = containerWidth;
+            const svgHeight = +svg.attr("height");
+
+            const margin = { top: 40, right: 20, bottom: 50, left: 60 }; 
+            const chartWidth = svgWidth - margin.left - margin.right;
+            const chartHeight = svgHeight - margin.top - margin.bottom;
+
+            if (chartWidth <= 0 || chartHeight <=0) return;
+
+            const g = svg.append("g")
+                .attr("transform", `translate(${margin.left},${margin.top})`);
+
+            const categories = ["Response"]; 
+            const stack = d3.stack().keys(chartData.keys);
+            const stackedData = stack([chartData.values]);
+
+            const xScale = d3.scaleBand()
+                .domain(categories)
+                .range([0, chartWidth])
+                .padding(0.7); 
+
+            const yScale = d3.scaleLinear()
+                .domain([0, 100]) 
+                .range([chartHeight, 0]);
+
+            g.append("g")
+                .attr("transform", `translate(0,${chartHeight})`)
+                .call(d3.axisBottom(xScale).tickValues([])) 
+                .select(".domain").remove(); 
+
+            g.append("g")
+                .call(d3.axisLeft(yScale).ticks(5).tickFormat(d => d + "%"))
+                .selectAll("text")
+                .attr("class", "axis-text")
+                .style("font-size", "10px");
+            
+            g.append("g")			
+                .attr("class", "grid")
+                .call(d3.axisLeft(yScale)
+                    .ticks(5)
+                    .tickSize(-chartWidth)
+                    .tickFormat("")
+                )
+                .selectAll("line")
+                .style("stroke", "#e0e0e0")
+                .style("stroke-opacity", "0.7");
+
+            const color = d3.scaleOrdinal()
+                .domain(chartData.keys)
+                .range(chartData.colors);
+
+            g.selectAll(".serie")
+                .data(stackedData)
+                .enter().append("g")
+                  .attr("class", "serie")
+                .selectAll("rect")
+                .data(d => d) 
+                .enter().append("rect")
+                    .attr("x", d => xScale(categories[0]))
+                    .attr("y", d => yScale(d[1]))
+                    .attr("height", d => yScale(d[0]) - yScale(d[1]))
+                    .attr("width", xScale.bandwidth())
+                    .attr("fill", (d, i, nodes) => { 
+                        const seriesKey = d3.select(nodes[i].parentNode).datum().key;
+                        return color(seriesKey);
+                    })
+                    .attr("rx", 3).attr("ry", 3);
+            
+            stackedData.forEach((series) => {
+                series.forEach((d) => { 
+                    const y0 = d[0];
+                    const y1 = d[1];
+                    const percentage = y1 - y0;
+                    if (percentage > 4) { 
+                        g.append("text")
+                            .attr("class", "chart-label")
+                            .attr("x", xScale(categories[0]) + xScale.bandwidth() / 2)
+                            .attr("y", yScale(y0 + percentage / 2) + 4) 
+                            .attr("text-anchor", "middle")
+                            .style("fill", (series.key === "CR" || series.key === "PD") ? "white" : "var(--sobi-dark-blue)") 
+                            .style("font-size", "10px")
+                            .text(`${percentage.toFixed(1)}%`);
+                    }
+                });
+            });
+
+            if (chartData.orr) {
+                 g.append("text")
+                    .attr("class", "chart-label")
+                    .attr("x", xScale(categories[0]) + xScale.bandwidth() / 2)
+                    .attr("y", yScale(chartData.orr) - 12) 
+                    .attr("text-anchor", "middle")
+                    .style("font-weight", "600")
+                    .style("fill", "var(--sobi-dark-blue)")
+                    .text(`ORR: ${chartData.orr.toFixed(1)}%`);
+            }
+            
+            svg.append("text")
+                .attr("x", svgWidth / 2)
+                .attr("y", margin.top / 2 + 5)
+                .attr("text-anchor", "middle")
+                .style("font-size", "13px")
+                .style("font-weight", "600")
+                .style("fill", "var(--sobi-dark-blue)")
+                .text(chartTitle);
+
+            const legendData = chartData.keys.map(key => ({
+                label: `${key} (${chartData.values[key].toFixed(1)}%)`,
+                color: color(key)
+            }));
+            const legendItems = legendContainer.selectAll(".legend-item")
+                .data(legendData).enter().append("div").attr("class", "legend-item");
+            legendItems.append("div").attr("class", "legend-color-box").style("background-color", d => d.color);
+            legendItems.append("span").text(d => d.label);
+        }
+
+        const lotis7ResponseChartData = {
+            keys: ["CR", "PR", "SD"], 
+            values: { 
+                CR: 90.9, 
+                PR: 4.5, 
+                SD: 4.5
+            }, 
+            colors: ["var(--sobi-teal)", "var(--sobi-yellow)", "var(--sobi-orange)"],
+            orr: 95.5 
+        };
+        
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        };
+
+        const debouncedDrawLotis7Chart = debounce(() => drawStackedBarChart("#lotis7ResponseStackedChart", "#lotis7ResponseLegend", lotis7ResponseChartData, "Best Overall Response (N=22)"), 250);
+        
+        window.addEventListener('resize', () => {
+            debouncedDrawLotis7Chart();
+        });
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            debouncedDrawLotis7Chart();
+        });
+        if (document.readyState === "complete" || document.readyState === "interactive") {
+             setTimeout(() => {
+                debouncedDrawLotis7Chart();
+             }, 0); 
+        }
+    </script>
+</body>
+</html>
