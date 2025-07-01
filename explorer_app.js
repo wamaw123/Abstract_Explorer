@@ -741,7 +741,7 @@ function forceInitialization() {
             
             const initMsg = document.getElementById('initializationMessage');
             if (initMsg && initMsg.classList.contains('hidden')) {
-                showToast(`Welcome! Loaded ${studies.length} abstracts`, 'success', 3000);
+                // App initialized successfully - no toast needed
             }
         }, 500);
         
