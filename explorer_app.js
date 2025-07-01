@@ -730,11 +730,22 @@ document.addEventListener('DOMContentLoaded', () => {
         // Deep clone studies_data.js to preserve original isFavorite states for full reset
         if (typeof studies !== 'undefined' && Array.isArray(studies)) {
             studiesDataJsOriginal = JSON.parse(JSON.stringify(studies));
+            console.log('✅ Studies data successfully loaded:', studies.length, 'abstracts available');
         }
         
         initializeApp();
+        
+        // Show success message for GitHub Pages debugging
+        setTimeout(() => {
+            const initMsg = document.getElementById('initializationMessage');
+            if (initMsg && initMsg.classList.contains('hidden')) {
+                console.log('✅ Conference Abstract Explorer initialized successfully!');
+                showToast(`Welcome! Loaded ${studies.length} abstracts`, 'success', 3000);
+            }
+        }, 1000);
+        
     } catch (error) {
-        console.error('Error initializing app:', error);
+        console.error('❌ Error initializing app:', error);
         hideLoading();
         if(explorerContentEl) explorerContentEl.classList.add('hidden'); 
         if(initializationMessageEl) initializationMessageEl.classList.remove('hidden');

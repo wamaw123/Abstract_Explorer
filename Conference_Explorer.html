@@ -14,7 +14,19 @@
     
     <!-- Local resources -->
     <link rel="stylesheet" href="./explorer_styles.css">
-    <script src="./studies_data.js"></script> 
+    <script src="./studies_data.js"></script>
+    
+    <!-- Verify data loading for GitHub Pages debugging -->
+    <script>
+        console.log('📁 Attempting to load studies_data.js...');
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof studies !== 'undefined') {
+                console.log('✅ Studies data verified:', studies.length, 'studies loaded');
+            } else {
+                console.error('❌ Studies data not available');
+            }
+        });
+    </script> 
     
     <!-- Lottie player with fallback -->
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js" onerror="console.warn('Lottie player failed to load')"></script>
@@ -414,7 +426,39 @@
         console.log('Base URL detected:', window.baseUrl);
     </script>
     
-    <!-- Load main application script -->
-    <script defer src="./explorer_app.js" onerror="console.error('Failed to load explorer_app.js')"></script>
+    <!-- Load main application script with enhanced error handling -->
+    <script>
+        // Enhanced initialization check for GitHub Pages
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded, checking data availability...');
+            
+            // Check if studies data is available
+            if (typeof studies === 'undefined') {
+                console.error('Studies data not loaded');
+                const errorEl = document.getElementById('initializationMessage');
+                if (errorEl) {
+                    errorEl.classList.remove('hidden');
+                }
+                return;
+            }
+            
+            console.log('Studies data loaded successfully:', studies.length, 'studies');
+            
+            // Load main app script dynamically to ensure studies is available
+            const script = document.createElement('script');
+            script.src = './explorer_app.js';
+            script.onerror = function() {
+                console.error('Failed to load explorer_app.js');
+                const errorEl = document.getElementById('initializationMessage');
+                if (errorEl) {
+                    errorEl.classList.remove('hidden');
+                }
+            };
+            script.onload = function() {
+                console.log('Explorer app loaded successfully');
+            };
+            document.head.appendChild(script);
+        });
+    </script>
 </body>
 </html>

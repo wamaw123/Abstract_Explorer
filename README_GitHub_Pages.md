@@ -162,7 +162,43 @@ The GitHub Pages setup is designed to support:
 ## 🚀 Quick Start for GitHub Pages
 
 1. **Access the live application**: https://wamaw123.github.io/Abstract_Explorer/
-2. **Local development**: Clone and open `Conference_Explorer.html` directly
-3. **Testing**: All features work identically in both environments
+2. **Debug page for troubleshooting**: https://wamaw123.github.io/Abstract_Explorer/debug.html
+3. **Local development**: Clone and open `Conference_Explorer.html` directly
+4. **Testing**: All features work identically in both environments
+
+## 🔧 Troubleshooting
+
+If you see only "Abstract Explorer" heading with no content:
+
+1. **Check the debug page**: Visit `/debug.html` to see detailed diagnostics
+2. **Browser console**: Open developer tools and check for JavaScript errors
+3. **Clear cache**: Force refresh with Ctrl+F5 (PC) or Cmd+Shift+R (Mac)
+4. **Wait for deployment**: GitHub Pages may take a few minutes to update
+
+### Common Issues and Solutions
+
+#### **JavaScript Files Not Loading**
+- ✅ **Added `.nojekyll` file** - Bypasses Jekyll processing
+- ✅ **Enhanced error handling** - Shows user-friendly error messages
+- ✅ **Resource fallbacks** - Graceful degradation when external resources fail
+
+#### **Empty Page Display**
+- Check browser console for error messages
+- Verify studies_data.js is loading (should show 20+ studies)
+- Try the debug page to isolate the issue
+
+#### **Cache Issues**
+- Clear browser cache completely
+- Try incognito/private browsing mode
+- Wait 5-10 minutes for GitHub Pages CDN to update
+
+### **Debug Information**
+The debug page (`debug.html`) provides:
+- Base URL detection status
+- Studies data loading verification
+- External resource loading status
+- Environment information
+- Real-time console logs
+- Navigation testing
 
 The application is fully optimized for GitHub Pages hosting with enhanced error handling, performance optimizations, and user experience improvements while maintaining all the original functionality and modern UI/UX enhancements.
