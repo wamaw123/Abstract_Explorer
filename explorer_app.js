@@ -726,32 +726,27 @@ let studiesDataJsOriginal = [];
 
 // Enhanced initialization with better error handling
 function forceInitialization() {
-    console.log('🔄 Force initialization called...');
-    
     try {
         // Deep clone studies_data.js to preserve original isFavorite states for full reset
         if (typeof studies !== 'undefined' && Array.isArray(studies)) {
             studiesDataJsOriginal = JSON.parse(JSON.stringify(studies));
-            console.log('✅ Studies data successfully loaded:', studies.length, 'abstracts available');
         }
         
         initializeApp();
         
         // Force call essential functions
         setTimeout(() => {
-            console.log('🔄 Forcing filter generation and display...');
             generateFilterButtons();
             displayStudies();
             
             const initMsg = document.getElementById('initializationMessage');
             if (initMsg && initMsg.classList.contains('hidden')) {
-                console.log('✅ Conference Abstract Explorer initialized successfully!');
                 showToast(`Welcome! Loaded ${studies.length} abstracts`, 'success', 3000);
             }
         }, 500);
         
     } catch (error) {
-        console.error('❌ Error initializing app:', error);
+        console.error('Error initializing app:', error);
         hideLoading();
         if(explorerContentEl) explorerContentEl.classList.add('hidden'); 
         if(initializationMessageEl) initializationMessageEl.classList.remove('hidden');
@@ -769,7 +764,6 @@ document.addEventListener('DOMContentLoaded', forceInitialization);
 setTimeout(() => {
     const resultsContainer = document.getElementById('studyResults');
     if (!resultsContainer || resultsContainer.children.length === 0) {
-        console.warn('⚠️ No abstracts detected, trying backup initialization...');
         forceInitialization();
     }
 }, 2000);
@@ -779,7 +773,6 @@ window.addEventListener('load', () => {
     setTimeout(() => {
         const resultsContainer = document.getElementById('studyResults');
         if (!resultsContainer || resultsContainer.children.length === 0) {
-            console.warn('⚠️ Still no abstracts after page load, final backup initialization...');
             forceInitialization();
         }
     }, 1000);
