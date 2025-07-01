@@ -8,17 +8,28 @@
     <meta name="author" content="Conference Abstract Explorer">
     <title>Conference Abstract Explorer</title>
     
-    <!-- Preload critical resources -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style">
-    <link rel="preload" href="explorer_styles.css" as="style">
-    <link rel="preload" href="studies_data.js" as="script">
+    <!-- External resources with fallbacks -->
+    <script src="https://cdn.tailwindcss.com" onerror="console.warn('Tailwind CSS failed to load')"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" onload="console.log('Inter font loaded')" onerror="console.warn('Inter font failed to load')">
     
-    <!-- External resources -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="explorer_styles.css">
-    <script src="studies_data.js"></script> 
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <!-- Local resources -->
+    <link rel="stylesheet" href="./explorer_styles.css">
+    <script src="./studies_data.js"></script>
+    
+    <!-- Verify data loading for GitHub Pages debugging -->
+    <script>
+        console.log('📁 Attempting to load studies_data.js...');
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof studies !== 'undefined') {
+                console.log('✅ Studies data verified:', studies.length, 'studies loaded');
+            } else {
+                console.error('❌ Studies data not available');
+            }
+        });
+    </script> 
+    
+    <!-- Lottie player with fallback -->
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js" onerror="console.warn('Lottie player failed to load')"></script>
     
     <!-- Enhanced meta tags for better SEO -->
     <meta name="theme-color" content="#0A2F5C">
@@ -28,6 +39,89 @@
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
     <link rel="dns-prefetch" href="//cdn.tailwindcss.com">
     <link rel="dns-prefetch" href="//unpkg.com">
+    
+    <!-- Fallback styles in case external CSS fails -->
+    <style>
+        /* Fallback styles for basic functionality */
+        body {
+            font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        .sr-only:focus {
+            position: static;
+            width: auto;
+            height: auto;
+            padding: 0.5rem 1rem;
+            margin: 0;
+            overflow: visible;
+            clip: auto;
+            white-space: normal;
+        }
+        .hidden {
+            display: none;
+        }
+        .flex {
+            display: flex;
+        }
+        .flex-col {
+            flex-direction: column;
+        }
+        .min-h-screen {
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem 1rem;
+            margin: 0.25rem;
+            border: none;
+            border-radius: 0.375rem;
+            background-color: #0A2F5C;
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn:hover {
+            background-color: #08264A;
+        }
+        .grid {
+            display: grid;
+        }
+        .gap-6 {
+            gap: 1.5rem;
+        }
+        @media (min-width: 768px) {
+            .md\\:grid-cols-12 {
+                grid-template-columns: repeat(12, minmax(0, 1fr));
+            }
+            .md\\:col-span-3 {
+                grid-column: span 3 / span 3;
+            }
+            .md\\:col-span-6 {
+                grid-column: span 6 / span 6;
+            }
+        }
+    </style>
 </head>
 <body class="flex flex-col min-h-screen">
     <!-- Skip link for accessibility -->
@@ -39,16 +133,19 @@
     <header class="main-header py-4" role="banner">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex items-center"> 
             <div class="flex items-center flex-shrink-0">
-                <lottie-player 
-                    src="https://lottie.host/embed/bb150a64-b726-4cde-8c51-1a3eaf6d2a81/6IwJTR6ana.lottie" 
-                    background="transparent" 
-                    speed="1" 
-                    style="width: 32px; height: 32px; margin-right: 0.75rem;" 
-                    loop 
-                    autoplay 
-                    class="header-icon"
-                    aria-hidden="true">
-                </lottie-player>
+                <!-- Lottie player with fallback -->
+                <div id="lottie-container" style="width: 32px; height: 32px; margin-right: 0.75rem;">
+                    <lottie-player 
+                        src="https://lottie.host/embed/bb150a64-b726-4cde-8c51-1a3eaf6d2a81/6IwJTR6ana.lottie" 
+                        background="transparent" 
+                        speed="1" 
+                        style="width: 100%; height: 100%;" 
+                        loop 
+                        autoplay 
+                        class="header-icon"
+                        aria-hidden="true">
+                    </lottie-player>
+                </div>
                 <h1 class="text-2xl sm:text-3xl font-bold tracking-tight">
                     Conference Abstract Explorer
                 </h1>
@@ -276,26 +373,91 @@
     <!-- Toast notification container -->
     <div id="toastContainer" class="fixed top-4 right-4 z-50 space-y-2" aria-live="polite"></div>
 
-    <!-- Enhanced script loading -->
-    <script defer src="explorer_app.js"></script>
-    
-    <!-- Performance monitoring (placeholder) -->
+    <!-- Enhanced script loading with GitHub Pages compatibility -->
     <script>
-        // Monitor performance and loading states
+        // GitHub Pages compatibility and performance monitoring
         window.addEventListener('load', function() {
             const loadTime = performance.now();
             console.log('Page loaded in', Math.round(loadTime), 'ms');
+            console.log('GitHub Pages URL:', window.location.href);
             
             // Hide loading indicator
             const loadingIndicator = document.getElementById('loadingIndicator');
             if (loadingIndicator) {
                 loadingIndicator.style.display = 'none';
             }
+            
+            // Check if Lottie player loaded, if not show fallback
+            if (typeof window.LottiePlayer === 'undefined') {
+                const lottieContainer = document.getElementById('lottie-container');
+                if (lottieContainer) {
+                    lottieContainer.innerHTML = '<div style="width: 32px; height: 32px; background: #F37021; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 14px;">AE</div>';
+                }
+            }
         });
         
-        // Add error handling for failed resource loads
+        // Enhanced error handling for GitHub Pages
         window.addEventListener('error', function(e) {
             console.error('Resource failed to load:', e.target.src || e.target.href);
+            
+            // Provide fallback for failed external resources
+            if (e.target.tagName === 'SCRIPT' && e.target.src.includes('tailwindcss')) {
+                console.warn('Tailwind CSS failed to load, using fallback styles');
+                // Fallback styles are already included in the head
+            }
+            
+            if (e.target.tagName === 'LINK' && e.target.href.includes('googleapis')) {
+                console.warn('Google Fonts failed to load, using system fonts');
+                // System fonts are already specified as fallbacks
+            }
+        });
+        
+        // Enhanced base URL detection for GitHub Pages
+        function getBaseUrl() {
+            const path = window.location.pathname;
+            if (path.includes('/Abstract_Explorer/')) {
+                return '/Abstract_Explorer/';
+            }
+            return './';
+        }
+        
+        // Make base URL available globally
+        window.baseUrl = getBaseUrl();
+        console.log('Base URL detected:', window.baseUrl);
+    </script>
+    
+    <!-- Load main application script with enhanced error handling -->
+    <script>
+        // Enhanced initialization check for GitHub Pages
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded, checking data availability...');
+            
+            // Check if studies data is available
+            if (typeof studies === 'undefined') {
+                console.error('Studies data not loaded');
+                const errorEl = document.getElementById('initializationMessage');
+                if (errorEl) {
+                    errorEl.classList.remove('hidden');
+                }
+                return;
+            }
+            
+            console.log('Studies data loaded successfully:', studies.length, 'studies');
+            
+            // Load main app script dynamically to ensure studies is available
+            const script = document.createElement('script');
+            script.src = './explorer_app.js';
+            script.onerror = function() {
+                console.error('Failed to load explorer_app.js');
+                const errorEl = document.getElementById('initializationMessage');
+                if (errorEl) {
+                    errorEl.classList.remove('hidden');
+                }
+            };
+            script.onload = function() {
+                console.log('Explorer app loaded successfully');
+            };
+            document.head.appendChild(script);
         });
     </script>
 </body>

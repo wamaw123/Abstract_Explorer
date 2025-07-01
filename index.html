@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Conference Abstract Explorer - Browse and filter clinical trial abstracts">
+    <meta name="author" content="Conference Abstract Explorer">
+    <title>Conference Abstract Explorer</title>
+    
+    <!-- Immediate redirect to main application -->
+    <script>
+        // Redirect to the main application
+        window.location.href = './Conference_Explorer.html';
+    </script>
+    
+    <!-- Fallback meta refresh in case JavaScript is disabled -->
+    <meta http-equiv="refresh" content="0; url=./Conference_Explorer.html">
+    
+    <!-- Enhanced meta tags for GitHub Pages -->
+    <meta name="theme-color" content="#0A2F5C">
+    <meta name="msapplication-TileColor" content="#0A2F5C">
+    
+    <!-- Basic styling for fallback content -->
+    <style>
+        body {
+            font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #F7F9FC 0%, #F1F5F9 100%);
+            color: #1A202C;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            padding: 2rem;
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            border: 1px solid #E2E8F0;
+        }
+        .logo {
+            width: 64px;
+            height: 64px;
+            background: #F37021;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+            margin: 0 auto 1rem;
+        }
+        h1 {
+            color: #0A2F5C;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        p {
+            color: #4A5568;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, #0A2F5C, #08264A);
+            color: white;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .btn:hover {
+            background: linear-gradient(135deg, #08264A, #0A2F5C);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 12px -1px rgba(0, 0, 0, 0.15);
+        }
+        .loading {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            border: 3px solid #E2E8F0;
+            border-radius: 50%;
+            border-top-color: #0A2F5C;
+            animation: spin 1s ease-in-out infinite;
+            margin-right: 0.5rem;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">AE</div>
+        <h1>Conference Abstract Explorer</h1>
+        <p>
+            <span class="loading"></span>
+            Redirecting to the application...
+        </p>
+        <p>Browse and filter clinical trial abstracts with advanced search and favorites.</p>
+        
+        <!-- Fallback link if redirect doesn't work -->
+        <noscript>
+            <p><strong>JavaScript is disabled.</strong> Please click the link below to continue:</p>
+        </noscript>
+        <a href="./Conference_Explorer.html" class="btn">
+            Enter Application
+        </a>
+        
+        <div style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #E2E8F0; font-size: 0.875rem; color: #718096;">
+            <p>For research and informational purposes only.</p>
+        </div>
+    </div>
+    
+    <!-- Analytics and monitoring for GitHub Pages -->
+    <script>
+        // Log page access for debugging
+        console.log('Index page loaded, redirecting to Conference_Explorer.html');
+        console.log('Current URL:', window.location.href);
+        console.log('User Agent:', navigator.userAgent);
+        
+        // Track if redirect worked
+        setTimeout(() => {
+            if (window.location.pathname.includes('index.html') || window.location.pathname === '/Abstract_Explorer/') {
+                console.warn('Redirect may have failed, showing fallback content');
+                document.querySelector('.loading').style.display = 'none';
+                document.querySelector('p').innerHTML = 'If you are not automatically redirected, please click the button below:';
+            }
+        }, 3000);
+    </script>
+</body>
+</html>

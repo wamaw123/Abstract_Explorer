@@ -53,6 +53,15 @@ function toggleFavoriteOnDetail() {
     saveSessionFavoriteIdsOnDetail(sessionFavIds);
     if(currentStudyObjectOnDetail) currentStudyObjectOnDetail.isFavorite = !isCurrentlyFavoriteInSession; 
     updateFavoriteButtonStateOnDetail();
+    
+    // Show toast notification if available
+    if (typeof window.showToast === 'function') {
+        if (!isCurrentlyFavoriteInSession) {
+            window.showToast('Added to favorites', 'success', 2000);
+        } else {
+            window.showToast('Removed from favorites', 'info', 2000);
+        }
+    }
 }
 
 // --- Image Pop-up (Lightbox) Functionality for Iframe Images ---
@@ -304,7 +313,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (studyFile) {
         if(studyFrame) {
-            studyFrame.src = studyFile;
+            // Handle GitHub Pages base URL for iframe source
+            const baseUrl = window.baseUrl || './';
+            const iframeSrc = studyFile.startsWith('./') ? studyFile : `./${studyFile}`;
+            studyFrame.src = iframeSrc;
             studyFrame.onload = () => { 
                 try {
                     iframeDoc = studyFrame.contentWindow.document; 
@@ -336,7 +348,8 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         const mainContent = document.querySelector('.content-wrapper');
         if (mainContent) {
-            mainContent.innerHTML = '<div class="text-center p-8"><h2 class="text-2xl font-semibold text-red-600 mb-4">Error: Abstract Not Found</h2><p class="text-sobi-medium-gray-text">The requested abstract file could not be loaded. Please return to the explorer and try again.</p> <a href="Conference_Explorer.html" class="mt-6 btn btn-back inline-block">Return to Explorer</a></div>';
+            const baseUrl = window.baseUrl || './';
+            mainContent.innerHTML = `<div class="text-center p-8"><h2 class="text-2xl font-semibold text-red-600 mb-4">Error: Abstract Not Found</h2><p class="text-sobi-medium-gray-text">The requested abstract file could not be loaded. Please return to the explorer and try again.</p> <a href="${baseUrl}Conference_Explorer.html" class="mt-6 btn btn-back inline-block">Return to Explorer</a></div>`;
         }
         if(favoriteBtn) favoriteBtn.style.display = 'none';
         const cs = document.getElementById('commentsSidebar');
