@@ -1,4 +1,4 @@
-THIS SHOULD BE A LINTER ERROR<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -430,11 +430,11 @@ THIS SHOULD BE A LINTER ERROR<!DOCTYPE html>
     <script>
         // Enhanced initialization check for GitHub Pages
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('DOM loaded, checking data availability...');
+            console.log('🚀 DOM loaded, checking data availability...');
             
             // Check if studies data is available
             if (typeof studies === 'undefined') {
-                console.error('Studies data not loaded');
+                console.error('❌ Studies data not loaded');
                 const errorEl = document.getElementById('initializationMessage');
                 if (errorEl) {
                     errorEl.classList.remove('hidden');
@@ -442,20 +442,41 @@ THIS SHOULD BE A LINTER ERROR<!DOCTYPE html>
                 return;
             }
             
-            console.log('Studies data loaded successfully:', studies.length, 'studies');
+            console.log('✅ Studies data loaded successfully:', studies.length, 'studies');
+            console.log('📋 First study:', studies[0]);
+            
+            // Add manual debug info to page
+            const debugInfo = document.createElement('div');
+            debugInfo.id = 'debugInfo';
+            debugInfo.style.cssText = 'position: fixed; top: 10px; right: 10px; background: yellow; padding: 10px; border: 1px solid black; z-index: 9999; font-size: 12px;';
+            debugInfo.innerHTML = `Studies loaded: ${studies.length}<br>Status: Loading app...`;
+            document.body.appendChild(debugInfo);
             
             // Load main app script dynamically to ensure studies is available
             const script = document.createElement('script');
             script.src = './explorer_app.js';
             script.onerror = function() {
-                console.error('Failed to load explorer_app.js');
+                console.error('❌ Failed to load explorer_app.js');
+                debugInfo.innerHTML = `Studies: ${studies.length}<br>❌ App failed to load`;
                 const errorEl = document.getElementById('initializationMessage');
                 if (errorEl) {
                     errorEl.classList.remove('hidden');
                 }
             };
             script.onload = function() {
-                console.log('Explorer app loaded successfully');
+                console.log('✅ Explorer app loaded successfully');
+                debugInfo.innerHTML = `Studies: ${studies.length}<br>✅ App loaded`;
+                
+                // Wait a moment then check if initialization worked
+                setTimeout(() => {
+                    const resultsContainer = document.getElementById('studyResults');
+                    const resultsCount = resultsContainer ? resultsContainer.children.length : 0;
+                    debugInfo.innerHTML = `Studies: ${studies.length}<br>Cards: ${resultsCount}<br>Status: ${resultsCount > 0 ? '✅ Working' : '❌ No cards'}`;
+                    
+                    if (resultsCount === 0) {
+                        debugInfo.innerHTML += '<br><button onclick="window.initializeApp()">Retry</button>';
+                    }
+                }, 2000);
             };
             document.head.appendChild(script);
         });
