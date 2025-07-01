@@ -608,7 +608,8 @@ function displayStudies() {
         // Enhanced card navigation
         const navigateToDetail = () => {
             sessionStorage.setItem(SESSION_FILTERS_KEY, JSON.stringify(activeFilters));
-            const detailPageUrl = `study_detail.html?file=${encodeURIComponent(study.fileName)}&title=${encodeURIComponent(study.title)}`;
+            const baseUrl = window.baseUrl || './';
+            const detailPageUrl = `${baseUrl}study_detail.html?file=${encodeURIComponent(study.fileName)}&title=${encodeURIComponent(study.title)}`;
             window.location.href = detailPageUrl;
         };
 
