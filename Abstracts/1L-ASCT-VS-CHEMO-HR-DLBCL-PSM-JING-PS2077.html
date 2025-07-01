@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="study:id" content="1l-asct-vs-chemo-hr-dlbcl-psm-jing-ps2077">
+    <meta name="study:title" content="PS2077 - Using PSM comparing first-line ASCT vs chemotherapy alone in newly diagnosed DLBCL with IPI ≥3">
+    <meta name="study:fileName" content="Abstracts/1L-ASCT-VS-CHEMO-HR-DLBCL-PSM-JING-PS2077.html">
+    <meta name="study:cancerTypes" content="DLBCL,LBCL,B-NHL">
+    <meta name="study:lineOfTherapy" content="1L">
+    <meta name="study:evidenceType" content="Real-world evidence">
+    <meta name="study:drugs" content="Autologous Stem Cell Transplant,Chemotherapy,Radiotherapy">
+
+    <title>PS2077: 1L ASCT vs Chemo in High-Risk DLBCL (PSM) (Jing) - SOBI Themed</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="abstract_styles.css">
+</head>
+<body class="abstract-page-body">
+    <div class="slide-container">
+        <div class="visual-abstract-container">
+            <h2 class="visual-abstract-title">Visual Summary: PS2077 - 1L ASCT vs Chemo in High-Risk DLBCL (IPI ≥3) - PSM Analysis</h2>
+            <div class="visual-abstract-grid">
+                <div class="visual-abstract-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--sobi-teal)"> <path d="M12 6.096c-1.058 0-2.02.468-2.704 1.248-.685.78-.996 1.788-.996 2.856s.311 2.076.996 2.856C9.98 13.84 10.942 14.31 12 14.31s2.02-.468 2.704-1.248.996-1.788.996-2.856-.311-2.076-.996-2.856C14.02 6.564 13.058 6.096 12 6.096zM12 12.81c-.53 0-1.008-.222-1.352-.588-.344-.366-.528-.852-.528-1.422s.184-1.056.528-1.422C10.992 9.012 11.47 8.79 12 8.79s1.008.222 1.352.588.528.852.528 1.422-.184-1.056-.528 1.422C13.008 12.588 12.53 12.81 12 12.81zm6.708 3.672A7.47 7.47 0 0012.024 15c-1.404 0-2.706.39-3.816 1.056A4.476 4.476 0 004.5 19.686V21h15v-1.314a4.476 4.476 0 00-3.792-3.624zM6.024 16.56c.84-.468 1.848-.768 2.904-.924A5.928 5.928 0 0112.024 15a5.928 5.928 0 013.096.636c1.056.156 2.064.456 2.904.924A2.988 2.988 0 0019.5 18.018V19.5h-15v-1.482a2.988 2.988 0 001.524-2.458zM4.5 7.032c0-1.068.312-2.076.996-2.856S7.2 3 8.256 3A7.47 7.47 0 0112.024 1.5c1.404 0 2.706.39 3.816 1.056A4.476 4.476 0 0119.5 6.186V7.5H4.5v-.468zM18 4.56c-.84.468-1.848-.768-2.904-.924A5.928 5.928 0 0012.024 6a5.928 5.928 0 00-3.096.636 7.524 7.524 0 00-2.904.924A2.988 2.988 0 014.5 7.482V6H3V4.5A1.5 1.5 0 014.5 3h15A1.5 1.5 0 0121 4.5V6h-1.5v1.482a2.988 2.988 0 01-1.524 2.458L18 4.56z" />
+                    </svg>
+                    <h4>Population & Aim</h4>
+                    <p>N=140 (70 pairs) 1L DLBCL, IPI ≥3 (PSM matched). Aim: Compare ASCT vs Chemo alone for prognosis.</p>
+                </div>
+                <div class="visual-abstract-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--sobi-teal)"> <path fill-rule="evenodd" d="M12 2.25c-2.362 0-4.474.924-6.04 2.446a.75.75 0 001.06 1.06A7.501 7.501 0 0112 3.75c2.362 0 4.474.924 6.04 2.446a.75.75 0 101.06-1.06A8.963 8.963 0 0012 2.25zM3.696 7.54a.75.75 0 00-1.06 1.06A8.963 8.963 0 0012 21.75a8.963 8.963 0 009.364-13.15.75.75 0 10-1.06-1.06A7.501 7.501 0 0112 20.25a7.501 7.501 0 01-8.304-12.71zm5.158 7.814a.75.75 0 00-1.061-1.06L6 16.108V13.5a.75.75 0 00-1.5 0v4.5a.75.75 0 00.75.75h4.5a.75.75 0 000-1.5H7.892l1.962-1.963zm6.392-3.188a.75.75 0 00-1.06 1.061L16.108 15H13.5a.75.75 0 000 1.5h4.5a.75.75 0 00.75-.75v-4.5a.75.75 0 00-1.5 0v2.108l-1.962-1.962z" clip-rule="evenodd" />
+                    </svg>
+                    <h4>Intervention & Method</h4>
+                    <p>ASCT consolidation vs Chemo alone. Retrospective, Propensity Score Matching (PSM).</p>
+                </div>
+                <div class="visual-abstract-item">
+                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--sobi-orange)"> <path d="M4.5 19.5a3 3 0 003 3h9a3 3 0 003-3v-1.5a.75.75 0 00-1.5 0V18a1.5 1.5 0 01-1.5 1.5h-9A1.5 1.5 0 016 18v-1.5a.75.75 0 00-1.5 0V19.5zM4.5 8.25A.75.75 0 015.25 9v3.75a.75.75 0 01-1.5 0V9a.75.75 0 01-.75-.75zM19.5 8.25a.75.75 0 00-.75.75v3.75a.75.75 0 001.5 0V9a.75.75 0 00-.75-.75z" /><path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM8.31 8.47a.75.75 0 00-1.06 1.06L10.94 12l-3.69 3.69a.75.75 0 101.06 1.06L12 13.06l3.69 3.69a.75.75 0 101.06-1.06L13.06 12l3.69-3.69a.75.75 0 10-1.06-1.06L12 10.94 8.31 8.47z" clip-rule="evenodd" />
+                    </svg>
+                    <h4>Key PFS Result</h4>
+                    <p>5-Year PFS: ASCT <span class="highlight-value">85.2%</span> vs Chemo <span class="highlight-value">62.4%</span> (P&lt;0.05).</p>
+                </div>
+                <div class="visual-abstract-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--sobi-orange)"> <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-.092 14.444a.75.75 0 01-.092 0l-3.75-3.75a.75.75 0 111.06-1.06L12 14.813l3.182-3.182a.75.75 0 111.06 1.06l-3.75 3.75a.75.75 0 01-.53.22z" clip-rule="evenodd" />
+                    </svg>
+                    <h4>Conclusion & OS</h4>
+                    <p>5-Year OS: ASCT 89.2% vs Chemo 74.4% (P&gt;0.05). ASCT improves PFS in specific high-risk subgroups.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mb-8">
+            <h1 class="abstract-header-title">PS2077 - Using PSM comparing the prognostic differences between first-line autologous transplantation and chemotherapy alone in newly diagnosed DLBCL patients with IPI ≥3</h1>
+            <p class="abstract-sub-header">Hongmei Jing, Lan Ma, Shuozi Liu, Hui Liu, Jiefei Bai, Wenrong Huang, Junli Chen, Li Bao, Shan Gao, Wanling Sun, Zhenling Li, Min Wang</p>
+            <p class="abstract-meta-info mt-2">EHA2025 Congress | Abstract #PS2077 | Poster Presentation | Session: Stem cell transplantation - Clinical</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-x-8 gap-y-6">
+            <div>
+                <div class="abstract-card">
+                    <h2 class="abstract-section-title">Background</h2>
+                    <ul class="list-disc list-inside text-sm space-y-1 pl-2">
+                        <li>Diffuse large B-cell lymphoma (DLBCL) is the most common aggressive B-cell lymphoma.</li>
+                        <li>The International Prognostic Index (IPI) score ≥3 signifies a poor prognosis (intermediate-high or high risk).</li>
+                        <li>For younger patients in these risk groups, the benefit of autologous hematopoietic stem cell transplantation (ASCT) as first-line consolidation is debated.</li>
+                    </ul>
+                </div>
+
+                <div class="abstract-card">
+                    <h2 class="abstract-section-title">Aims</h2>
+                    <p class="text-sm mb-1">To compare whether ASCT after first-line treatment improved the prognosis of newly diagnosed DLBCL patients with IPI score ≥3, compared to chemotherapy alone, using propensity score matching (PSM) for consistent baseline characteristics.</p>
+                </div>
+
+                <div class="abstract-card">
+                    <h2 class="abstract-section-title">Methods & Study Design</h2>
+                    <ul class="list-disc list-inside text-sm space-y-1 mb-3 pl-2">
+                        <li>Retrospective analysis of patients from Beijing 6 medical center (March 2014 - March 2023).</li>
+                        <li>Inclusion: Newly diagnosed DLBCL, IPI score ≥3.</li>
+                        <li>Groups:
+                            <ul class="list-circle list-inside ml-4">
+                                <li>Transplant group (N=104 pre-PSM): Underwent ASCT after achieving remission with first-line treatment.</li>
+                                <li>Non-transplant group (N=90 pre-PSM): Received only chemotherapy or chemotherapy combined with radiotherapy.</li>
+                            </ul>
+                        </li>
+                        <li>PSM: 1:1 matching based on age, resulting in 70 pairs (N=140 total) for analysis.</li>
+                        <li>Endpoints: Progression-free survival (PFS), Overall Survival (OS).</li>
+                    </ul>
+                    <div class="study-design-schema">
+                        <h3 class="schema-title">1L ASCT vs. Chemotherapy Alone in High-Risk DLBCL (IPI ≥3) - PSM Study</h3>
+                        <div class="schema-enrollment">
+                            <strong>Newly Diagnosed DLBCL, IPI ≥3 (N=194 Initial Cohort)</strong>
+                        </div>
+                        <div class="schema-arrow-down">▼</div>
+                         <div class="schema-phase-group justify-around">
+                            <div class="schema-phase" style="flex-basis: 48%; background-color: var(--sobi-light-gray-bg); border-color: var(--sobi-dark-blue);">
+                                <strong>Propensity Score Matching (PSM)</strong>
+                                <span>1:1 by Age</span>
+                            </div>
+                        </div>
+                        <div class="schema-arrow-down">▼</div>
+                        <div class="schema-phase-group justify-around">
+                            <div class="schema-phase" style="flex-basis: 48%; background-color: var(--sobi-light-teal-bg);">
+                                <strong>Transplant Group (N=70 Matched)</strong>
+                                <span>ASCT after 1L Remission</span>
+                            </div>
+                            <div class="schema-phase" style="flex-basis: 48%; background-color: var(--sobi-light-orange-bg);">
+                                <strong>Non-Transplant Group (N=70 Matched)</strong>
+                                <span>Chemotherapy ± Radiotherapy</span>
+                            </div>
+                        </div>
+                        <div class="schema-arrow-down">▼</div>
+                        <div class="schema-assessment-points">
+                           <span>PFS, OS</span>
+                           <span>Subgroup Analysis</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                 <div class="abstract-card">
+                    <h2 class="abstract-section-title">Patient Characteristics (Overall Cohort, N=194)</h2>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr><th>Characteristic</th><th>Value</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Male Patients</td><td>102 (52.6%)</td></tr>
+                                <tr><td>Female Patients</td><td>92 (47.4%)</td></tr>
+                                <tr><td>Male-to-Female Ratio</td><td>1.11:1</td></tr>
+                                <tr><td>Median Age, years (range)</td><td>53 (22-69)</td></tr>
+                            </tbody>
+                        </table>
+                        <p class="footnote-text mt-1">After PSM (N=140), baseline characteristics of the two groups (Transplant vs. Non-Transplant, N=70 each) were consistent.</p>
+                    </div>
+                </div>
+
+                <div class="abstract-card">
+                    <h2 class="abstract-section-title">Efficacy Results (PSM Cohort, N=140)</h2>
+                    <div class="table-container">
+                        <h3 class="sub-section-title text-center">Progression-Free Survival (PFS) Rates</h3>
+                        <table>
+                            <thead>
+                                <tr><th>Timepoint</th><th>Transplant Group</th><th>Non-Transplant Group</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>1-year PFS</td><td>95.9%</td><td>81.8%</td></tr>
+                                <tr><td>3-year PFS</td><td>89.3%</td><td>69.1%</td></tr>
+                                <tr><td>5-year PFS</td><td>85.2%</td><td>62.4%</td></tr>
+                            </tbody>
+                        </table>
+                         <p class="text-sm text-center font-semibold mt-1">Overall PFS: P &lt; 0.05 (Log-rank test)</p>
+                    </div>
+                     <div class="table-container mt-4">
+                        <h3 class="sub-section-title text-center">Overall Survival (OS) Rates</h3>
+                        <table>
+                            <thead>
+                                <tr><th>Timepoint</th><th>Transplant Group</th><th>Non-Transplant Group</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>1-year OS</td><td>97.9%</td><td>94.5%</td></tr>
+                                <tr><td>3-year OS</td><td>92.2%</td><td>77.8%</td></tr>
+                                <tr><td>5-year OS</td><td>89.2%</td><td>74.4%</td></tr>
+                            </tbody>
+                        </table>
+                        <p class="text-sm text-center font-semibold mt-1">Overall OS: P &gt; 0.05 (Log-rank test)</p>
+                    </div>
+
+                    <h3 class="sub-section-title mt-4">Subgroup Analysis (PFS Benefit for Transplant Group)</h3>
+                    <p class="text-sm mb-1">Statistically significant PFS improvement with ASCT in:</p>
+                    <ul class="list-disc list-inside text-sm space-y-1 pl-2">
+                        <li>IPI score 3 (HR = 0.305, P = 0.034)</li>
+                        <li>Non-GCB subtype (HR = 0.279, P = 0.012)</li>
+                        <li>LDH > 250 U/L (HR = 0.349, P = 0.019)</li>
+                        <li>Double-expressor status (HR = 0.299, P = 0.036)</li>
+                        <li>Bone involvement (HR = 0.281, P = 0.021)</li>
+                    </ul>
+                    <p class="text-sm mt-1">Trends for OS benefit in IPI 3, non-GCB, and LDH > 250 U/L subgroups (P=0.080, P=0.081, P=0.054 respectively).</p>
+                    
+                    <div class="abstract-card mt-4">
+                        <h3 class="text-md font-semibold mb-2 text-center" style="color: var(--sobi-dark-blue);">Figure 1: Survival Curves and Subgroup Analysis</h3>
+                        <img id="psmFigure1Thumbnail" src="image_70ea62.png" alt="Figure 1: Kaplan-Meier curves for PFS (A) and OS (B); Forest plots for PFS (C) and OS (D) subgroup analysis" class="figure-image-thumbnail mx-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/600x400/EBF4FA/1E3A8A?text=Figure+1+Not+Available';">
+                        <p class="text-xs text-center mt-2 italic">Figure 1 from abstract. Click image to enlarge.</p>
+                    </div>
+                    <div id="psmFigure1Lightbox" class="lightbox">
+                        <span class="lightbox-close" id="closePsmFigure1Lightbox">&times;</span>
+                        <img class="lightbox-content" id="psmFigure1LightboxImage">
+                        <div class="lightbox-caption" id="psmFigure1LightboxCaption"></div>
+                    </div>
+                </div>
+                 <div class="abstract-card">
+                    <h2 class="abstract-section-title">Safety</h2>
+                     <p class="text-sm">Safety details of ASCT or chemotherapy regimens were not detailed in this abstract.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="abstract-card mt-6">
+            <h2 class="abstract-section-title">Summary & Conclusion</h2>
+            <ul class="list-disc list-inside text-sm space-y-1 pl-2">
+                <li>ASCT appears to be an important therapeutic approach to improve PFS in specific subgroups of DLBCL patients with intermediate-high or high risk (IPI ≥3).</li>
+                <li>Potential benefits in OS warrant further investigation.</li>
+            </ul>
+        </div>
+
+        <div class="abstract-card mt-6 abbreviations-list">
+            <h2 class="abstract-section-title">Abbreviations</h2>
+            <p>ASCT, Autologous Hematopoietic Stem Cell Transplantation; CI, Confidence Interval; DLBCL, Diffuse Large B-Cell Lymphoma; GCB, Germinal Center B-cell like; HR, Hazard Ratio; IPI, International Prognostic Index; LDH, Lactate Dehydrogenase; M:F, Male-to-Female; mo, Months; NHL, Non-Hodgkin Lymphoma; OS, Overall Survival; PFS, Progression-Free Survival; PSM, Propensity Score Matching; U/L, Units per Liter; vs, Versus; yr, Year.</p>
+        </div>
+
+        <div class="abstract-card mt-6 reference-section">
+            <h2 class="abstract-section-title">
+                Reference
+                <button id="copyReferenceBtn" class="copy-reference-button" title="Copy Reference">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M7 3.5A1.5 1.5 0 018.5 2h3.879a1.5 1.5 0 011.06.44l3.122 3.121A1.5 1.5 0 0117 6.621V16.5a1.5 1.5 0 01-1.5 1.5h-7A1.5 1.5 0 017 16.5v-13z" />
+                        <path d="M4.5 6A1.5 1.5 0 003 7.5v10A1.5 1.5 0 004.5 19h7a1.5 1.5 0 001.5-1.5v-2.5a.75.75 0 00-1.5 0v2.5a.5.5 0 01-.5.5h-7a.5.5 0 01-.5-.5v-10a.5.5 0 01.5-.5h2.5a.75.75 0 000-1.5H4.5z" />
+                    </svg>
+                    Copy
+                </button>
+            </h2>
+            <p id="referenceSectionContent">Jing H, Ma L, Liu S, et al. Using PSM comparing the prognostic differences between first-line autologous transplantation and chemotherapy alone in newly diagnosed DLBCL patients with IPI ≥3. Abstract #PS2077 presented at the European Hematology Association (EHA) Congress. June 12–15, 2025, Milan, Italy.</p>
+        </div>
+
+        <div class="abstract-footer-info">
+            <p>EHA2025 Congress | Abstract #PS2077 | Abstract Release: 05/14/25 | Presentation: June 14, 2025</p>
+            <p>For Research & Informational Purposes Only.</p>
+        </div>
+    </div>
+    <script defer src="abstract_features.js"></script>
+    <script>
+        // Lightbox JavaScript for Figure 1
+        document.addEventListener('DOMContentLoaded', function() {
+            const lightbox = document.getElementById('psmFigure1Lightbox');
+            const lightboxImg = document.getElementById('psmFigure1LightboxImage');
+            const lightboxCaption = document.getElementById('psmFigure1LightboxCaption');
+            const thumbnail = document.getElementById('psmFigure1Thumbnail');
+            const closeBtn = document.getElementById('closePsmFigure1Lightbox');
+
+            if (thumbnail) {
+                thumbnail.onclick = function(){
+                    if (lightbox && lightboxImg && lightboxCaption) {
+                        lightbox.style.display = "block";
+                        lightboxImg.src = this.src;
+                        lightboxCaption.innerHTML = this.alt;
+                    }
+                }
+            }
+
+            if (closeBtn) {
+                closeBtn.onclick = function() {
+                    if (lightbox) {
+                        lightbox.style.display = "none";
+                    }
+                }
+            }
+            if (lightbox) {
+                lightbox.onclick = function(event) {
+                    if (event.target === lightbox) { 
+                        lightbox.style.display = "none";
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

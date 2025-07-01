@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prognostic Value of PhasED-Seq EOT ctDNA-MRD in 1L LBCL</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --sobi-dark-blue: #0A2F5C; --sobi-orange: #F37021; --sobi-teal: #009B9E; --sobi-light-gray-bg: #F8F9FA; --sobi-white: #FFFFFF; --sobi-dark-text: #212529; --sobi-card-border: #DEE2E6; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--sobi-light-gray-bg); color: var(--sobi-dark-text); }
+        .slide-container { max-width: 1200px; margin: 2rem auto; padding: 2rem; background-color: var(--sobi-white); border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+        .header-title { color: var(--sobi-dark-blue); border-bottom: 3px solid var(--sobi-orange); padding-bottom: 1rem; margin-bottom: 1.5rem; }
+        .section-title { color: var(--sobi-dark-blue); font-weight: 700; margin-top: 1.5rem; margin-bottom: 1rem; font-size: 1.25rem; border-left: 5px solid var(--sobi-teal); padding-left: 0.75rem; }
+        .card { background-color: var(--sobi-white); border: 1px solid var(--sobi-card-border); border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid var(--sobi-card-border); padding: 0.75rem; text-align: left; font-size: 0.875rem; }
+        th { background-color: #E0F2F7; color: var(--sobi-dark-blue); font-weight: 600; }
+        .pink-highlight { background-color: pink !important; }
+        .green-highlight { background-color: #e6ffec !important; }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="text-center">
+            <h1 class="text-4xl font-bold header-title">Prognostic Value of PhasED-Seq EOT ctDNA-MRD in 1L LBCL</h1>
+            <p class="text-lg text-gray-600">Data from a real-world, prospective National HOVON Cohort</p>
+            <p class="text-sm text-gray-500 mt-2">Source: Chamuleau et al. EHA 2025; Oral presentation S240</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6 mt-8">
+            <div>
+                <div class="card">
+                    <h2 class="section-title">Patient Characteristics</h2>
+                    <table class="pink-highlight">
+                        <thead><tr><th>Characteristic</th><th>Value (N=160)</th></tr></thead>
+                        <tbody>
+                            <tr><td>Median Age, years (range)</td><td>67 (19-88)</td></tr>
+                            <tr><td>Sex (Male / Female)</td><td>103 (64%) / 57 (36%)</td></tr>
+                            <tr><td>Diagnosis (LBCL / HGBL / PMBCL)</td><td>144 (90%) / 14 (9%) / 2 (1%)</td></tr>
+                            <tr><td>Stage (I-II / III-IV)</td><td>34 (21%) / 126 (79%)</td></tr>
+                            <tr><td>IPI Score (0-2 / 3-5)</td><td>83 (52%) / 77 (48%)</td></tr>
+                            <tr><td>1L Therapy (R-CHOP / DA-EPOCH-R)</td><td>146 (91%) / 14 (9%)</td></tr>
+                        </tbody>
+                    </table>
+                     <p class="text-xs text-gray-600 mt-2 pink-highlight">Median follow-up: 2.8 years (33.6 months)</p>
+                </div>
+                <div class="card green-highlight">
+                    <h2 class="section-title">PhasED-Seq Methodology</h2>
+                    <ul class="list-disc list-inside text-sm space-y-2 pl-2">
+                        [cite_start]<li>PhasED-Seq is an ultrasensitive sequencing method for detecting ctDNA-based minimal residual disease (MRD)[cite: 3].</li>
+                        [cite_start]<li>It first identifies patient-specific phased variants (multiple mutations on the same DNA fragment) from tumor tissue[cite: 4].</li>
+                        [cite_start]<li>It then tracks these specific variants in blood (cell-free DNA) at the end of treatment to detect residual disease with high accuracy[cite: 4].</li>
+                        [cite_start]<li>The analytical limit of detection (LOD95) is 0.7 parts per million[cite: 4].</li>
+                    </ul>
+                </div>
+                 <div class="card pink-highlight">
+                    <h2 class="section-title">MRD Adds Value to PET-CT</h2>
+                     [cite_start]<p class="text-sm mb-3">In patients with a complete metabolic response (CMR) by PET scan, ctDNA-MRD status identified a subgroup with poor outcomes[cite: 13].</p>
+                     <ul class="list-disc list-inside text-sm space-y-1 pl-2">
+                        [cite_start]<li><b>MRD-negative + CMR:</b> 3-year PFS 89% [cite: 13]</li>
+                        [cite_start]<li><b>MRD-positive + CMR:</b> 3-year PFS 36% (HR=6.58) [cite: 13]</li>
+                    </ul>
+                     [cite_start]<p class="text-sm mt-4 mb-3">In patients without a CMR, ctDNA-MRD identified an even higher-risk group[cite: 12].</p>
+                     <ul class="list-disc list-inside text-sm space-y-1 pl-2">
+                        [cite_start]<li><b>MRD-negative + no CMR:</b> 3-year PFS 64% [cite: 12]</li>
+                        [cite_start]<li><b>MRD-positive + no CMR:</b> 3-year PFS 4% (HR=6.78) [cite: 12]</li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                 <div class="card">
+                    <h2 class="section-title">EOT MRD Status is Highly Prognostic</h2>
+                    [cite_start]<p class="text-sm mb-3">At the end of 1L therapy, 21% of patients (34/160) were ctDNA-MRD positive[cite: 8]. This was strongly associated with worse survival.</p>
+                    <div class="grid grid-cols-2 gap-4 pink-highlight">
+                        <div class="text-center p-3 border rounded-lg">
+                            <h3 class="font-bold text-lg">3-Year PFS</h3>
+                            <p class="text-2xl text-red-600">15% <span class="text-sm">(MRD+)</span></p>
+                            <p class="text-2xl text-green-700">85% <span class="text-sm">(MRD-)</span></p>
+                            [cite_start]<p class="text-xs mt-1">HR 11.0, p&lt;0.0001 [cite: 9]</p>
+                        </div>
+                        <div class="text-center p-3 border rounded-lg">
+                            <h3 class="font-bold text-lg">3-Year OS</h3>
+                            <p class="text-2xl text-red-600">41% <span class="text-sm">(MRD+)</span></p>
+                            <p class="text-2xl text-green-700">92% <span class="text-sm">(MRD-)</span></p>
+                            [cite_start]<p class="text-xs mt-1">HR 7.4, p&lt;0.0001 [cite: 9]</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card green-highlight">
+                    <h2 class="section-title">Independent Prognostic Value</h2>
+                     [cite_start]<p class="text-sm mb-3">In a multivariate analysis for Progression-Free Survival (PFS), ctDNA-MRD was a more powerful and independent predictor of outcome than both IPI score and EOT PET-CT results[cite: 11].</p>
+                     <ul class="list-disc list-inside text-sm space-y-1 pl-2">
+                        [cite_start]<li><b>EOT ctDNA MRD+</b>: HR 9.66 (p=3.17e-08) [cite: 11]</li>
+                        [cite_start]<li><b>EOT PET-CT+</b>: HR 4.0 (p=0.000374) [cite: 11]</li>
+                        [cite_start]<li><b>IPI High Risk</b>: Not significant (p=0.316) [cite: 11]</li>
+                    </ul>
+                </div>
+                 <div class="card green-highlight">
+                    <h2 class="section-title">MRD Predicts Early Relapse</h2>
+                    [cite_start]<p class="text-sm">EOT ctDNA-MRD positivity was highly sensitive for identifying patients who would relapse early[cite: 14].</p>
+                     <div class="w-full bg-gray-200 rounded-full h-6 mt-3">
+                        <div class="bg-blue-600 h-6 rounded-full text-center text-white text-sm leading-6" style="width: 86%">86%</div>
+                    </div>
+                    [cite_start]<p class="text-xs text-center mt-1">of patients who relapsed within 6 months were MRD-positive at EOT[cite: 14].</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mt-6">
+            <h2 class="section-title">Conclusions</h2>
+            <ul class="list-disc list-inside text-sm space-y-2 pl-2">
+                [cite_start]<li>End-of-treatment ctDNA-MRD assessment by PhasED-Seq is highly prognostic for both PFS and OS in 1L LBCL patients from a real-world setting[cite: 15].</li>
+                [cite_start]<li class="green-highlight">ctDNA-MRD provides independent evidence of residual disease beyond PET-CT and is a more powerful prognostic tool than both PET-CT and IPI score[cite: 15].</li>
+                [cite_start]<li class="pink-highlight">MRD status can further stratify risk in patients both with and without a complete metabolic response by PET, identifying patients with especially poor outcomes[cite: 12, 13].</li>
+                [cite_start]<li>The data support the integration of ctDNA-MRD as a standard component of response evaluation in 1L LBCL[cite: 15].</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="study:id" content="lossos-mzl-lonca">
+    <meta name="study:title" content="Loncastuximab in R/R Marginal Zone Lymphoma">
+    <meta name="study:fileName" content="LOTIS-MZL.html">
+    <meta name="study:cancerTypes" content="Marginal zone lymphoma,B-NHL">
+    <meta name="study:lineOfTherapy" content="2L">
+    <meta name="study:evidenceType" content="Clinical trial">
+    <meta name="study:drugs" content="ADC,Loncastuximab Tesirine">
+
+    <title>Loncastuximab in R/R Marginal Zone Lymphoma - Results Summary</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sobi-dark-blue: #0A2F5C;
+            --sobi-orange: #F37021;
+            --sobi-teal: #009B9E;
+            --sobi-yellow: #FFC107;
+            --sobi-light-gray-bg: #F8F9FA;
+            --sobi-white: #FFFFFF;
+            --sobi-dark-text: #212529;
+            --sobi-medium-gray-text: #6c757d;
+            --sobi-light-teal-bg: #E0F2F7;
+            --sobi-light-orange-bg: #FFF0E5;
+            --sobi-card-border: #DEE2E6;
+        }
+        body { font-family: 'Inter', sans-serif; background-color: var(--sobi-light-gray-bg); color: var(--sobi-dark-text); font-size: 16px; }
+        .slide-container { max-width: 1200px; margin: 20px auto; padding: 25px; background-color: var(--sobi-white); border-radius: 12px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); border: 1px solid var(--sobi-card-border); }
+        .header-title { color: var(--sobi-dark-blue); border-bottom: 3px solid var(--sobi-orange); padding-bottom: 12px; margin-bottom: 25px; font-size: 2.25rem; }
+        .sub-header { color: var(--sobi-dark-text); font-size: 1.20rem; }
+        .meta-info { color: var(--sobi-medium-gray-text); font-size: 0.875rem; }
+        .section-title { color: var(--sobi-dark-blue); font-weight: 700; margin-top: 25px; margin-bottom: 15px; font-size: 1.4rem; border-left: 5px solid var(--sobi-teal); padding-left: 10px; }
+        .card { background-color: var(--sobi-white); border: 1px solid var(--sobi-card-border); border-radius: 8px; padding: 20px; margin-bottom: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        .table-container { overflow-x: auto; margin-top: 10px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid var(--sobi-card-border); padding: 10px; text-align: left; font-size: 0.875rem; vertical-align: top; }
+        th { background-color: var(--sobi-light-teal-bg); color: var(--sobi-dark-blue); font-weight: 600; }
+        .highlight { color: var(--sobi-orange); font-weight: 600; }
+        .footer-info { font-size: 0.85rem; color: var(--sobi-medium-gray-text); margin-top: 35px; text-align: center; border-top: 1px solid var(--sobi-card-border); padding-top: 20px; }
+        .infographic-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; }
+        .infographic-item { text-align: center; padding: 1rem; background-color: var(--sobi-light-teal-bg); border-radius: 8px; }
+        .infographic-value { font-size: 2rem; font-weight: 700; color: var(--sobi-dark-blue); }
+        .infographic-label { font-size: 0.9rem; color: var(--sobi-dark-text); }
+        .chart-container { display: flex; justify-content: center; align-items: center; flex-direction: column; min-height: 300px; padding: 10px; background-color: #fdfdfd; border-radius: 6px; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-bold header-title">Loncastuximab in Relapsed/Refractory Marginal Zone Lymphoma</h1>
+            <p class="text-xl sub-header">Updated Analysis of a Phase 2 Multicenter Study (NCT05296070)</p>
+            <p class="text-sm meta-info mt-2">Izidore S. Lossos, et al. | 17th ICML 2023 | Poster #260</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-x-8 gap-y-6">
+            <div>
+                <div class="card">
+                    <h2 class="section-title">Background & Aim</h2>
+                    <ul class="list-disc list-inside text-sm space-y-1 pl-2">
+                        <li>Marginal zone lymphoma (MZL) is a heterogeneous disease where achieving complete response (CR) is a key prognostic factor[cite: 13].</li>
+                        <li style="background-color: #e6ffec;">This is an ongoing, open-label, multi-institutional, investigator-initiated study evaluating Lonca in R/R MZL.</li>
+                        <li>The primary endpoint is CR rate after 6 cycles of treatment.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h2 class="section-title">Methods</h2>
+                     <ul class="list-disc list-inside text-sm space-y-1 mb-3 pl-2">
+                        <li>Adults with R/R MZL requiring treatment after ≥1 line of systemic therapy were eligible.</li>
+                        <li style="background-color: #e6ffec;">The study uses a Bayesian optimal phase 2 design with interim analyses.</li>
+                        <li style="background-color: #e6ffec;">Dosing: Lonca was administered IV Q3W for 6 cycles (0.15 mg/kg for 2 cycles, then 0.075 mg/kg for 4 cycles).</li>
+                        <li style="background-color: #e6ffec;">Required premedication included dexamethasone and spironolactone for fluid overload prophylaxis.</li>
+                        <li>Response was assessed by PET-CT or MRI/CT based on Lugano 2014 criteria[cite: 15, 17].</li>
+                    </ul>
+                </div>
+                
+                 <div class="card">
+                    <h2 class="section-title">Patient Characteristics (N=27)</h2>
+                    <p class="text-xs meta-info mb-2">Data cut-off: February 10, 2025</p>
+                    <div class="table-container">
+                        <table>
+                            <tbody>
+                                <tr><td>Median Age, years (range)</td><td>67 (44-82) </td></tr>
+                                <tr><td>ECOG PS 0-1, n (%)</td><td>27 (100) </td></tr>
+                                <tr><td>Stage IV, n (%)</td><td>21 (78) </td></tr>
+                                <tr><td>Median Prior Lines of Therapy (range)</td><td>2 (1-4) </td></tr>
+                                <tr><td>POD24, n (%)</td><td>13 (48) </td></tr>
+                                <tr><td>Refractory Disease, n (%)</td><td>10 (37) </td></tr>
+                                <tr style="background-color: #e6ffec;"><td>Most Common Prior Therapies, n (%)</td><td>Rituximab (37%), R-CHOP (33%), BR (22%), BTKi (22%) [cite: 18, 22]</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                 <div class="card">
+                    <h2 class="section-title">Efficacy (Evaluable Population, N=26)</h2>
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                        <div class="infographic-item">
+                            <div class="infographic-value">85%</div>
+                            <div class="infographic-label">Overall Response Rate </div>
+                        </div>
+                        <div class="infographic-item">
+                            <div class="infographic-value">69%</div>
+                            <div class="infographic-label">Complete Response Rate </div>
+                        </div>
+                    </div>
+                    <div class="chart-container mb-6">
+                        <svg id="mzlResponseDonut" width="200" height="200"></svg>
+                    </div>
+
+                    <h3 class="text-lg font-semibold text-center mb-3">Duration & Survival Outcomes</h3>
+                     <div class="infographic-grid">
+                        <div class="infographic-item">
+                            <div class="infographic-value">13.7 mos</div>
+                            <div class="infographic-label">Median DOCR [cite: 31]</div>
+                        </div>
+                         <div class="infographic-item">
+                            <div class="infographic-value">83%</div>
+                            <div class="infographic-label">18-month DOCR [cite: 26]</div>
+                        </div>
+                         <div class="infographic-item" style="background-color: pink;">
+                            <div class="infographic-value">92.9%</div>
+                            <div class="infographic-label">12-month PFS </div>
+                        </div>
+                         <div class="infographic-item">
+                            <div class="infographic-value">100%</div>
+                            <div class="infographic-label">Overall Survival at follow-up </div>
+                        </div>
+                    </div>
+                    <div style="background-color: #e6ffec;" class="mt-3 p-2 border border-gray-200 rounded">
+                        <h4 class="font-semibold text-sm text-center">Efficacy in High-Risk Subgroups</h4>
+                        <ul class="list-disc list-inside text-sm space-y-1 pl-2 mt-1">
+                            <li>CR was achieved in 8 of 13 (62%) patients with POD24.</li>
+                            <li>One patient who had progressed after prior CAR-T therapy achieved a CR.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2 class="section-title">Safety Summary (N=27)</h2>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr><th>Treatment-Emergent AE</th><th>Any Grade, n (%)</th><th>Grade ≥3, n (%)</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Maculopapular rash</td><td>16 (59.3)</td><td>1 (3.7)</td></tr>
+                                <tr><td>Increased AST / ALT</td><td>16 (59.3) / 15 (55.6)</td><td>0 / 2 (7.4)</td></tr>
+                                <tr><td>Neutropenia</td><td>13 (48.1)</td><td>5 (18.5)</td></tr>
+                                <tr><td>Local edema</td><td>11 (40.7)</td><td>0</td></tr>
+                                <tr><td>Photosensitivity</td><td>8 (29.6)</td><td>0</td></tr>
+                            </tbody>
+                        </table>
+                         <p class="text-xs mt-2">Dose reductions occurred in 3 patients (11%). <span style="background-color: #e6ffec;">One patient (4%) discontinued due to cholestatic hepatitis and subsequently fully recovered</span>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mt-6">
+            <h2 class="section-title">Conclusions</h2>
+            <ul class="list-disc list-inside text-sm space-y-1 pl-2">
+                <li>Lonca demonstrates clinically meaningful activity with a robust CR rate in patients with R/R MZL.</li>
+                <li>The treatment is well tolerated, with a safety profile consistent with known adverse effects and no new unexpected toxicities.</li>
+                <li>Patients demonstrated durable complete responses, with an 18-month ongoing CR rate of 83%[cite: 26, 33].</li>
+                <li style="background-color: #e6ffec;">The study passed its first and second interim futility analysis thresholds.</li>
+            </ul>
+        </div>
+        <div class="footer-info">
+            <p>Source: Lossos IS, et al. 17th International Conference on Malignant Lymphoma (ICML); June 13-17, 2023; Lugano, Switzerland. Poster 260. [cite: 35]</p>
+        </div>
+    </div>
+
+    <script>
+        function drawDonutChart(containerId, data) {
+            const svg = d3.select(containerId);
+            svg.selectAll("*").remove();
+            const width = +svg.attr("width"), height = +svg.attr("height"), radius = Math.min(width, height) / 2, donutWidth = 40;
+            const g = svg.append("g").attr("transform", `translate(${width / 2},${height / 2})`);
+            const color = d3.scaleOrdinal().domain(data.map(d => d.label)).range(['var(--sobi-teal)', 'var(--sobi-yellow)', 'var(--sobi-medium-gray-text)']);
+            const pie = d3.pie().value(d => d.value).sort(null);
+            const arc = d3.arc().innerRadius(radius - donutWidth).outerRadius(radius);
+            const arcs = g.selectAll(".arc").data(pie(data)).enter().append("g").attr("class", "arc");
+            arcs.append("path").attr("d", arc).attr("fill", d => color(d.data.label));
+            arcs.append("text").attr("transform", d => `translate(${arc.centroid(d)})`).attr("dy", "0.35em").attr("text-anchor", "middle").style("fill", "white").style("font-size", "12px").text(d => `${d.data.label} ${d.data.value.toFixed(0)}%`);
+            const orr = data.find(d => d.label === 'CR').value + data.find(d => d.label === 'PR').value;
+            g.append("text").attr('text-anchor', 'middle').attr('dy', '-0.3em').style('font-size', '1.5rem').style('font-weight', '700').style('fill', 'var(--sobi-dark-blue)').text(`${orr.toFixed(0)}%`);
+            g.append("text").attr('text-anchor', 'middle').attr('dy', '1em').style('font-size', '0.9rem').style('fill', 'var(--sobi-dark-text)').text('ORR');
+        }
+        const responseData = [{ label: "CR", value: 69.0 }, { label: "PR", value: 16.0 }, { label: "No Response", value: 15.0 }];
+        drawDonutChart("#mzlResponseDonut", responseData);
+    </script>
+</body>
+</html>

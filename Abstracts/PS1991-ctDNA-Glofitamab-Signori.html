@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="study:id" content="ctdna-glofitamab-rrlbcl-signori-ps1991">
+    <meta name="study:title" content="PS1991 - ctDNA for response prediction/genetics in R/R LBCL with Glofitamab">
+    <meta name="study:fileName" content="Abstracts/PS1991-ctDNA-Glofitamab-Signori.html">
+    <meta name="study:cancerTypes" content="DLBCL,LBCL,B-NHL">
+    <meta name="study:lineOfTherapy" content="2L+">
+    <meta name="study:evidenceType" content="Clinical trial">
+    <meta name="study:drugs" content="Glofitamab,Bispecific antibodies">
+
+    <title>PS1991: ctDNA for Response/Genetics in R/R LBCL with Glofitamab (Signori) - SOBI Themed</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="abstract_styles.css">
+</head>
+<body class="abstract-page-body">
+    <div class="slide-container">
+        <div class="visual-abstract-container">
+            <h2 class="visual-abstract-title">Visual Summary: PS1991 - ctDNA in R/R LBCL Treated with Glofitamab</h2>
+            <div class="visual-abstract-grid">
+                <div class="visual-abstract-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--sobi-teal)"> <path d="M12 6.096c-1.058 0-2.02.468-2.704 1.248-.685.78-.996 1.788-.996 2.856s.311 2.076.996 2.856C9.98 13.84 10.942 14.31 12 14.31s2.02-.468 2.704-1.248.996-1.788.996-2.856-.311-2.076-.996-2.856C14.02 6.564 13.058 6.096 12 6.096zM12 12.81c-.53 0-1.008-.222-1.352-.588-.344-.366-.528-.852-.528-1.422s.184-1.056.528-1.422C10.992 9.012 11.47 8.79 12 8.79s1.008.222 1.352.588.528.852.528 1.422-.184-1.056-.528 1.422C13.008 12.588 12.53 12.81 12 12.81zm6.708 3.672A7.47 7.47 0 0012.024 15c-1.404 0-2.706.39-3.816 1.056A4.476 4.476 0 004.5 19.686V21h15v-1.314a4.476 4.476 0 00-3.792-3.624zM6.024 16.56c.84-.468 1.848-.768 2.904-.924A5.928 5.928 0 0112.024 15a5.928 5.928 0 013.096.636c1.056.156 2.064.456 2.904.924A2.988 2.988 0 0019.5 18.018V19.5h-15v-1.482a2.988 2.988 0 001.524-2.458zM4.5 7.032c0-1.068.312-2.076.996-2.856S7.2 3 8.256 3A7.47 7.47 0 0112.024 1.5c1.404 0-2.706.39-3.816 1.056A4.476 4.476 0 0119.5 6.186V7.5H4.5v-.468zM18 4.56c-.84.468-1.848-.768-2.904-.924A5.928 5.928 0 0012.024 6a5.928 5.928 0 00-3.096.636 7.524 7.524 0 00-2.904.924A2.988 2.988 0 014.5 7.482V6H3V4.5A1.5 1.5 0 014.5 3h15A1.5 1.5 0 0121 4.5V6h-1.5v1.482a2.988 2.988 0 01-1.524 2.458L18 4.56z" />
+                    </svg>
+                    <h4>Population & Aim (N=57)</h4>
+                    <p>R/R LBCL Pts on Glofitamab. Aim: Assess ctDNA for response/resistance biomarkers & risk stratification.</p>
+                </div>
+                <div class="visual-abstract-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--sobi-teal)"> <path fill-rule="evenodd" d="M3 6a3 3 0 013-3h12a3 3 0 013 3v12a3 3 0 01-3 3H6a3 3 0 01-3-3V6zm15.75 1.5a.75.75 0 00-1.5 0v.345a.75.75 0 001.5 0V7.5zm-4.502 1.44a.75.75 0 01.043 1.06l-.043.048L12.06 12.28a.75.75 0 01-1.06-1.061l2.182-2.182a.75.75 0 011.018-.048zm1.06-2.25a.75.75 0 00-1.06 0L12.06 8.938a.75.75 0 001.061 1.06L15.31 7.81a.75.75 0 000-1.06zM9 12.75a.75.75 0 000 1.5h.097a.75.75 0 000-1.5H9zm3.75 0a.75.75 0 000 1.5h.097a.75.75 0 000-1.5h-.097zM6.75 12a.75.75 0 01.75-.75h.097a.75.75 0 010 1.5H7.5a.75.75 0 01-.75-.75zm3.748-5.44a.75.75 0 01.043-1.06l.043-.048L12.06 3.22a.75.75 0 011.06 1.061L10.938 6.51a.75.75 0 01-1.018.048L9.75 6.51a.75.75 0 01-.043-1.06l.043-.048L8.938 4.22a.75.75 0 011.06-1.061l2.182 2.182a.75.75 0 01-.048 1.018.75.75 0 01-1.06.043l-1.182-1.181zM6.75 15a.75.75 0 01.75-.75h6a.75.75 0 010 1.5h-6a.75.75 0 01-.75-.75z" clip-rule="evenodd" />
+                    </svg>
+                    <h4>Methodology</h4>
+                    <p>Longitudinal ctDNA (CAPP-Seq) at BL, C3, C6, EOT, PD. Genetic subtyping by NMF.</p>
+                </div>
+                <div class="visual-abstract-item">
+                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--sobi-orange)"> <path d="M3 13.5a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 13.5zM3 8.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 8.25zM3 18.75a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 18.75zM20.25 3a.75.75 0 00-.75.75v16.5a.75.75 0 001.5 0V3.75a.75.75 0 00-.75-.75z" />
+                        <path fill-rule="evenodd" d="M9.97 4.28a.75.75 0 01.75-.75H12a.75.75 0 01.75.75v10.174l3.108-3.293a.75.75 0 111.084 1.038l-4.5 4.75a.75.75 0 01-1.084 0l-4.5-4.75a.75.75 0 111.084-1.038L9.97 14.454V4.28z" clip-rule="evenodd" />
+                    </svg>
+                    <h4>Key MRD Finding (C3, N=43)</h4>
+                    <p>MRD- (58%) vs MRD+ (42%): <br>mPFS <span class="highlight-value">11.8 vs 2.5 mo</span> (p<0.0001). <br>MRD PPV 100% for progression.</p>
+                </div>
+                <div class="visual-abstract-item">
+                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--sobi-orange)"> <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 6a.75.75 0 00-1.5 0v6c0 .414.336.75.75.75h4.5a.75.75 0 000-1.5h-3.75V6z" clip-rule="evenodd" />
+                    </svg>
+                    <h4>Conclusion</h4>
+                    <p>C3 MRD predicts progression on Glofitamab. ctDNA useful for monitoring & resistance insights.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mb-8">
+            <h1 class="abstract-header-title">PS1991 - Assessment of circulating tumor DNA (ctDNA) for response prediction and genetic characterization of relapsed/refractory large B-cell lymphoma (R/R LBCL) receiving Glofitamab treatment</h1>
+            <p class="abstract-sub-header">Chiara Signori, Cristina Zucchinetti, Matin Salehi, et al.</p>
+            <p class="abstract-meta-info mt-2">EHA 2025 Congress | Abstract #PS1991 | Poster Presentation</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-x-8 gap-y-6">
+            <div>
+                <div class="abstract-card">
+                    <h2 class="abstract-section-title">Background</h2>
+                    <ul class="list-disc list-inside text-sm space-y-1 pl-2">
+                        <li>Glofitamab (CD20:CD3 bispecific antibody) is approved for R/R LBCL, showing high CR rates and durable responses in the pivotal Phase 2 trial (NCT03075696).</li>
+                        <li>A subset of patients experiences relapse or progression.</li>
+                        <li>ctDNA analysis can identify response biomarkers and resistance mechanisms.</li>
+                    </ul>
+                </div>
+
+                <div class="abstract-card">
+                    <h2 class="abstract-section-title">Aims</h2>
+                    <p class="text-sm mb-1">To assess ctDNA to identify response biomarkers and resistance mechanisms to Glofitamab and optimize risk stratification for R/R LBCL patients.</p>
+                </div>
+
+                <div class="abstract-card">
+                    <h2 class="abstract-section-title">Methods & Study Design</h2>
+                    <ul class="list-disc list-inside text-sm space-y-1 mb-3 pl-2">
+                        <li>Patients: 57 R/R LBCL patients treated with Glofitamab (Phase 1-2 trial or Italian EAP).</li>
+                        <li>Sample Collection: Blood samples at baseline, Cycle 3 (C3), Cycle 6, End of Treatment (EOT), or disease progression.</li>
+                        <li>ctDNA Analysis: Plasma cell-free DNA sequenced using CAPP-Seq strategy. ctDNA load calculated as haploid genome equivalent per ml (hGE/ml).</li>
+                        <li>Genomic Analysis: Copy number (CN) and fusion analyses (CNVkit, FACTERA). Non-negative Matrix Factorization (NMF) for genetic subtyping.</li>
+                    </ul>
+                     <div class="study-design-schema">
+                        <h3 class="schema-title">ctDNA Analysis in Glofitamab-Treated R/R LBCL</h3>
+                        <div class="schema-enrollment">
+                            <strong>R/R LBCL Patients (N=57)</strong>
+                            <span>Treated with Glofitamab (Phase 1-2 or EAP)</span>
+                        </div>
+                        <div class="schema-arrow-down">▼</div>
+                        <div class="schema-phase-group">
+                            <div class="schema-phase" style="flex-basis: 100%; background-color: var(--sobi-light-gray-bg); border-color: var(--sobi-dark-blue);">
+                                <strong>Longitudinal ctDNA Sampling & Analysis</strong>
+                                <span>Baseline, C3, C6, EOT, PD</span>
+                                <span>CAPP-Seq for ctDNA load (hGE/ml)</span>
+                                <span>CNV, Fusion, NMF Genetic Subtyping</span>
+                            </div>
+                        </div>
+                        <div class="schema-assessment-points">
+                           <span>MRD Status & Correlation with PFS</span>
+                           <span>ctDNA Kinetics & Response</span>
+                           <span>Genetic Landscape & Resistance Mechanisms</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="abstract-card">
+                    <h2 class="abstract-section-title">Results</h2>
+                    <p class="text-sm mb-2"><strong>Baseline ctDNA (N=57):</strong></p>
+                    <ul class="list-disc list-inside text-sm space-y-1 pl-2 mb-3">
+                        <li>Median ctDNA load: 292 hGE/ml (range 27-14,804).</li>
+                        <li>Higher ctDNA levels associated with bulky disease (p=0.02) and high IPI (p=0.03).</li>
+                    </ul>
+
+                    <p class="text-sm mb-2"><strong>Longitudinal ctDNA (N=43 received ≥10mg Glofitamab):</strong></p>
+                    <ul class="list-disc list-inside text-sm space-y-1 pl-2 mb-3">
+                        <li>At C3:
+                            <ul class="list-circle list-inside ml-2">
+                                <li>MRD positive (MRD+): 18/43 (42%). All progressed during treatment.
+                                    <ul class="list-disc list-inside ml-4"><li>5 cases were in metabolic CR/PR at C3 by PET.</li></ul>
+                                </li>
+                                <li>MRD negative (MRD-): 25/43 (58%).
+                                    <ul class="list-disc list-inside ml-4">
+                                        <li>19/25 experienced persistent CR.</li>
+                                        <li>4/25 progressed after initial CR (with simultaneous MRD reappearance).</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>MRD- patients at C3 had significantly longer median PFS (11.8 vs 2.5 months; p < 0.0001).</li>
+                        <li>Early MRD evaluation had better positive predictive value (PPV) for outcome than early PET (100% vs 85.7%).</li>
+                        <li>ctDNA Kinetics: CR patients achieved rapid/sustained MRD negativity; non-CR patients had stable/increasing ctDNA.</li>
+                    </ul>
+                    <div class="chart-container mb-6">
+                        <svg id="ctdnaPfsChart" width="400" height="280"></svg>
+                        <div id="ctdnaPfsLegend" class="legend"></div>
+                    </div>
+
+                    <p class="text-sm mb-2"><strong>Genetic Landscape (Baseline):</strong></p>
+                     <ul class="list-disc list-inside text-sm space-y-1 pl-2 mb-3">
+                        <li>TP53 disruptions (mutations n=22, deletions n=4) vs. wild-type: Comparable CR rates (42% vs 36%) and median PFS (4.6 vs 4 months).</li>
+                        <li>NMF Clustering (5 genetic subtypes):
+                            <ul class="list-circle list-inside ml-2">
+                                <li>Cluster 1 (14%, NF-kB alterations): Best outcome (57% CR).</li>
+                                <li>Cluster 2 (31%, several CN alterations): 40% CR.</li>
+                                <li>Cluster 4 (8%, epigenetic regulation genes): All patients progressed.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="km-plot-container zoomable-image-container">
+                        <img src="uploaded:image_552097.png-12cd3f10-4175-43b3-8516-649529b3c4d9" alt="Figure: Swimmer plot showing outcomes by MRD status at C3" class="zoomable-image">
+                        <p class="text-xs text-center mt-1">Figure: Swimmer plot showing the outcomes of patients tested for MRD at C3. Each bar represents one patient. MRD+ patients are represented in light red and MRD- in teal.</p>
+                    </div>
+                </div>
+
+                <div class="abstract-card">
+                    <h2 class="abstract-section-title">Safety Summary</h2>
+                    <p class="text-sm">Safety data was not the focus of this abstract and is not detailed.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="abstract-card mt-6">
+            <h2 class="abstract-section-title">Summary & Conclusion</h2>
+            <ul class="list-disc list-inside text-sm space-y-1 pl-2">
+                <li>Detection of C3 MRD in R/R LBCL patients receiving Glofitamab effectively predicts progression.</li>
+                <li>Longitudinal ctDNA assessment accurately reflects disease status.</li>
+                <li>Mutational analysis allows for deep characterization of the cohort's genetic profile and investigation of Glofitamab resistance mechanisms.</li>
+                <li>These findings highlight the potential role of ctDNA in disease monitoring and optimization of risk stratification in R/R LBCL patients.</li>
+            </ul>
+        </div>
+
+        <div class="abstract-card mt-6 abbreviations-list">
+            <h2 class="abstract-section-title">Abbreviations</h2>
+            <p>BL, Baseline; BsAb, Bispecific Antibody; C3/C6, Cycle 3/Cycle 6; CAPP-Seq, Cancer Personalized Profiling by Deep Sequencing; CD, Cluster of Differentiation; CN, Copy Number; CR, Complete Response; ctDNA, Circulating Tumor DNA; DLBCL, Diffuse Large B-Cell Lymphoma; EAP, Expanded Access Program; EOT, End of Treatment; FL, Follicular Lymphoma; hGE/ml, Haploid Genome Equivalent per milliliter; IPI, International Prognostic Index; MRD, Minimal Residual Disease; NMF, Non-negative Matrix Factorization; PD, Progressive Disease; PET, Positron Emission Tomography; PFS, Progression-Free Survival; PR, Partial Response; PPV, Positive Predictive Value; Pt(s), Patient(s); R/R, Relapsed/Refractory; TP53, Tumor Protein 53.</p>
+        </div>
+
+        <div class="abstract-card mt-6 reference-section">
+            <h2 class="abstract-section-title">
+                Reference
+                <button id="copyReferenceBtn" class="copy-reference-button" title="Copy Reference">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M7 3.5A1.5 1.5 0 018.5 2h3.879a1.5 1.5 0 011.06.44l3.122 3.121A1.5 1.5 0 0117 6.621V16.5a1.5 1.5 0 01-1.5 1.5h-7A1.5 1.5 0 017 16.5v-13z" />
+                        <path d="M4.5 6A1.5 1.5 0 003 7.5v10A1.5 1.5 0 004.5 19h7a1.5 1.5 0 001.5-1.5v-2.5a.75.75 0 00-1.5 0v2.5a.5.5 0 01-.5.5h-7a.5.5 0 01-.5-.5v-10a.5.5 0 01.5-.5h2.5a.75.75 0 000-1.5H4.5z" />
+                    </svg>
+                    Copy
+                </button>
+            </h2>
+            <p id="referenceSectionContent">Signori C, Zucchinetti C, Salehi M, et al. Assessment of circulating tumor DNA (ctDNA) for response prediction and genetic characterization of relapsed/refractory large B-cell lymphoma (R/R LBCL) receiving Glofitamab treatment. Abstract #PS1991 presented at the European Hematology Association (EHA) Congress. 12–15 June 2025, Milan, Italy.</p>
+        </div>
+
+        <div class="abstract-footer-info">
+            <p>EHA 2025 Congress | Abstract #PS1991 | Abstract Release: 05/14/2025 | Presentation: 06/14/2025</p>
+            <p>NCT03075696 | For Research & Informational Purposes Only.</p>
+        </div>
+    </div>
+
+    <script defer src="abstract_features.js"></script>
+    <script>
+    function drawCtdnaPfsChart(containerId, legendContainerId) {
+        const chartTitle = "Median PFS by C3 MRD Status";
+        const chartData = [
+            { group: "MRD- (N=25)", value: 11.8 },
+            { group: "MRD+ (N=18)", value: 2.5 }
+        ];
+        const pValue = "<0.0001";
+
+        const svg = d3.select(containerId);
+        const legendContainer = d3.select(legendContainerId);
+
+        svg.selectAll("*").remove();
+        legendContainer.selectAll("*").remove();
+
+        let containerWidth = 400;
+        const chartWrapper = svg.node() ? svg.node().closest('.chart-container') : null;
+        if (chartWrapper) {
+            containerWidth = Math.max(chartWrapper.getBoundingClientRect().width * 0.9, 300);
+        }
+        
+        const svgWidth = containerWidth;
+        const svgHeight = +svg.attr("height");
+
+        const margin = { top: 50, right: 20, bottom: 70, left: 60 };
+        const chartWidth = svgWidth - margin.left - margin.right;
+        const chartHeight = svgHeight - margin.top - margin.bottom;
+
+        if (chartWidth <= 0 || chartHeight <=0) return;
+
+        const g = svg.append("g")
+            .attr("transform", `translate(${margin.left},${margin.top})`);
+
+        const groups = chartData.map(d => d.group);
+        
+        const xScale = d3.scaleBand()
+            .domain(groups)
+            .range([0, chartWidth])
+            .padding(0.4);
+
+        const yScale = d3.scaleLinear()
+            .domain([0, d3.max(chartData, d => d.value) * 1.2 || 10]) // Dynamic Y-axis
+            .range([chartHeight, 0]);
+
+        const colorScale = d3.scaleOrdinal()
+            .domain(groups)
+            .range(["var(--sobi-teal)", "var(--sobi-orange)"]); // MRD- teal, MRD+ orange
+
+        g.append("g")
+            .attr("transform", `translate(0,${chartHeight})`)
+            .call(d3.axisBottom(xScale))
+            .selectAll("text")
+            .attr("class", "axis-text")
+            .style("font-size", "10px")
+            .attr("transform", "translate(0,5)");
+
+        g.append("g")
+            .call(d3.axisLeft(yScale).ticks(5).tickFormat(d => d.toFixed(1)))
+            .selectAll("text")
+            .attr("class", "axis-text")
+            .style("font-size", "10px");
+        
+        g.append("text")
+            .attr("transform", "rotate(-90)")
+            .attr("y", 0 - margin.left + 15)
+            .attr("x", 0 - (chartHeight / 2))
+            .attr("dy", "1em")
+            .style("text-anchor", "middle")
+            .attr("class", "axis-label")
+            .text("Median PFS (months)");
+
+        g.append("g")			
+            .attr("class", "grid")
+            .call(d3.axisLeft(yScale)
+                .ticks(5)
+                .tickSize(-chartWidth)
+                .tickFormat("")
+            )
+            .selectAll("line")
+            .style("stroke", "#e0e0e0")
+            .style("stroke-opacity", "0.7");
+
+        g.selectAll(".bar")
+            .data(chartData)
+            .enter().append("rect")
+              .attr("class", "bar")
+              .attr("x", d => xScale(d.group))
+              .attr("y", d => yScale(d.value))
+              .attr("width", xScale.bandwidth())
+              .attr("height", d => chartHeight - yScale(d.value))
+              .attr("fill", d => colorScale(d.group))
+              .attr("rx", 3).attr("ry", 3);
+        
+        g.selectAll(".bar-label")
+            .data(chartData)
+            .enter().append("text")
+            .attr("class", "chart-label")
+            .attr("x", d => xScale(d.group) + xScale.bandwidth() / 2)
+            .attr("y", d => yScale(d.value) - 5) 
+            .attr("text-anchor", "middle")
+            .style("font-size", "10px")
+            .style("fill", "var(--sobi-dark-text)")
+            .text(d => `${d.value.toFixed(1)} mo`);
+        
+        svg.append("text")
+            .attr("x", svgWidth / 2)
+            .attr("y", margin.top / 2)
+            .attr("text-anchor", "middle")
+            .style("font-size", "14px")
+            .style("font-weight", "600")
+            .style("fill", "var(--sobi-dark-blue)")
+            .text(chartTitle);
+
+        svg.append("text")
+            .attr("x", svgWidth / 2)
+            .attr("y", chartHeight + margin.top + 45) // Position below x-axis
+            .attr("text-anchor", "middle")
+            .style("font-size", "10px")
+            .style("font-weight", "bold")
+            .style("fill", "var(--sobi-orange)")
+            .text(`P ${pValue}`);
+
+        const legendData = chartData.map(d => ({
+            label: d.group,
+            color: colorScale(d.group)
+        }));
+
+        const legendItems = legendContainer.selectAll(".legend-item")
+            .data(legendData).enter().append("div").attr("class", "legend-item");
+        legendItems.append("div").attr("class", "legend-color-box").style("background-color", d => d.color);
+        legendItems.append("span").text(d => d.label);
+    }
+    
+    function debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    };
+
+    const debouncedDrawChartPS1991 = debounce(() => drawCtdnaPfsChart("#ctdnaPfsChart", "#ctdnaPfsLegend"), 250);
+    
+    window.addEventListener('resize', debouncedDrawChartPS1991);
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        debouncedDrawChartPS1991();
+    });
+    if (document.readyState === "complete" || document.readyState === "interactive") {
+         setTimeout(debouncedDrawChartPS1991, 0); 
+    }
+    </script>
+</body>
+</html>

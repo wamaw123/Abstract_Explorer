@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="study:id" content="lymphopath-ai-dlbcl-mosqueira-pf1311">
+    <meta name="study:title" content="PF1311 - LymphoPath: AI-driven digital pathology platform for risk stratification in DLBCL">
+    <meta name="study:fileName" content="Abstracts/LYMPHOPATH-AI-DLBCL-MOSQUEIRA-PF1311.html">
+    <meta name="study:cancerTypes" content="DLBCL,LBCL,B-NHL">
+    <meta name="study:lineOfTherapy" content="1L">
+    <meta name="study:evidenceType" content="Real-world evidence">
+    <meta name="study:drugs" content="Rituximab,Monoclonal Antibody,Chemotherapy,CIT,R-CHOP,Artificial Intelligence">
+
+    <title>PF1311: LymphoPath AI for DLBCL Risk Stratification (Mosquera Orgueira) - SOBI Themed</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="abstract_styles.css">
+</head>
+<body class="abstract-page-body">
+    <div class="slide-container">
+        <div id="abstractMainContent">
+            <div class="visual-abstract-container">
+                <h2 class="visual-abstract-title">Visual Summary: PF1311 - LymphoPath: AI-Driven Digital Pathology for DLBCL Risk Stratification</h2>
+                <div class="visual-abstract-grid">
+                    <div class="visual-abstract-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--sobi-teal)"> <path d="M12 6.096c-1.058 0-2.02.468-2.704 1.248-.685.78-.996 1.788-.996 2.856s.311 2.076.996 2.856C9.98 13.84 10.942 14.31 12 14.31s2.02-.468 2.704-1.248.996-1.788.996-2.856-.311-2.076-.996-2.856C14.02 6.564 13.058 6.096 12 6.096zM12 12.81c-.53 0-1.008-.222-1.352-.588-.344-.366-.528-.852-.528-1.422s.184-1.056.528-1.422C10.992 9.012 11.47 8.79 12 8.79s1.008.222 1.352.588.528.852.528 1.422-.184-1.056-.528 1.422C13.008 12.588 12.53 12.81 12 12.81zm6.708 3.672A7.47 7.47 0 0012.024 15c-1.404 0-2.706.39-3.816 1.056A4.476 4.476 0 004.5 19.686V21h15v-1.314a4.476 4.476 0 00-3.792-3.624zM6.024 16.56c.84-.468 1.848-.768 2.904-.924A5.928 5.928 0 0112.024 15a5.928 5.928 0 013.096.636c1.056.156 2.064.456 2.904.924A2.988 2.988 0 0019.5 18.018V19.5h-15v-1.482a2.988 2.988 0 001.524-2.458zM4.5 7.032c0-1.068.312-2.076.996-2.856S7.2 3 8.256 3A7.47 7.47 0 0112.024 1.5c1.404 0 2.706.39 3.816 1.056A4.476 4.476 0 0119.5 6.186V7.5H4.5v-.468zM18 4.56c-.84.468-1.848.768-2.904-.924A5.928 5.928 0 0012.024 6a5.928 5.928 0 00-3.096.636 7.524 7.524 0 00-2.904.924A2.988 2.988 0 014.5 7.482V6H3V4.5A1.5 1.5 0 014.5 3h15A1.5 1.5 0 0121 4.5V6h-1.5v1.482a2.988 2.988 0 01-1.524 2.458L18 4.56z" />
+                        </svg>
+                        <h4>Population & Aim</h4>
+                        <p>N=118 DLBCL Pts. Aim: Develop AI platform (LymphoPath) to enhance DLBCL risk stratification using histopathology features.</p>
+                    </div>
+                    <div class="visual-abstract-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--sobi-teal)"> <path fill-rule="evenodd" d="M3 6a3 3 0 013-3h12a3 3 0 013 3v12a3 3 0 01-3 3H6a3 3 0 01-3-3V6zm15.75 1.5a.75.75 0 00-1.5 0v.345a.75.75 0 001.5 0V7.5zm-4.502 1.44a.75.75 0 01.043 1.06l-.043.048L12.06 12.28a.75.75 0 01-1.06-1.061l2.182-2.182a.75.75 0 011.018-.048zm1.06-2.25a.75.75 0 00-1.06 0L12.06 8.938a.75.75 0 001.061 1.06L15.31 7.81a.75.75 0 000-1.06zM9 12.75a.75.75 0 000 1.5h.097a.75.75 0 000-1.5H9zm3.75 0a.75.75 0 000 1.5h.097a.75.75 0 000-1.5h-.097zM6.75 12a.75.75 0 01.75-.75h.097a.75.75 0 010 1.5H7.5a.75.75 0 01-.75-.75zm3.748-5.44a.75.75 0 01.043-1.06l.043-.048L12.06 3.22a.75.75 0 011.06 1.061L10.938 6.51a.75.75 0 01-1.018.048L9.75 6.51a.75.75 0 01-.043-1.06l.043-.048L8.938 4.22a.75.75 0 011.06-1.061l2.182 2.182a.75.75 0 01-.048 1.018.75.75 0 01-1.06.043l-1.182-1.181zM6.75 15a.75.75 0 01.75-.75h6a.75.75 0 010 1.5h-6a.75.75 0 01-.75-.75z" clip-rule="evenodd" />
+                        </svg>
+                        <h4>Key Method</h4>
+                        <p>AI-driven analysis of digital pathology (tumor & microenvironment features) from whole-slide images (60X).</p>
+                    </div>
+                    <div class="visual-abstract-item">
+                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--sobi-orange)"> <path d="M3 13.5a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 13.5zM3 8.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 8.25zM3 18.75a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 18.75zM20.25 3a.75.75 0 00-.75.75v16.5a.75.75 0 001.5 0V3.75a.75.75 0 00-.75-.75z" />
+                            <path fill-rule="evenodd" d="M9.97 4.28a.75.75 0 01.75-.75H12a.75.75 0 01.75.75v10.174l3.108-3.293a.75.75 0 111.084 1.038l-4.5 4.75a.75.75 0 01-1.084 0l-4.5-4.75a.75.75 0 111.084-1.038L9.97 14.454V4.28z" clip-rule="evenodd" />
+                        </svg>
+                        <h4>Key Result (OOB Score)</h4>
+                        <p>Combined Model (Tumor + TME): <span class="highlight-value">0.684</span> (highest predictive capacity for survival).</p>
+                    </div>
+                    <div class="visual-abstract-item">
+                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--sobi-orange)"> <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-.092 14.444a.75.75 0 01-.092 0l-3.75-3.75a.75.75 0 111.06-1.06L12 14.813l3.182-3.182a.75.75 0 111.06 1.06l-3.75 3.75a.75.75 0 01-.53.22z" clip-rule="evenodd" />
+                        </svg>
+                        <h4>Conclusion</h4>
+                        <p>AI-driven histopathology (LymphoPath) refines DLBCL risk stratification. Holistic approach integrating tumor & TME features is best.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mb-8">
+                <h1 class="abstract-header-title">PF1311 - LymphoPath: AI-driven digital pathology platform for risk stratification in diffuse large B-CELL lymphoma</h1>
+                <p class="abstract-sub-header">Adrián Mosquera Orgueira, Manuel Piñeiro Fiel, Rosana Abal García, et al.</p>
+                <p class="abstract-meta-info mt-2">EHA 2025 Congress | Abstract #PF1311 | Poster Presentation</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-x-8 gap-y-6">
+                <div>
+                    <div class="abstract-card">
+                        <h2 class="abstract-section-title">Background</h2>
+                        <ul class="list-disc list-inside text-sm space-y-1 pl-2">
+                            <li>Diffuse large B-cell lymphoma (DLBCL) is a heterogeneous malignancy with variable treatment responses, complicating risk stratification.</li>
+                            <li>Traditional histopathology is qualitative and often lacks reproducibility.</li>
+                            <li>AI-driven image analysis enables quantitative biomarker extraction, refining prognosis and personalizing treatment.</li>
+                            <li>LymphoPath is an AI-powered platform integrating digital pathology and image feature extraction to enhance risk prediction and therapy optimization in DLBCL.</li>
+                        </ul>
+                    </div>
+
+                    <div class="abstract-card">
+                        <h2 class="abstract-section-title">Aims</h2>
+                        <ul class="list-disc list-inside text-sm space-y-1 pl-2">
+                            <li>To automatically identify and quantify tumor cells and microenvironmental components in DLBCL histopathology.</li>
+                            <li>To extract morphological and geospatial features that capture their interactions.</li>
+                            <li>To convert these features into reproducible AI-based biomarkers.</li>
+                            <li>To correlate these biomarkers with clinical outcomes in patients treated with R-CHOP and similar regimens.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <div class="abstract-card">
+                        <h2 class="abstract-section-title">Methods & Study Design</h2>
+                        <ul class="list-disc list-inside text-sm space-y-1 mb-3 pl-2">
+                            <li><strong>Study Type:</strong> AI-based pipeline development and validation using retrospective patient data.</li>
+                            <li><strong>Patient Population:</strong> 118 DLBCL patients (2000-2021).</li>
+                            <li><strong>Image Analysis:</strong>
+                                <ul class="list-circle list-inside ml-4">
+                                    <li>ML-based polygonal annotations by expert hematopathologists.</li>
+                                    <li>Over 20,000 cells classified into tumor and microenvironmental populations.</li>
+                                    <li>A pixel classifier distinguished lymphoid from non-lymphoid tissue.</li>
+                                    <li>The trained model was applied to digitized whole-slide images (60X magnification).</li>
+                                </ul>
+                            </li>
+                            <li><strong>Feature Extraction:</strong> Quantitative features including nuclear morphology, chromatin structure, staining patterns, and spatial relationships (e.g., Delaunay clusters).</li>
+                            <li><strong>Statistical Analysis:</strong> Random Survival Forest (RSF) used to predict survival, focusing on medians for robustness.</li>
+                            <li><strong>Performance Assessment:</strong> Out-of-bag (OOB) concordance-index metrics.</li>
+                        </ul>
+                         <div class="study-design-schema">
+                            <h3 class="schema-title">LymphoPath AI Pipeline Workflow</h3>
+                            <div class="schema-step">
+                                <strong>Input Data</strong>
+                                <span>Histopathological slides from 118 DLBCL Pts</span>
+                            </div>
+                            <div class="schema-arrow-down">▼</div>
+                            <div class="schema-step">
+                                <strong>Expert Annotation & Cell Classification</strong>
+                                <span>>20,000 cells (tumor/microenvironment)</span>
+                                <span>Pixel classification (lymphoid/non-lymphoid)</span>
+                            </div>
+                            <div class="schema-arrow-down">▼</div>
+                            <div class="schema-step">
+                                <strong>Whole-Slide Image Analysis (60X)</strong>
+                                <span>Quantitative feature extraction:</span>
+                                <span class="text-xs block text-left pl-4">- Nuclear morphology, Chromatin, Staining</span>
+                                <span class="text-xs block text-left pl-4">- Spatial relationships (Delaunay clusters)</span>
+                            </div>
+                             <div class="schema-arrow-down">▼</div>
+                            <div class="schema-step">
+                                <strong>Survival Prediction Modeling</strong>
+                                <span>Random Survival Forest (RSF)</span>
+                                 <span class="text-xs block text-left pl-4">- Model 1: Tumor cell features</span>
+                                 <span class="text-xs block text-left pl-4">- Model 2: Microenvironment features</span>
+                                 <span class="text-xs block text-left pl-4">- Model 3: Combined features</span>
+                            </div>
+                            <div class="schema-assessment-points">
+                               <span>Performance: OOB Concordance-Index</span>
+                               <span>Correlation with Clinical Outcomes</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-12 gap-x-8 gap-y-6 mt-6">
+                <div class="md:col-span-7">
+                    <div class="abstract-card">
+                        <h2 class="abstract-section-title">Results: Predictive Model Performance</h2>
+                        <p class="text-sm mb-2">Predictive performance was evaluated using Out-of-Bag (OOB) scores for three variable sets:</p>
+                        <ul class="list-disc list-inside text-sm space-y-1 pl-2 mb-3">
+                            <li>Model 1 (Tumor cell morphology & spatial properties): OOB score <span class="font-semibold">0.595</span>.</li>
+                            <li>Model 2 (Microenvironment cell morphology): OOB score <span class="font-semibold">0.552</span> (less predictive power alone).</li>
+                            <li>Model 3 (Combined Tumor + Microenvironment): OOB score <span class="font-semibold highlight">0.684</span> (highest predictive capacity).</li>
+                        </ul>
+                        <p class="text-sm mb-2">These results highlight the importance of integrating tumor-intrinsic and microenvironmental features for more accurate patient risk stratification.</p>
+                        <p class="text-sm font-semibold">Key Predictive Variables Identified:</p>
+                        <ul class="list-disc list-inside text-sm space-y-1 pl-2">
+                            <li>Cellular positioning</li>
+                            <li>Spatial relationships between clusters</li>
+                            <li>Cluster size</li>
+                            <li>Staining variability</li>
+                        </ul>
+                        <p class="text-sm mt-2">These features capture critical morphological and structural patterns, reinforcing the value of multimodal data integration.</p>
+                    </div>
+                </div>
+                <div class="md:col-span-5">
+                    <div class="abstract-card">
+                        <h2 class="abstract-section-title">Model Performance (OOB Scores)</h2>
+                        <div class="chart-container" style="height: 300px;">
+                            <svg id="oobScoreChart" width="100%" height="100%"></svg>
+                        </div>
+                         <div id="oobScoreLegend" class="legend"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="abstract-card mt-6">
+                <h2 class="abstract-section-title">Summary & Conclusion</h2>
+                <ul class="list-disc list-inside text-sm space-y-1 pl-2">
+                    <li>LymphoPath leverages AI-driven histopathology to refine risk stratification and personalize treatment in DLBCL.</li>
+                    <li>Integrating tumor and microenvironmental features significantly enhances survival prediction capabilities.</li>
+                    <li>The spatial relationships between cellular components proved to be highly influential in the predictive models.</li>
+                    <li>The combined model (tumor + microenvironment) demonstrated the strongest predictive power, emphasizing the need for a holistic approach to risk assessment in DLBCL.</li>
+                    <li>Ongoing validation efforts support LymphoPath as a potentially key tool for optimizing therapeutic strategies and improving the management of DLBCL patients.</li>
+                </ul>
+            </div>
+
+            <div class="abstract-card mt-6 abbreviations-list">
+                <h2 class="abstract-section-title">Keywords</h2>
+                <p>Artificial intelligence, Survival prediction, DLBCL.</p>
+            </div>
+
+            <div class="abstract-card mt-6 abbreviations-list">
+                <h2 class="abstract-section-title">Abbreviations</h2>
+                <p>AI, Artificial Intelligence; DLBCL, Diffuse Large B-Cell Lymphoma; ML, Machine Learning; OOB, Out-of-Bag; R-CHOP, Rituximab, Cyclophosphamide, Doxorubicin, Vincristine, Prednisone; RSF, Random Survival Forest; TME, Tumor Microenvironment; WSI, Whole-Slide Images.</p>
+            </div>
+
+            <div id="referenceSection" class="abstract-card mt-6 reference-section">
+                <h2 class="abstract-section-title">
+                    Reference
+                    <button id="copyReferenceBtn" class="copy-reference-button" title="Copy Reference">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 mr-1.5">
+                            <path d="M7 3.5A1.5 1.5 0 018.5 2h3.879a1.5 1.5 0 011.06.44l3.122 3.121A1.5 1.5 0 0117 6.621V16.5a1.5 1.5 0 01-1.5 1.5h-7A1.5 1.5 0 017 16.5v-13z" />
+                            <path d="M4.5 6A1.5 1.5 0 003 7.5v10A1.5 1.5 0 004.5 19h7a1.5 1.5 0 001.5-1.5v-2.5a.75.75 0 00-1.5 0v2.5a.5.5 0 01-.5.5h-7a.5.5 0 01-.5-.5v-10a.5.5 0 01.5-.5h2.5a.75.75 0 000-1.5H4.5z" />
+                        </svg>
+                        Copy
+                    </button>
+                </h2>
+                <p id="referenceSectionContent">Mosquera Orgueira A, Piñeiro Fiel M, Abal García R, et al. LymphoPath: AI-driven digital pathology platform for risk stratification in diffuse large B-CELL lymphoma. Abstract #PF1311 presented at the European Hematology Association (EHA) Congress. June 13 2025, Milan, Italy.</p>
+            </div>
+
+            <div class="abstract-footer-info">
+                <p>EHA 2025 Congress | Abstract #PF1311 | Abstract Release: 05/14/2025 | Presentation: 06/13/2025</p>
+                <p>For Research & Informational Purposes Only.</p>
+            </div>
+        </div> </div>
+    <script defer src="abstract_features.js"></script>
+    <script>
+        function drawOobScoreChart(containerId, legendContainerId) {
+            const chartData = [
+                { model: "Tumor Cell Morphology", oobScore: 0.595 },
+                { model: "Microenvironment Morphology", oobScore: 0.552 },
+                { model: "Combined Model", oobScore: 0.684 }
+            ];
+            const chartTitle = "Predictive Model Performance (OOB Score)";
+
+            const svg = d3.select(containerId);
+            const legendContainer = d3.select(legendContainerId);
+            svg.selectAll("*").remove(); // Clear previous chart
+            legendContainer.selectAll("*").remove(); // Clear previous legend
+
+            let containerWidth = svg.node().getBoundingClientRect().width || 400;
+            containerWidth = Math.max(containerWidth, 300);
+            
+            const svgWidth = containerWidth;
+            const svgHeight = 300; // Fixed height for this chart
+            const margin = { top: 40, right: 30, bottom: 80, left: 60 }; // Adjusted margins
+            const chartWidth = svgWidth - margin.left - margin.right;
+            const chartHeight = svgHeight - margin.top - margin.bottom;
+
+            if (chartWidth <= 0 || chartHeight <=0) return;
+
+            const g = svg.append("g")
+                .attr("transform", `translate(${margin.left},${margin.top})`);
+
+            const xScale = d3.scaleBand()
+                .domain(chartData.map(d => d.model))
+                .range([0, chartWidth])
+                .padding(0.4);
+
+            const yScale = d3.scaleLinear()
+                .domain([0, d3.max(chartData, d => d.oobScore) * 1.15 || 1]) // Dynamic Y based on max score or 1
+                .range([chartHeight, 0]);
+
+            const colorScale = d3.scaleOrdinal()
+                .domain(chartData.map(d => d.model))
+                .range(["var(--sobi-teal)", "var(--sobi-yellow)", "var(--sobi-orange)"]);
+
+            // X-axis
+            g.append("g")
+                .attr("transform", `translate(0,${chartHeight})`)
+                .call(d3.axisBottom(xScale))
+                .selectAll("text")
+                  .attr("class", "axis-text")
+                  .style("font-size", "10px")
+                  .attr("transform", "rotate(-25) translate(0,0)")
+                  .style("text-anchor", "end");
+            
+            // Y-axis
+            g.append("g")
+                .call(d3.axisLeft(yScale).ticks(5).tickFormat(d3.format(".3f"))) // Format to 3 decimal places
+                .selectAll("text")
+                .attr("class", "axis-text")
+                .style("font-size", "10px");
+
+            // Y-axis Label
+            g.append("text")
+                .attr("transform", "rotate(-90)")
+                .attr("y", 0 - margin.left + 15)
+                .attr("x", 0 - (chartHeight / 2))
+                .attr("dy", "1em")
+                .style("text-anchor", "middle")
+                .attr("class", "axis-label")
+                .text("OOB Concordance-Index");
+            
+            // Grid lines
+            g.append("g")			
+                .attr("class", "grid")
+                .call(d3.axisLeft(yScale)
+                    .ticks(5)
+                    .tickSize(-chartWidth)
+                    .tickFormat("")
+                )
+                .selectAll("line")
+                .style("stroke", "var(--sobi-light-gray)") 
+                .style("stroke-opacity", "0.7");
+
+            // Bars
+            g.selectAll(".bar")
+                .data(chartData)
+                .enter().append("rect")
+                  .attr("class", "bar")
+                  .attr("x", d => xScale(d.model))
+                  .attr("y", d => yScale(d.oobScore))
+                  .attr("width", xScale.bandwidth())
+                  .attr("height", d => chartHeight - yScale(d.oobScore))
+                  .attr("fill", d => colorScale(d.model))
+                  .attr("rx", 3) 
+                  .attr("ry", 3);
+            
+            // Bar Labels
+            g.selectAll(".bar-label")
+                .data(chartData)
+                .enter().append("text")
+                  .attr("class", "chart-label")
+                  .attr("x", d => xScale(d.model) + xScale.bandwidth() / 2)
+                  .attr("y", d => yScale(d.oobScore) - 5) 
+                  .attr("text-anchor", "middle")
+                  .style("font-size", "10px")
+                  .style("fill", "var(--sobi-dark-text)")
+                  .text(d => d.oobScore.toFixed(3)); 
+            
+            // Chart Title
+            svg.append("text")
+                .attr("x", svgWidth / 2)
+                .attr("y", margin.top / 2)
+                .attr("text-anchor", "middle")
+                .style("font-size", "14px")
+                .style("font-weight", "600")
+                .style("fill", "var(--sobi-dark-blue)")
+                .text(chartTitle);
+            
+            // Legend
+            const legendData = chartData.map(d => ({
+                label: d.model,
+                color: colorScale(d.model)
+            }));
+            const legendItems = legendContainer.selectAll(".legend-item")
+                .data(legendData).enter().append("div").attr("class", "legend-item");
+            legendItems.append("div").attr("class", "legend-color-box").style("background-color", d => d.color);
+            legendItems.append("span").text(d => d.label);
+        }
+        
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        };
+
+        const debouncedDrawOobChart = debounce(() => drawOobScoreChart("#oobScoreChart", "#oobScoreLegend"), 250);
+        
+        window.addEventListener('resize', debouncedDrawOobChart);
+        document.addEventListener('DOMContentLoaded', debouncedDrawOobChart);
+        // Fallback if DOMContentLoaded already fired
+        if (document.readyState === "complete" || document.readyState === "interactive") {
+             setTimeout(debouncedDrawOobChart, 0); 
+        }
+    </script>
+</body>
+</html>

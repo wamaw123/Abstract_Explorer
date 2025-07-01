@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="study:id" content="cd30-dlbcl-tme-naganuma-pf1018">
+    <meta name="study:title" content="PF1018 - Diffuse large B-cell lymphoma (DLBCL): Prognostic impact of CD30 expression and its association with the tumor microenvironment">
+    <meta name="study:fileName" content="Abstracts/CD30-DLBCL-TME-NAGANUMA-PF1018.html">
+    <meta name="study:cancerTypes" content="DLBCL,HGBCL,LBCL,B-NHL">
+    <meta name="study:lineOfTherapy" content="1L">
+    <meta name="study:evidenceType" content="Real-world evidence">
+    <meta name="study:drugs" content="Brentuximab Vedotin,ADC,Rituximab,Monoclonal Antibody,Chemotherapy,CIT,R-CHOP,Bispecific antibodies,Lenalidomide,Immune checkpoint inhibitors">
+
+    <title>PF1018: CD30 Expression in DLBCL (Naganuma) - SOBI Themed</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="abstract_styles.css">
+</head>
+<body class="abstract-page-body">
+    <div class="slide-container">
+        <div class="visual-abstract-container">
+            <h2 class="visual-abstract-title">PF1018 - Visual Summary: Prognostic Impact of CD30 Expression & TME in DLBCL</h2>
+            <div class="visual-abstract-grid">
+                <div class="visual-abstract-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--sobi-teal)"> <path d="M12 6.096c-1.058 0-2.02.468-2.704 1.248-.685.78-.996 1.788-.996 2.856s.311 2.076.996 2.856C9.98 13.84 10.942 14.31 12 14.31s2.02-.468 2.704-1.248.996-1.788.996-2.856-.311-2.076-.996-2.856C14.02 6.564 13.058 6.096 12 6.096zM12 12.81c-.53 0-1.008-.222-1.352-.588-.344-.366-.528-.852-.528-1.422s.184-1.056.528-1.422C10.992 9.012 11.47 8.79 12 8.79s1.008.222 1.352.588.528.852.528 1.422-.184-1.056-.528 1.422C13.008 12.588 12.53 12.81 12 12.81zm6.708 3.672A7.47 7.47 0 0012.024 15c-1.404 0-2.706.39-3.816 1.056A4.476 4.476 0 004.5 19.686V21h15v-1.314a4.476 4.476 0 00-3.792-3.624zM6.024 16.56c.84-.468 1.848-.768 2.904-.924A5.928 5.928 0 0112.024 15a5.928 5.928 0 013.096.636c1.056.156 2.064.456 2.904.924A2.988 2.988 0 0019.5 18.018V19.5h-15v-1.482a2.988 2.988 0 001.524-2.458zM4.5 7.032c0-1.068.312-2.076.996-2.856S7.2 3 8.256 3A7.47 7.47 0 0112.024 1.5c1.404 0 2.706.39 3.816 1.056A4.476 4.476 0 0119.5 6.186V7.5H4.5v-.468zM18 4.56c-.84.468-1.848-.768-2.904-.924A5.928 5.928 0 0012.024 6a5.928 5.928 0 00-3.096.636 7.524 7.524 0 00-2.904.924A2.988 2.988 0 014.5 7.482V6H3V4.5A1.5 1.5 0 014.5 3h15A1.5 1.5 0 0121 4.5V6h-1.5v1.482a2.988 2.988 0 01-1.524 2.458L18 4.56z" />
+                    </svg>
+                    <h4>Population & Aim</h4>
+                    <p>DLBCL pts (Public N=928; Institutional N=171). Aim: Assess CD30 prognostic impact & TME links to identify BV therapy candidates.</p>
+                </div>
+                <div class="visual-abstract-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--sobi-teal)"> <path fill-rule="evenodd" d="M4.5 2.25A2.25 2.25 0 002.25 4.5v15A2.25 2.25 0 004.5 21.75h15A2.25 2.25 0 0021.75 19.5V4.5A2.25 2.25 0 0019.5 2.25h-15zm9.75 10.178a.75.75 0 00-1.5 0v2.872l-1.6-1.6a.75.75 0 10-1.06 1.061l2.353 2.353a.75.75 0 001.061 0l2.353-2.353a.75.75 0 00-1.06-1.06l-1.591 1.591v-2.873zm-6.75-4.428a.75.75 0 01.75-.75h4.5a.75.75 0 010 1.5h-4.5a.75.75 0 01-.75-.75z" clip-rule="evenodd" />
+                    </svg>
+                    <h4>Methodology / Biomarker</h4>
+                    <p>CD30 expression by microarray (mRNA) & flow cytometry (protein). TME analysis by CIBERSORT. Prognosis by Cox model.</p>
+                </div>
+                <div class="visual-abstract-item">
+                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--sobi-orange)"> <path d="M17.25 9.11v5.38a4.502 4.502 0 01-4.5 4.5h-3a4.502 4.502 0 01-4.5-4.5V9.11A4.502 4.502 0 019.75 4.61h.046a4.5 4.5 0 014.408 4.065 2.25 2.25 0 004.419.426.75.75 0 00-1.34-.504 2.25 2.25 0 00-4.075-1.316 3.001 3.001 0 00-2.965-2.632H9.75A4.502 4.502 0 0114.25 0h.09a4.502 4.502 0 014.41 4.41v4.7zM5.25 12A2.25 2.25 0 003 14.25v3A2.25 2.25 0 005.25 19.5h3A2.25 2.25 0 0010.5 17.25v-3A2.25 2.25 0 008.25 12h-3z" />
+                    </svg>
+                    <h4>Key Finding: Prognosis</h4>
+                    <p>CD30-high (mRNA/protein) = <span class="highlight-value">favorable prognosis</span> in DLBCL (mRNA: Overall HR 0.77, p=0.03; GCB HR 0.48, p=0.01).</p>
+                </div>
+                <div class="visual-abstract-item">
+                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--sobi-orange)"> <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 6a.75.75 0 00-1.5 0v6c0 .414.336.75.75.75h4.5a.75.75 0 000-1.5h-3.75V6z" clip-rule="evenodd" />
+                    </svg>
+                    <h4>Conclusion/Implication</h4>
+                    <p>CD30 eval. (FCM) ID's favorable GCB DLBCL. UNC CD30-high may benefit from BV + IO agents due to CD4+ hot TME.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mb-8">
+            <h1 class="abstract-header-title">PF1018 - Diffuse large B-cell lymphoma (DLBCL): Prognostic impact of CD30 expression and its association with the tumor microenvironment</h1>
+            <p class="abstract-sub-header">Ken Naganuma, Yuka Tanaka, Noriyuki Sakata, et al. <em class="text-sm">(KN and YT contributed equally and share the first authorship)</em></p>
+            <p class="abstract-meta-info mt-2">EHA 2025 Congress | Abstract #PF1018 | Poster Presentation</p>
+        </div>
+
+        <div class="grid md:grid-cols-12 gap-x-8 gap-y-6">
+            <div class="md:col-span-8">
+                <div class="abstract-card">
+                    <h2 class="abstract-section-title">Background</h2>
+                    <ul class="list-disc list-inside text-sm space-y-2 pl-2">
+                        <li>Diffuse large B-cell lymphoma (DLBCL) is the most common type of lymphoma, but it is highly heterogeneous, and the prognosis varies among cases.</li>
+                        <li>Although R-CHOP therapy is the standard first-line treatment, more specific therapies are necessary for the individual.</li>
+                        <li>Brentuximab vedotin (BV) is an anti-CD30 antibody-drug conjugate that has been reported to be effective with fewer side effects in other lymphomas.</li>
+                        <li>Although the efficacy of BV is reportedly not correlated with CD30 expression in tumor cells, and it is effective even in CD30-negative cases, CD30 evaluation has been limited to pathological assessment by immunohistochemistry (IHC).</li>
+                        <li>To date, there have been no reports of quantitative evaluation of CD30 gene expression in tumor cells using microarray analysis or protein levels by flow cytometry.</li>
+                    </ul>
+                </div>
+
+                <div class="abstract-card">
+                    <h2 class="abstract-section-title">Aims</h2>
+                    <p class="text-sm">To identify optimal candidates for BV therapy in DLBCL, we investigated the prognostic significance, clinical features, and molecular basis of CD30-high DLBCL based on gene and protein expression analysis.</p>
+                </div>
+                
+                <div class="abstract-card">
+                    <h2 class="abstract-section-title">Methods & Study Design</h2>
+                    <p class="text-sm mb-2">This study involved analysis of publicly available and institutional data to assess CD30 expression in DLBCL.</p>
+                    <div class="study-design-schema">
+                        <h3 class="schema-title">Analytical Approach</h3>
+                        <div class="schema-branch-container flex flex-col md:flex-row gap-4">
+                            <div class="schema-branch flex-1">
+                                <div class="schema-step schema-step-alt">
+                                    <strong>Public Dataset (GSE117556)</strong>
+                                    <span>N=928 DLBCL cases</span>
+                                </div>
+                                <div class="schema-arrow-down">▼</div>
+                                <div class="schema-step schema-step-alt">
+                                    <strong>CD30 mRNA Analysis</strong>
+                                    <span>Microarray data</span>
+                                    <span>ROC curve (event: death) to define CD30-high</span>
+                                </div>
+                                <div class="schema-arrow-down">▼</div>
+                                <div class="schema-step schema-step-alt">
+                                    <strong>Prognostic & Clinical Analysis</strong>
+                                    <span>Cox proportional hazards model (OS)</span>
+                                    <span>Correlation with molecular subtypes (ABC, GCB, UNC, HGBCL)</span>
+                                </div>
+                                <div class="schema-arrow-down">▼</div>
+                                <div class="schema-step schema-step-alt">
+                                    <strong>Tumor Microenvironment (TME)</strong>
+                                    <span>CIBERSORT method</span>
+                                    <span>Correlation of T-cell infiltration with CD30 expression & subtypes</span>
+                                </div>
+                            </div>
+                            <div class="schema-branch flex-1">
+                                <div class="schema-step schema-step-alt">
+                                    <strong>Institutional Cohort</strong>
+                                    <span>N=171 DLBCL cases</span>
+                                </div>
+                                <div class="schema-arrow-down">▼</div>
+                                <div class="schema-step schema-step-alt">
+                                    <strong>CD30 Protein Analysis</strong>
+                                    <span>Flow cytometry (FCM)</span>
+                                    <span>Definition of high CD30 expression</span>
+                                </div>
+                                <div class="schema-arrow-down">▼</div>
+                                <div class="schema-step schema-step-alt">
+                                    <strong>Prognostic Analysis</strong>
+                                    <span>Correlation with overall survival (OS)</span>
+                                    <span>Analysis by GCB subtype</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 <div class="abstract-card">
+                    <h2 class="abstract-section-title">Key Findings: CD30 Gene Expression (GSE117556, N=928)</h2>
+                    <ul class="list-disc list-inside text-sm space-y-2 pl-2">
+                        <li><strong>CD30-High Definition:</strong> 59% of DLBCL cases (n=545) were CD30-high by microarray and ROC analysis (event: death).
+                            <ul class="list-circle list-inside ml-4 mt-1">
+                                <li>Median CD30 mRNA: CD30-high 9.45 vs. CD30-low 7.35.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Prognostic Impact:</strong>
+                            <ul class="list-circle list-inside ml-4 mt-1">
+                                <li>CD30-high DLBCL was an independent favorable prognostic factor (HR 0.77 [0.60-0.98], p=0.03), irrespective of sex and IPI.</li>
+                                <li>CD30-high GCB subtype showed a particularly favorable prognosis (HR 0.48 [0.27-0.85], p=0.01).</li>
+                            </ul>
+                        </li>
+                        <li><strong>Molecular Subtypes & CD30 Expression:</strong>
+                            <ul class="list-circle list-inside ml-4 mt-1">
+                                <li>HGBCL: Lowest CD30 mRNA expression.</li>
+                                <li>UNC type: Significantly highest CD30 mRNA expression.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Tumor Microenvironment (TME - CIBERSORT):</strong>
+                            <ul class="list-circle list-inside ml-4 mt-1">
+                                <li>HGBCL had the least T cell infiltration, whereas UNC type had the most.</li>
+                                <li>CD30 mRNA expression correlated positively with CD4+ T cells and negatively with CD8+ T cells.</li>
+                                <li>These results suggest that CD30-high DLBCL is frequently of the UNC type and has an immune hot TME with a predominance of CD4+ T cells.</li>
+                            </ul>
+                        </li>
+                        <li>The high prevalence of CD30-high DLBCL (59%) aligns with BV's efficacy in IHC CD30-negative cases in trials.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="md:col-span-4">
+                <div class="abstract-card">
+                    <h2 class="abstract-section-title">Key Findings: CD30 Protein Expression (Institutional Cohort, N=171 by FCM)</h2>
+                     <ul class="list-disc list-inside text-sm space-y-2 pl-2">
+                        <li><strong>CD30-High Definition:</strong> 28% of cases showed high CD30 protein expression by flow cytometry.</li>
+                        <li><strong>Prognostic Impact:</strong>
+                            <ul class="list-circle list-inside ml-4 mt-1">
+                                <li>High CD30 protein expression was a favorable prognostic factor (HR 0.67 [0.38-1.19], p=0.17).</li>
+                                <li>In the GCB type, high CD30 protein expression showed a trend towards favorable prognosis (HR 0.32 [0.10-1.06], p=0.06).</li>
+                            </ul>
+                        </li>
+                        <li>These protein-level findings are consistent with the gene expression results.</li>
+                    </ul>
+                </div>
+                 <div class="abstract-card">
+                    <h2 class="abstract-section-title">Patient Population Overview</h2>
+                    <div class="table-container compact-table">
+                        <table>
+                            <thead>
+                                <tr><th>Cohort</th><th>N</th><th>Key Feature</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>GSE117556 (Public)</td>
+                                    <td>928</td>
+                                    <td>CD30 mRNA by microarray</td>
+                                </tr>
+                                <tr>
+                                    <td>Institutional</td>
+                                    <td>171</td>
+                                    <td>CD30 protein by FCM</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-xs mt-2">Molecular subtypes analyzed included ABC, GCB, UNC, and HGBCL.</p>
+                </div>
+
+                 <div class="abstract-card">
+                    <h2 class="abstract-section-title">Prognostic Significance Summary</h2>
+                    <div class="infographic-item-group">
+                        <div class="infographic-item teal-theme mb-2">
+                            <div class="infographic-icon icon-teal">📈</div>
+                            <div class="infographic-value">Favorable OS</div>
+                            <div class="infographic-label">CD30-High (mRNA & Protein)</div>
+                        </div>
+                        <div class="infographic-item orange-theme mb-2">
+                             <div class="infographic-icon icon-orange">🎯</div>
+                            <div class="infographic-value">HR 0.77 (mRNA)</div>
+                            <div class="infographic-label">Overall CD30-High DLBCL (p=0.03)</div>
+                        </div>
+                        <div class="infographic-item teal-theme">
+                            <div class="infographic-icon icon-teal">🎯</div>
+                            <div class="infographic-value">HR 0.48 (mRNA, GCB)</div>
+                             <div class="infographic-label">CD30-High GCB Subtype (p=0.01)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="abstract-card mt-6">
+            <h2 class="abstract-section-title">Summary & Conclusion</h2>
+            <ul class="list-disc list-inside text-sm space-y-2 pl-2">
+                <li>These findings suggest that CD30 evaluation by FCM can identify favorable prognostic cases, excluding HGBCL, within the GCB type.</li>
+                <li>Furthermore, our study suggests the possibility of improving treatment outcomes in the UNC type of CD30-high DLBCL by adding bispecific antibodies, lenalidomide or immune checkpoint inhibitors to BV.</li>
+            </ul>
+        </div>
+
+        <div class="abstract-card mt-6 abbreviations-list">
+            <h2 class="abstract-section-title">Abbreviations</h2>
+            <p>
+                ABC, Activated B-Cell like; ADC, Antibody-Drug Conjugate; BV, Brentuximab Vedotin; CIBERSORT, Cell type Identification By Estimating Relative Subsets Of RNA Transcripts; DLBCL, Diffuse Large B-Cell Lymphoma; FCM, Flow Cytometry; GCB, Germinal Center B-Cell like; HGBCL, High-Grade B-Cell Lymphoma; HR, Hazard Ratio; IHC, Immunohistochemistry; IPI, International Prognostic Index; IO, Immuno-oncology; mRNA, messenger RNA; OS, Overall Survival; R-CHOP, Rituximab, Cyclophosphamide, Doxorubicin, Vincristine, Prednisone; ROC, Receiver Operating Characteristic; TME, Tumor Microenvironment; UNC, Unclassifiable.
+            </p>
+        </div>
+
+        <div class="abstract-card mt-6 reference-section">
+            <h2 class="abstract-section-title">
+                Reference
+                <button id="copyReferenceBtn" class="copy-reference-button" title="Copy Reference">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 mr-1.5">
+                        <path d="M7 3.5A1.5 1.5 0 018.5 2h3.879a1.5 1.5 0 011.06.44l3.122 3.121A1.5 1.5 0 0117 6.621V16.5a1.5 1.5 0 01-1.5 1.5h-7A1.5 1.5 0 017 16.5v-13z" />
+                        <path d="M4.5 6A1.5 1.5 0 003 7.5v10A1.5 1.5 0 004.5 19h7a1.5 1.5 0 001.5-1.5v-2.5a.75.75 0 00-1.5 0v2.5a.5.5 0 01-.5.5h-7a.5.5 0 01-.5-.5v-10a.5.5 0 01.5-.5h2.5a.75.75 0 000-1.5H4.5z" />
+                    </svg>
+                    Copy
+                </button>
+            </h2>
+            <p id="referenceSectionContent">
+                Naganuma K, Tanaka Y, Sakata N, et al. Diffuse large B-cell lymphoma (DLBCL): Prognostic impact of CD30 expression and its association with the tumor microenvironment. Abstract #PF1018 presented at the European Haematology Association (EHA) Congress. 12–15 June 2025, Milan, Italy.
+            </p>
+        </div>
+
+        <div class="abstract-footer-info">
+            <p>EHA 2025 Congress | Abstract #PF1018 | Abstract Release: 05/14/25 | Presentation: 06/13/2025</p>
+            <p>For Research & Informational Purposes Only.</p>
+        </div>
+    </div>
+    <script defer src="abstract_features.js"></script> 
+</body>
+</html>

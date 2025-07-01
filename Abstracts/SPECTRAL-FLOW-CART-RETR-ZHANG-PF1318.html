@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="study:id" content="spectral-flow-cart-retr-zhang-pf1318">
+    <meta name="study:title" content="PF1318 - Spectral flow cytometry-guided selection of alternative tumor-associated membrane expression antigens for CAR-T cell re-treatment in relapsed/refractory B-cell malignancies">
+    <meta name="study:fileName" content="Abstracts/SPECTRAL-FLOW-CART-RETR-ZHANG-PF1318.html">
+    <meta name="study:cancerTypes" content="DLBCL,FL,LBCL,B-NHL">
+    <meta name="study:lineOfTherapy" content="3L+">
+    <meta name="study:evidenceType" content="Real-world evidence">
+    <meta name="study:drugs" content="CAR-T cell therapy">
+
+    <title>PF1318: Spectral flow cytometry-guided CAR-T re-treatment (Zhang)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="abstract_styles.css">
+</head>
+<body class="abstract-page-body">
+    <div class="slide-container">
+        <div class="visual-abstract-container">
+            <h2 class="visual-abstract-title">Visual Summary: PF1318 - Spectral Flow Guided CAR-T Re-treatment in R/R B-cell Malignancies</h2>
+            <div class="visual-abstract-grid">
+                <div class="visual-abstract-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--sobi-teal)"> <path d="M12 6.096c-1.058 0-2.02.468-2.704 1.248-.685.78-.996 1.788-.996 2.856s.311 2.076.996 2.856C9.98 13.84 10.942 14.31 12 14.31s2.02-.468 2.704-1.248.996-1.788.996-2.856-.311-2.076-.996-2.856C14.02 6.564 13.058 6.096 12 6.096zM12 12.81c-.53 0-1.008-.222-1.352-.588-.344-.366-.528-.852-.528-1.422s.184-1.056.528-1.422C10.992 9.012 11.47 8.79 12 8.79s1.008.222 1.352.588.528.852.528 1.422-.184-1.056-.528 1.422C13.008 12.588 12.53 12.81 12 12.81zm6.708 3.672A7.47 7.47 0 0012.024 15c-1.404 0-2.706.39-3.816 1.056A4.476 4.476 0 004.5 19.686V21h15v-1.314a4.476 4.476 0 00-3.792-3.624zM6.024 16.56c.84-.468 1.848-.768 2.904-.924A5.928 5.928 0 0112.024 15a5.928 5.928 0 013.096.636c1.056.156 2.064.456 2.904.924A2.988 2.988 0 0019.5 18.018V19.5h-15v-1.482a2.988 2.988 0 001.524-2.458zM4.5 7.032c0-1.068.312-2.076.996-2.856S7.2 3 8.256 3A7.47 7.47 0 0112.024 1.5c1.404 0 2.706.39 3.816 1.056A4.476 4.476 0 0119.5 6.186V7.5H4.5v-.468zM18 4.56c-.84.468-1.848.768-2.904-.924A5.928 5.928 0 0012.024 6a5.928 5.928 0 00-3.096.636 7.524 7.524 0 00-2.904.924A2.988 2.988 0 014.5 7.482V6H3V4.5A1.5 1.5 0 014.5 3h15A1.5 1.5 0 0121 4.5V6h-1.5v1.482a2.988 2.988 0 01-1.524 2.458L18 4.56z" />
+                    </svg>
+                    <h4>Population & Aim</h4>
+                    <p>R/R B-cell malignancies (DLBCL, FL, MCL, MM; N=23) post-prior CAR-T. Aim: Evaluate spectral flow-guided CAR-T re-treatment targeting alternative antigens.</p>
+                </div>
+                <div class="visual-abstract-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--sobi-teal)"> <path fill-rule="evenodd" d="M3 6a3 3 0 013-3h12a3 3 0 013 3v12a3 3 0 01-3 3H6a3 3 0 01-3-3V6zm15.75 1.5a.75.75 0 00-1.5 0v.345a.75.75 0 001.5 0V7.5zm-4.502 1.44a.75.75 0 01.043 1.06l-.043.048L12.06 12.28a.75.75 0 01-1.06-1.061l2.182-2.182a.75.75 0 011.018-.048zm1.06-2.25a.75.75 0 00-1.06 0L12.06 8.938a.75.75 0 001.061 1.06L15.31 7.81a.75.75 0 000-1.06zM9 12.75a.75.75 0 000 1.5h.097a.75.75 0 000-1.5H9zm3.75 0a.75.75 0 000 1.5h.097a.75.75 0 000-1.5h-.097zM6.75 12a.75.75 0 01.75-.75h.097a.75.75 0 010 1.5H7.5a.75.75 0 01-.75-.75zm3.748-5.44a.75.75 0 01.043-1.06l.043-.048L12.06 3.22a.75.75 0 011.06 1.061L10.938 6.51a.75.75 0 01-1.018.048L9.75 6.51a.75.75 0 01-.043-1.06l.043-.048L8.938 4.22a.75.75 0 011.06-1.061l2.182 2.182a.75.75 0 01-.048 1.018.75.75 0 01-1.06.043l-1.182-1.181zM6.75 15a.75.75 0 01.75-.75h6a.75.75 0 010 1.5h-6a.75.75 0 01-.75-.75z" clip-rule="evenodd" />
+                    </svg>
+                    <h4>Methodology</h4>
+                    <p>Retrospective. Spectral flow cytometry profiled antigen expression (CD19, CD20, CD22, CD79b, BCMA, GPRC5D etc.) on relapsed tumors to guide CAR-T re-treatment target.</p>
+                </div>
+                <div class="visual-abstract-item">
+                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--sobi-orange)"> <path d="M3 13.5a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 13.5zM3 8.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 8.25zM3 18.75a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 18.75zM20.25 3a.75.75 0 00-.75.75v16.5a.75.75 0 001.5 0V3.75a.75.75 0 00-.75-.75z" />
+                        <path fill-rule="evenodd" d="M9.97 4.28a.75.75 0 01.75-.75H12a.75.75 0 01.75.75v10.174l3.108-3.293a.75.75 0 111.084 1.038l-4.5 4.75a.75.75 0 01-1.084 0l-4.5-4.75a.75.75 0 111.084-1.038L9.97 14.454V4.28z" clip-rule="evenodd" />
+                    </svg>
+                    <h4>Key Efficacy (N=23)</h4>
+                    <p>ORR: <span class="highlight-value">61%</span>, CR: <span class="highlight-value">46%</span>. mDOR 7mo, mPFS 6mo. High target antigen expression correlated with better ORR (75% vs 40%).</p>
+                </div>
+                <div class="visual-abstract-item">
+                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--sobi-orange)"> <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 6a.75.75 0 00-1.5 0v6c0 .414.336.75.75.75h4.5a.75.75 0 000-1.5h-3.75V6z" clip-rule="evenodd" />
+                    </svg>
+                    <h4>Safety & Conclusion</h4>
+                    <p>Low G≥3 CRS (3%), no G≥3 ICANS, no TRM. Spectral flow-guided CAR-T re-treatment is feasible & effective for antigen escape.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mb-8">
+            <h1 class="abstract-header-title">PF1318: Spectral flow cytometry-guided selection of alternative tumor-associated membrane expression antigens for CAR-T cell re-treatment in relapsed/refractory B-cell malignancies</h1>
+            <p class="abstract-sub-header">Yajing Zhang</p>
+            <p class="abstract-meta-info mt-2">EHA Library PF1318 | Abstract Release: 05/14/2025 | Presentation: 06/13/2025</p>
+        </div>
+
+        <div class="grid md:grid-cols-12 gap-x-8 gap-y-6">
+            <div class="md:col-span-8">
+                <div class="abstract-card">
+                    <h2 class="abstract-section-title">Background</h2>
+                    <ul class="list-disc list-inside text-sm space-y-2 pl-2">
+                        <li>CAR-T cell therapy shows remarkable efficacy in R/R B-cell malignancies.</li>
+                        <li>Disease relapse/progression is a significant challenge due to mechanisms like target antigen escape (loss/downregulation), CAR-T cell dysfunction, and an immunosuppressive TME.</li>
+                        <li>Re-treatment with CAR-T cells against the original target is often ineffective, especially with antigen loss.</li>
+                        <li>Identifying and targeting alternative antigens on residual malignant cells is a promising strategy.</li>
+                    </ul>
+                </div>
+
+                <div class="abstract-card">
+                    <h2 class="abstract-section-title">Aims</h2>
+                    <p class="text-sm">To evaluate the feasibility and efficacy of CAR-T cell re-treatment, guided by comprehensive spectral flow cytometric profiling of target tumor-associated membrane surface antigen expression, in patients with R/R B-cell malignancies who have progressed after prior CAR-T therapy.</p>
+                </div>
+                
+                <div class="abstract-card">
+                    <h2 class="abstract-section-title">Methods & Study Design</h2>
+                    <ul class="list-disc list-inside text-sm space-y-1 mb-3 pl-2">
+                        <li><strong>Study Type:</strong> Retrospective analysis.</li>
+                        <li><strong>Patient Population:</strong> Patients with R/R B-cell malignancies who relapsed/progressed after prior CAR-T therapy.</li>
+                        <li><strong>Sample Analysis:</strong> Pre-re-treatment samples (bone marrow aspirate, peripheral blood, or tumor biopsy) analyzed by multi-parameter spectral flow cytometry.</li>
+                        <li><strong>Comprehensive Antibody Panel Used to Quantify:</strong>
+                            <ul class="list-circle list-inside ml-4 mt-1 space-y-1">
+                                <li><strong>Potential CAR-T Targets:</strong> CD19, CD20, CD79b, CD22, BCMA, CD38, CD30, CD70, GPRC5D, CS1, NKG2D, and others.</li>
+                                <li><strong>T-cell Exhaustion Markers:</strong> PD-1, TIM-3, LAG-3.</li>
+                                <li><strong>TME Components:</strong> T-cell subsets, NK cells, MDSCs, Tregs, TAMs.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                     <div class="study-design-schema">
+                        <h3 class="schema-title">Study Workflow</h3>
+                        <div class="schema-step">
+                            <strong>Patient Cohort (N=23)</strong>
+                            <span>R/R B-cell malignancies post-prior CAR-T</span>
+                        </div>
+                        <div class="schema-arrow-down">▼</div>
+                        <div class="schema-step">
+                            <strong>Pre-Re-treatment Assessment</strong>
+                            <span>Sample collection (BM, PB, Biopsy)</span>
+                            <span>Spectral Flow Cytometry Profiling:</span>
+                            <span class="text-xs block text-left pl-4">- Target Antigens (CD19, CD20, CD22, BCMA, etc.)</span>
+                            <span class="text-xs block text-left pl-4">- T-cell Exhaustion Markers</span>
+                            <span class="text-xs block text-left pl-4">- TME Components</span>
+                        </div>
+                        <div class="schema-arrow-down">▼</div>
+                        <div class="schema-step">
+                            <strong>Selection of Alternative Target</strong>
+                            <span>Based on flow cytometry results</span>
+                        </div>
+                        <div class="schema-arrow-down">▼</div>
+                        <div class="schema-step">
+                            <strong>CAR-T Cell Re-treatment</strong>
+                            <span>Targeting selected alternative antigen</span>
+                        </div>
+                        <div class="schema-arrow-down">▼</div>
+                        <div class="schema-assessment-points">
+                           <span>Response (ORR, CR)</span>
+                           <span>Durability (DOR, PFS, OS)</span>
+                           <span>Safety (CRS, ICANS)</span>
+                           <span>Correlation of Antigen Expression with Response</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="abstract-card">
+                    <h2 class="abstract-section-title">Efficacy of Re-treatment (N=23)</h2>
+                    <p class="text-xs meta-info mb-2">Prior CAR-T targets: CD19 and BCMA.</p>
+                    <h3 class="abstract-sub-section-title">Antigen Expression & Re-treatment Targets:</h3>
+                    <ul class="list-disc list-inside text-sm space-y-1 pl-2 mb-3">
+                        <li>Substantial heterogeneity in antigen expression profiles post-initial CAR-T.</li>
+                        <li><strong>Post-CD19 CAR-T Relapse:</strong> 19% CD19 loss, 32% CD19 downregulation, 49% maintained CD19. Alternative targets (CD20, CD22, CD79b) frequently identified.</li>
+                        <li><strong>Post-BCMA CAR-T Relapse:</strong> 43% BCMA downregulation. Alternative targets (GPRC5D, CD38, CS1, NKG2D) observed.</li>
+                        <li><strong>Re-treatment CAR-T Targets Utilized:</strong> CD19/20 (n=3), CD20 (n=2), CD22 (n=5), CD79b (n=2), GPRC5D (n=5), CS1 (n=1), NKG2D (n=2), CD38 (n=3).</li>
+                    </ul>
+                    <h3 class="abstract-sub-section-title">Clinical Outcomes:</h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-2 gap-4 mb-4">
+                        <div class="infographic-item orange-theme">
+                            <div class="infographic-icon icon-orange">📊</div>
+                            <div class="infographic-value">61%</div>
+                            <div class="infographic-label">Overall Response Rate (ORR)</div>
+                        </div>
+                        <div class="infographic-item teal-theme">
+                            <div class="infographic-icon icon-teal">🎯</div>
+                            <div class="infographic-value">46%</div>
+                            <div class="infographic-label">Complete Response (CR) Rate</div>
+                        </div>
+                    </div>
+                    <ul class="list-disc list-inside text-sm space-y-1 pl-2">
+                        <li>Median Duration of Response (DOR): 7 months (95% CI: 5-11)</li>
+                        <li>Median Progression-Free Survival (PFS): 6 months (95% CI: 4-10)</li>
+                        <li>Median Overall Survival (OS): Projected to exceed 1 year</li>
+                        <li><strong>Correlation:</strong> High target antigen expression (>67.7% of malignant cells) significantly correlated with higher ORR (75% vs. 40%, p = 0.02).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="md:col-span-4">
+                 <div class="abstract-card">
+                    <h2 class="abstract-section-title">Patient Characteristics (N=23)</h2>
+                    <div class="table-container compact-table">
+                        <table>
+                            <thead>
+                                <tr><th>Characteristic</th><th>Value</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Median Age, years</td><td>62</td></tr>
+                                <tr><td>Diagnoses</td><td>DLBCL, FL, MCL, MM</td></tr>
+                                <tr><td>Prior CAR-T Targets</td><td>CD19, BCMA</td></tr>
+                                </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="abstract-card">
+                    <h2 class="abstract-section-title">Safety Summary (N=23 Re-treatment)</h2>
+                     <ul class="list-disc list-inside text-sm space-y-1 pl-2">
+                        <li>Grade ≥3 Cytokine Release Syndrome (CRS): 3%</li>
+                        <li>Grade ≥3 Immune Effector Cell-Associated Neurotoxicity Syndrome (ICANS): 0%</li>
+                        <li>Treatment-Related Mortality (TRM): 0%</li>
+                    </ul>
+                    <p class="text-sm mt-2">The re-treatment strategy demonstrated a manageable safety profile.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="abstract-card mt-6">
+            <h2 class="abstract-section-title">Summary & Conclusion</h2>
+            <ul class="list-disc list-inside text-sm space-y-2 pl-2">
+                <li>Spectral flow cytometry-guided selection of alternative target antigens is a feasible and effective strategy in patients with R/R B-cell malignancies who have experienced failure of prior CAR-T therapy.</li>
+                <li>This personalized approach facilitates the identification of viable alternative targets, potentially mitigating the impact of antigen escape.</li>
+                <li>The study demonstrated promising clinical outcomes (ORR 61%, CR 46%) with manageable toxicity, supporting this strategy for CAR-T re-treatment.</li>
+                <li>High expression of the chosen alternative target antigen correlated with improved response rates.</li>
+            </ul>
+        </div>
+
+        <div class="abstract-card mt-6 abbreviations-list">
+            <h2 class="abstract-section-title">Abbreviations</h2>
+            <p>
+                BCMA, B-Cell Maturation Antigen; BM, Bone Marrow; CAR, Chimeric Antigen Receptor; CD, Cluster of Differentiation; CI, Confidence Interval; CR, Complete Response; CRS, Cytokine Release Syndrome; CS1, CD2 subset 1 (SLAMF7); DLBCL, Diffuse Large B-Cell Lymphoma; DOR, Duration of Response; FL, Follicular Lymphoma; GPRC5D, G Protein-Coupled Receptor Class C Group 5 Member D; ICANS, Immune Effector Cell-Associated Neurotoxicity Syndrome; LAG-3, Lymphocyte-Activation Gene 3; MCL, Mantle Cell Lymphoma; MDSC, Myeloid-Derived Suppressor Cells; MM, Multiple Myeloma; NK, Natural Killer; NKG2D, Natural Killer Group 2D; ORR, Overall Response Rate; OS, Overall Survival; PB, Peripheral Blood; PD-1, Programmed Cell Death Protein 1; PFS, Progression-Free Survival; R/R, Relapsed/Refractory; TAM, Tumor-Associated Macrophages; TIM-3, T-cell Immunoglobulin and Mucin-domain containing-3; TME, Tumor Microenvironment; Treg, Regulatory T-cells; TRM, Treatment-Related Mortality.
+            </p>
+        </div>
+
+        <div class="abstract-card mt-6 reference-section">
+            <h2 class="abstract-section-title">
+                Reference
+                <button id="copyReferenceBtn" class="copy-reference-button" title="Copy Reference">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 mr-1.5">
+                        <path d="M7 3.5A1.5 1.5 0 018.5 2h3.879a1.5 1.5 0 011.06.44l3.122 3.121A1.5 1.5 0 0117 6.621V16.5a1.5 1.5 0 01-1.5 1.5h-7A1.5 1.5 0 017 16.5v-13z" />
+                        <path d="M4.5 6A1.5 1.5 0 003 7.5v10A1.5 1.5 0 004.5 19h7a1.5 1.5 0 001.5-1.5v-2.5a.75.75 0 00-1.5 0v2.5a.5.5 0 01-.5.5h-7a.5.5 0 01-.5-.5v-10a.5.5 0 01.5-.5h2.5a.75.75 0 000-1.5H4.5z" />
+                    </svg>
+                    Copy
+                </button>
+            </h2>
+            <p id="referenceSectionContent">
+                Zhang Y. Spectral flow cytometry-guided selection of alternative tumor-associated membrane expression antigens for CAR-T cell re-treatment in relapsed/refractory B-cell malignancies. Abstract #PF1318 presented at European Haematology Association (EHA) June 13, 2025, City, Country.
+            </p>
+        </div>
+
+        <div class="abstract-footer-info">
+            <p>EHA Library PF1318 | Presentation Date: 06/13/2025</p>
+            <p>For Research & Informational Purposes Only.</p>
+        </div>
+    </div>
+    <script defer src="abstract_features.js"></script> 
+</body>
+</html>

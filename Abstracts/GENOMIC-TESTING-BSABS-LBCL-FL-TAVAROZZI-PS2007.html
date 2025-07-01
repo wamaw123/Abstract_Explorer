@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="study:id" content="genomic-testing-bsabs-lbcl-fl-tavarozzi">
+    <meta name="study:title" content="PS2007 - Genomic testing in patients with large cell and follicular lymphoma treated with T-cell engagers bi-specific antibodies and correlation with treatment response">
+    <meta name="study:fileName" content="Abstracts/GENOMIC-TESTING-BSABS-LBCL-FL-TAVAROZZI-PS2007.html">
+    <meta name="study:cancerTypes" content="DLBCL,FL,LBCL,B-NHL">
+    <meta name="study:lineOfTherapy" content="3L+">
+    <meta name="study:evidenceType" content="Real-world evidence">
+    <meta name="study:drugs" content="Bispecific antibodies,Epcoritamab,Glofitamab,Mosunetuzumab,CAR-T cell therapy">
+
+    <title>PS2007: Genomic Testing with bsAbs in B-NHL (Tavarozzi) - SOBI Themed</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="abstract_styles.css"> <style>
+        /* Lightbox styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            padding-top: 50px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.9);
+        }
+        .lightbox-content {
+            margin: auto;
+            display: block;
+            width: 90%; /* Adjusted for potentially wider/taller images */
+            max-width: 1200px; /* Increased max-width */
+            max-height: 90vh; /* Increased max-height */
+        }
+        .lightbox-caption {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: #ccc;
+            padding: 10px 0;
+            height: 50px;
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .lightbox-close:hover,
+        .lightbox-close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .figure-image-thumbnail {
+            cursor: zoom-in;
+            transition: 0.3s;
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--sobi-light-gray);
+            border-radius: 4px;
+        }
+        .figure-image-thumbnail:hover {opacity: 0.7;}
+    </style>
+</head>
+<body class="abstract-page-body">
+    <div class="slide-container">
+        <div class="visual-abstract-container">
+            <h2 class="visual-abstract-title">Visual Summary: PS2007 - Genomic Testing & Response to Bispecific Antibodies in R/R B-NHL</h2>
+            <div class="visual-abstract-grid">
+                <div class="visual-abstract-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--sobi-teal)"> <path d="M12 6.096c-1.058 0-2.02.468-2.704 1.248-.685.78-.996 1.788-.996 2.856s.311 2.076.996 2.856C9.98 13.84 10.942 14.31 12 14.31s2.02-.468 2.704-1.248.996-1.788.996 2.856-.311-2.076-.996-2.856C14.02 6.564 13.058 6.096 12 6.096zM12 12.81c-.53 0-1.008-.222-1.352-.588-.344-.366-.528-.852-.528-1.422s.184-1.056.528-1.422C10.992 9.012 11.47 8.79 12 8.79s1.008.222 1.352.588.528.852.528 1.422-.184-1.056-.528 1.422C13.008 12.588 12.53 12.81 12 12.81zm6.708 3.672A7.47 7.47 0 0012.024 15c-1.404 0-2.706.39-3.816 1.056A4.476 4.476 0 004.5 19.686V21h15v-1.314a4.476 4.476 0 00-3.792-3.624zM6.024 16.56c.84-.468 1.848-.768 2.904-.924A5.928 5.928 0 0112.024 15a5.928 5.928 0 013.096.636c1.056.156 2.064.456 2.904.924A2.988 2.988 0 0019.5 18.018V19.5h-15v-1.482a2.988 2.988 0 001.524-2.458zM4.5 7.032c0-1.068.312-2.076.996-2.856S7.2 3 8.256 3A7.47 7.47 0 0112.024 1.5c1.404 0-2.706.39-3.816 1.056A4.476 4.476 0 0119.5 6.186V7.5H4.5v-.468zM18 4.56c-.84.468-1.848-.768-2.904-.924A5.928 5.928 0 0012.024 6a5.928 5.928 0 00-3.096.636 7.524 7.524 0 00-2.904.924A2.988 2.988 0 014.5 7.482V6H3V4.5A1.5 1.5 0 014.5 3h15A1.5 1.5 0 0121 4.5V6h-1.5v1.482a2.988 2.988 0 01-1.524 2.458L18 4.56z" />
+                    </svg>
+                    <h4>Population & Aim (N=82)</h4>
+                    <p>R/R B-NHL Pts (DLBCL 58, FL 24) treated with bsAbs. Aim: Evaluate real-world efficacy & role of genomic testing (NGS IMPACT-Heme).</p>
+                </div>
+                <div class="visual-abstract-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--sobi-teal)"> <path fill-rule="evenodd" d="M10.5 3.75a.75.75 0 01.75-.75h1.5a.75.75 0 01.75.75V4.5h3A2.25 2.25 0 0118.75 6.75v1.5a2.25 2.25 0 01-2.25 2.25H15.5V12h1.25a.75.75 0 010 1.5H15.5v1.5h.75a.75.75 0 010 1.5H15.5v1.5H18a.75.75 0 010 1.5h-2.5v1.5a.75.75 0 01-1.5 0V18h-1.5v1.5a.75.75 0 01-1.5 0V18h-1.5v1.5a.75.75 0 01-1.5 0v-3A2.25 2.25 0 016 14.25v-1.5A2.25 2.25 0 018.25 10.5H9.5V9H8.25A2.25 2.25 0 016 6.75v-1.5A2.25 2.25 0 018.25 3H10.5V3.75zm-1.5 6.75h6V6.75H9V10.5z" clip-rule="evenodd" />
+                    </svg>
+                    <h4>Methods (Retrospective, Single-Center)</h4>
+                    <p>Pts treated 06/2022-11/2024. Pre-bsAb tumor biopsy NGS. Clinical, genomic, survival data analyzed.</p>
+                </div>
+                <div class="visual-abstract-item">
+                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--sobi-orange)"> <path fill-rule="evenodd" d="M3.75 3A.75.75 0 003 3.75v16.5a.75.75 0 00.75.75h16.5a.75.75 0 00.75-.75V3.75a.75.75 0 00-.75-.75H3.75zm14.25 1.5H6v13.5h12V4.5zm-10.5 3a.75.75 0 000 1.5h9a.75.75 0 000-1.5h-9zm0 3.75a.75.75 0 000 1.5h9a.75.75 0 000-1.5h-9zm0 3.75a.75.75 0 000 1.5H9a.75.75 0 000-1.5H6z" clip-rule="evenodd" />
+                    </svg>
+                    <h4>Key Efficacy & Genomic Findings</h4>
+                    <p>DLBCL (n=58): ORR 56%, CR 31%. FL (n=24, Mosun): ORR 91%, CR 83%. CD20 negativity in 75% at relapse. SGK1/ARID1A mutations only in DLBCL responders, EZH2 only in non-responders.</p>
+                </div>
+                <div class="visual-abstract-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--sobi-orange)"> <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-.092 14.444a.75.75 0 01-.092 0l-3.75-3.75a.75.75 0 111.06-1.06L12 14.813l3.182-3.182a.75.75 0 111.06 1.06l-3.75 3.75a.75.75 0 01-.53.22z" clip-rule="evenodd" />
+                    </svg>
+                    <h4>Conclusion</h4>
+                    <p>Real-world bsAb efficacy shown. Genomic markers (SGK1, ARID1A, EZH2 in DLBCL) may correlate with response. bsAbs may mitigate some high-risk mutations.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mb-8">
+            <h1 class="abstract-header-title">PS2007 - Genomic testing in patients with large cell and follicular lymphoma treated with T-cell engagers bi-specific antibodies and correlation with treatment response</h1>
+            <p class="abstract-sub-header">Rita Tavarozzi, Alfredo Rivas Delgado, Michelle Okwali, et al.</p>
+            <p class="abstract-meta-info mt-2">EHA 2025 Congress | Abstract #PS2007 | Poster Presentation</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-x-8 gap-y-6">
+            <div> <div class="abstract-card">
+                    <h2 class="abstract-section-title">Background</h2>
+                    <ul class="list-disc list-inside text-sm space-y-1 pl-2">
+                        <li>Bispecific antibodies (bsAbs) have transformed treatment for relapsed/refractory (R/R) B-cell non-Hodgkin lymphoma (B-NHL).</li>
+                        <li>bsAbs engage T-cells to target malignant B-cells, showing efficacy even in heavily pretreated patients (pts).</li>
+                        <li>Real-world evidence for bsAbs is limited, and the role of genomic testing in optimizing outcomes is not fully defined.</li>
+                    </ul>
+                </div>
+
+                <div class="abstract-card">
+                    <h2 class="abstract-section-title">Aims</h2>
+                    <p class="text-sm mb-1">To evaluate the real-world efficacy of bsAbs in R/R B-NHL and explore the role of genomic testing in optimizing patient outcomes.</p>
+                </div>
+
+                <div class="abstract-card">
+                    <h2 class="abstract-section-title">Methods & Study Design</h2>
+                    <ul class="list-disc list-inside text-sm space-y-1 mb-3 pl-2">
+                        <li>Study Type: Retrospective, single-center (Memorial Sloan Kettering Cancer Center).</li>
+                        <li>Patient Population (N=83 total, 82 analyzed): R/R B-NHL pts treated with commercially available bsAbs (06/2022 - 11/2024).
+                            <ul class="list-circle list-inside ml-4">
+                                <li>R/R Diffuse Large B-Cell Lymphoma (DLBCL): 58 pts.</li>
+                                <li>R/R Follicular Lymphoma (FL): 24 pts.</li>
+                                <li>All treated after at least two prior therapy lines (PTL).</li>
+                            </ul>
+                        </li>
+                        <li>Genomic Testing: Last available pre-bsAb tumor biopsy underwent NGS (MSK-IMPACT-Heme).</li>
+                        <li>Data Collected: Clinical characteristics, treatment history, genomic profiles, survival outcomes.</li>
+                        <li>Statistical Analysis: Fisher’s exact test for group comparisons.</li>
+                    </ul>
+                     <div class="study-design-schema">
+                        <h3 class="schema-title">Real-World bsAb Efficacy & Genomic Analysis</h3>
+                        <div class="schema-enrollment">
+                            <strong>R/R B-NHL Pts (N=82 Analyzed)</strong>
+                            <span>Treated with Commercial bsAbs (06/2022 - 11/2024)</span>
+                            <span>(DLBCL n=58, FL n=24)</span>
+                        </div>
+                        <div class="schema-arrow-down">▼</div>
+                        <div class="schema-phase-group">
+                            <div class="schema-phase" style="flex-basis: 100%; background-color: var(--sobi-light-gray-bg); border-color: var(--sobi-dark-blue);">
+                                <strong>Data Collection & Analysis</strong>
+                                <span>Clinical characteristics, Tx history, Outcomes</span>
+                                <span>Pre-bsAb Tumor Biopsy NGS (MSK-IMPACT-Heme)</span>
+                                <span>Correlation of genomics with response</span>
+                                <span>Analysis of post-bsAb relapse biopsies</span>
+                            </div>
+                        </div>
+                        <div class="schema-assessment-points">
+                           <span>Real-world ORR, CR rates</span>
+                           <span>Genomic alterations in pre-treatment biopsies</span>
+                           <span>Correlation of specific mutations with response</span>
+                           <span>Mechanisms of resistance (e.g., CD20 loss)</span>
+                        </div>
+                    </div>
+                </div>
+            </div> <div> <div class="abstract-card">
+                    <h2 class="abstract-section-title">Patient Characteristics (N=82)</h2>
+                    <ul class="list-disc list-inside text-sm space-y-1 pl-2">
+                        <li>Male: 56%.</li>
+                        <li>Stage IV Disease: 82%.</li>
+                        <li>Age > 60 years: 77%.</li>
+                        <li>R/R after immunotherapy: 100%.</li>
+                        <li>Median Prior Therapy Lines (PTL): 4.</li>
+                        <li>Prior ASCT: 12%.</li>
+                        <li>R/R after CAR-T: 39%.</li>
+                    </ul>
+                </div>
+                <div class="abstract-card">
+                    <h2 class="abstract-section-title">Efficacy & Genomic Results</h2>
+                    <p class="text-sm font-semibold mt-1 mb-1">Response to bsAbs:</p>
+                    <ul class="list-disc list-inside text-sm space-y-1 pl-2">
+                        <li><strong>R/R DLBCL (n=58):</strong>
+                            <ul class="list-circle list-inside ml-4">
+                                <li>Epcoritamab (Epco, n=29): ORR 59%, CR 28%.</li>
+                                <li>Glofitamab (Glofit, n=25): ORR 50%, CR 30%.</li>
+                                <li>Mosunetuzumab (Mosun, n=4): ORR/CR not individually specified but overall DLBCL ORR 56%, CR 31%.</li>
+                                <li>DLBCL R/R after CAR-T (n=29): ORR 52% (CR 31%).</li>
+                                <li>Early POD in DLBCL: 83%.</li>
+                            </ul>
+                        </li>
+                        <li><strong>R/R FL (n=24, all Mosunetuzumab):</strong>
+                             <ul class="list-circle list-inside ml-4">
+                                <li>ORR: 91%.</li>
+                                <li>CR Rate: 83%.</li>
+                                <li>Early POD in FL: 25%.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                     <p class="text-sm font-semibold mt-3 mb-1">Post-bsAb Relapse & CD20 Status:</p>
+                     <ul class="list-disc list-inside text-sm space-y-1 pl-2">
+                        <li>38 pts (46%) relapsed or did not respond.</li>
+                        <li>New biopsy in 22/38 (59%): CD20 negativity in 19/22 (75% of re-biopsied; DLBCL n=16, FL n=3).</li>
+                    </ul>
+                    <p class="text-sm font-semibold mt-3 mb-1">Genomic Analysis (49 pre-bsAb biopsies: 32 DLBCL, 17 FL):</p>
+                    <ul class="list-disc list-inside text-sm space-y-1 pl-2">
+                        <li>Median 17 somatic driver mutations identified.</li>
+                        <li><strong>DLBCL Cohort (n=32):</strong>
+                            <ul class="list-circle list-inside ml-4">
+                                <li>Most frequent: KMT2D (43%), PIM1 (34%), TP53 (31%), BCL2 (28%), HLA-A (25%), MYD88 (22%), CD79B (19%), DTX1 (19%).</li>
+                                <li>Mutations only in responders (CR/PR, n=16): SGK1 (4/16), ARID1A (2/16).</li>
+                                <li>Mutations only in non-responders (n=16): EZH2 (2/16).</li>
+                            </ul>
+                        </li>
+                         <li><strong>FL Cohort (n=17):</strong>
+                            <ul class="list-circle list-inside ml-4">
+                                <li>Most frequent: KMT2D (67%), BCL2 (61%), CREBBP (61%), TNFRSF14 (39%), ARID1A (35%), EZH2 (22%).</li>
+                                <li>Comparison between responders/non-responders not testable (only 3 non-CR).</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="abstract-card mt-4">
+                        <h3 class="text-md font-semibold mb-2 text-center" style="color: var(--sobi-dark-blue);">Figure 1: Genomic Alterations in DLBCL</h3>
+                        <img id="ps2007Figure1Thumbnail" src="Assets/PS2007Figure1.jpg" alt="Figure 1: Heatmap of genomic alterations in DLBCL patients by response to bsAbs" class="figure-image-thumbnail mx-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/600x400/EBF4FA/1E3A8A?text=Figure+1+Not+Available';">
+                        <p class="text-xs text-center mt-2 italic">Figure 1: Illustrative heatmap of genomic alterations (e.g., SGK1, ARID1A, EZH2) in DLBCL patients correlated with response to bispecific antibodies. Click image to enlarge.</p>
+                    </div>
+                    <div id="ps2007Figure1Lightbox" class="lightbox">
+                        <span class="lightbox-close" id="closePs2007Figure1Lightbox">&times;</span>
+                        <img class="lightbox-content" id="ps2007Figure1LightboxImage">
+                        <div class="lightbox-caption" id="ps2007Figure1LightboxCaption"></div>
+                    </div>
+                </div>
+            </div> </div> <div class="abstract-card mt-6">
+            <h2 class="abstract-section-title">Summary & Conclusion</h2>
+            <ul class="list-disc list-inside text-sm space-y-1 pl-2">
+                <li>This real-world data analysis demonstrates the efficacy of commercially available bispecific antibodies in heavily pretreated R/R B-NHL patients, including those post-CAR-T.</li>
+                <li>High rates of CD20 negativity were observed in biopsies at relapse post-bsAb therapy.</li>
+                <li>In DLBCL, mutations in SGK1 and ARID1A were exclusively found in patients achieving CR or PR, while EZH2 mutations were only present in non-responding patients, suggesting potential biomarkers.</li>
+                <li>These findings suggest that bsAb therapies may mitigate the negative effects of several high-risk mutations. Further validation in larger cohorts is needed.</li>
+            </ul>
+        </div>
+
+        <div class="abstract-card mt-6 abbreviations-list">
+            <h2 class="abstract-section-title">Abbreviations</h2>
+            <p>ASCT, Autologous Stem Cell Transplant; B-NHL, B-cell Non-Hodgkin Lymphoma; bsAbs, Bispecific Antibodies; CAR-T, Chimeric Antigen Receptor T-cell; CD, Cluster of Differentiation; CR, Complete Remission; DLBCL, Diffuse Large B-Cell Lymphoma; Epco, Epcoritamab; EZH2, Enhancer of Zeste Homolog 2; FL, Follicular Lymphoma; Glofit, Glofitamab; IMPACT-Heme, Integrated Mutational Profiling of Actionable Cancer Targets - Hematologic Malignancies; KMT2D, Lysine Methyltransferase 2D; MSK, Memorial Sloan Kettering; Mosun, Mosunetuzumab; MYD88, Myeloid Differentiation Primary Response 88; NGS, Next-Generation Sequencing; ORR, Overall Response Rate; PIM1, Pim-1 Proto-Oncogene, Serine/Threonine Kinase; POD, Progression of Disease; Pts, Patients; PTL, Prior Therapy Lines; R/R, Relapsed/Refractory; SGK1, Serum/Glucocorticoid Regulated Kinase 1; SOCS1, Suppressor of Cytokine Signaling 1; TP53, Tumor Protein P53; TNFRSF14, TNF Receptor Superfamily Member 14.</p>
+        </div>
+
+        <div class="abstract-card mt-6 reference-section">
+            <h2 class="abstract-section-title">
+                Reference
+                <button id="copyReferenceBtn" class="copy-reference-button" title="Copy Reference">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M7 3.5A1.5 1.5 0 018.5 2h3.879a1.5 1.5 0 011.06.44l3.122 3.121A1.5 1.5 0 0117 6.621V16.5a1.5 1.5 0 01-1.5 1.5h-7A1.5 1.5 0 017 16.5v-13z" />
+                        <path d="M4.5 6A1.5 1.5 0 003 7.5v10A1.5 1.5 0 004.5 19h7a1.5 1.5 0 001.5-1.5v-2.5a.75.75 0 00-1.5 0v2.5a.5.5 0 01-.5.5h-7a.5.5 0 01-.5-.5v-10a.5.5 0 01.5-.5h2.5a.75.75 0 000-1.5H4.5z" />
+                    </svg>
+                    Copy
+                </button>
+            </h2>
+            <p id="referenceSectionContent">Tavarozzi R, Rivas Delgado A, Okwali M, et al. Genomic testing in patients with large cell and follicular lymphoma treated with T-cell engagers bi-specific antibodies and correlation with treatment response. Abstract #PS2007 presented at European Haematology Association (EHA) June 12–15, 2025, Milan, Italy.</p>
+        </div>
+
+        <div class="abstract-footer-info">
+            <p>EHA 2025 Congress | Abstract #PS2007 | Abstract Release: 05/14/25 | Presentation: 06/14/2025</p>
+            <p>For Research & Informational Purposes Only.</p>
+        </div>
+    </div> <script defer src="abstract_features.js"></script>
+    <script>
+        // Lightbox JavaScript for Figure 1
+        document.addEventListener('DOMContentLoaded', function() {
+            const lightbox = document.getElementById('ps2007Figure1Lightbox');
+            const lightboxImg = document.getElementById('ps2007Figure1LightboxImage');
+            const lightboxCaption = document.getElementById('ps2007Figure1LightboxCaption');
+            const thumbnail = document.getElementById('ps2007Figure1Thumbnail');
+            const closeBtn = document.getElementById('closePs2007Figure1Lightbox');
+
+            if (thumbnail) {
+                thumbnail.onclick = function(){
+                    lightbox.style.display = "block";
+                    lightboxImg.src = this.src; // Use thumbnail src for lightbox
+                    lightboxCaption.innerHTML = this.alt;
+                }
+            }
+
+            if (closeBtn) {
+                closeBtn.onclick = function() {
+                    lightbox.style.display = "none";
+                }
+            }
+             if (lightbox) {
+                lightbox.onclick = function(event) {
+                    if (event.target === lightbox) { 
+                        lightbox.style.display = "none";
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

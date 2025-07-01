@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="study:id" content="prognostic-indices-rrdlbcl-almeida-pais">
+    <meta name="study:title" content="PB3310 - Prognostic indices in R/R DLBCL: Identifying the best index for first relapse assessment">
+    <meta name="study:fileName" content="Abstracts/PB3310-PROGNOSTIC-INDICES-RRDLBCL-ALMEIDA-PAIS.html">
+    <meta name="study:cancerTypes" content="DLBCL,LBCL,B-NHL">
+    <meta name="study:lineOfTherapy" content="2L+">
+    <meta name="study:evidenceType" content="Real-world evidence">
+    <meta name="study:drugs" content="Rituximab,Chemotherapy,CIT,CAR-T cell therapy">
+
+    <title>PB3310: Prognostic Indices in R/R DLBCL (Almeida Pais) - SOBI Themed</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="abstract_styles.css">
+</head>
+<body class="abstract-page-body">
+    <div class="slide-container">
+        <div class="visual-abstract-container">
+            <h2 class="visual-abstract-title">Visual Summary: PB3310 - Prognostic Indices in R/R DLBCL</h2>
+            <div class="visual-abstract-grid">
+                <div class="visual-abstract-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--sobi-teal)"> <path d="M12 6.096c-1.058 0-2.02.468-2.704 1.248-.685.78-.996 1.788-.996 2.856s.311 2.076.996 2.856C9.98 13.84 10.942 14.31 12 14.31s2.02-.468 2.704-1.248.996-1.788.996-2.856-.311-2.076-.996-2.856C14.02 6.564 13.058 6.096 12 6.096zM12 12.81c-.53 0-1.008-.222-1.352-.588-.344-.366-.528-.852-.528-1.422s.184-1.056.528-1.422C10.992 9.012 11.47 8.79 12 8.79s1.008.222 1.352.588.528.852.528 1.422-.184-1.056-.528 1.422C13.008 12.588 12.53 12.81 12 12.81zm6.708 3.672A7.47 7.47 0 0012.024 15c-1.404 0-2.706.39-3.816 1.056A4.476 4.476 0 004.5 19.686V21h15v-1.314a4.476 4.476 0 00-3.792-3.624zM6.024 16.56c.84-.468 1.848-.768 2.904-.924A5.928 5.928 0 0112.024 15a5.928 5.928 0 013.096.636c1.056.156 2.064.456 2.904.924A2.988 2.988 0 0019.5 18.018V19.5h-15v-1.482a2.988 2.988 0 001.524-2.458zM4.5 7.032c0-1.068.312-2.076.996-2.856S7.2 3 8.256 3A7.47 7.47 0 0112.024 1.5c1.404 0 2.706.39 3.816 1.056A4.476 4.476 0 0119.5 6.186V7.5H4.5v-.468zM18 4.56c-.84.468-1.848.768-2.904-.924A5.928 5.928 0 0012.024 6a5.928 5.928 0 00-3.096.636 7.524 7.524 0 00-2.904.924A2.988 2.988 0 014.5 7.482V6H3V4.5A1.5 1.5 0 014.5 3h15A1.5 1.5 0 0121 4.5V6h-1.5v1.482a2.988 2.988 0 01-1.524 2.458L18 4.56z" /> </svg>
+                    <h4>Population & Aim (N=42)</h4>
+                    <p>R/R DLBCL Pts, ASCT-eligible. Aim: Compare prognostic indices for OS/PFS.</p>
+                </div>
+                <div class="visual-abstract-item">
+                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--sobi-teal)"> <path fill-rule="evenodd" d="M4.5 2.25A2.25 2.25 0 002.25 4.5v15A2.25 2.25 0 004.5 21.75h15A2.25 2.25 0 0021.75 19.5V4.5A2.25 2.25 0 0019.5 2.25h-15zm9.75 10.178a.75.75 0 00-1.5 0v2.872l-1.6-1.6a.75.75 0 10-1.06 1.061l2.353 2.353a.75.75 0 001.061 0l2.353-2.353a.75.75 0 00-1.06-1.06l-1.591 1.591v-2.873zm-6.75-4.428a.75.75 0 01.75-.75h4.5a.75.75 0 010 1.5h-4.5a.75.75 0 01-.75-.75z" clip-rule="evenodd" /> </svg>
+                    <h4>Key Method</h4>
+                    <p>Retrospective analysis. Indices: IPI, R-IPI, NCCN-IPI, aaIPI, sIPI, sAAIPI.</p>
+                </div>
+                <div class="visual-abstract-item">
+                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--sobi-orange)"> <path fill-rule="evenodd" d="M2.25 13.5a.75.75 0 000-1.5H.75a.75.75 0 000 1.5h1.5zm18.75 0a.75.75 0 000-1.5h-1.5a.75.75 0 000 1.5h1.5zm-6.75-6.49a.75.75 0 00-1.06 0l-5.25 5.25a.75.75 0 00.017 1.046A4.502 4.502 0 0112 16.5a4.5 4.5 0 013.262-7.695.75.75 0 00.017-1.046l-5.25-5.25zm-5.484 6.256a.75.75 0 011.06 0L12 15.336l2.188-2.188a.75.75 0 111.06 1.06L13.06 16.4l2.188 2.188a.75.75 0 11-1.06 1.06L12 17.464l-2.188 2.188a.75.75 0 11-1.06-1.06L10.939 16.4l-2.187-2.188a.75.75 0 010-1.06z" clip-rule="evenodd" /> </svg>
+                    <h4>Key Finding (OS Prediction)</h4>
+                    <p>NCCN-IPI (C-index 0.65) & IPI (C-index 0.62) better than sIPI (C-index 0.58) & sAAIPI (C-index 0.58).</p>
+                </div>
+                <div class="visual-abstract-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--sobi-orange)"> <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-.092 14.444a.75.75 0 01-.092 0l-3.75-3.75a.75.75 0 111.06-1.06L12 14.813l3.182-3.182a.75.75 0 111.06 1.06l-3.75 3.75a.75.75 0 01-.53.22z" clip-rule="evenodd" /> </svg>
+                    <h4>Conclusion</h4>
+                    <p>sIPI/sAAIPI have limited value. Future models need more biomarkers for better risk stratification in R/R DLBCL.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mb-8">
+            <h1 class="abstract-header-title">PB3310 - Prognostic indices in diffuse large B-CELL lymphoma: Identifying the best index for first relapse assessment</h1>
+            <p class="abstract-sub-header">Catia Raquel Almeida Pais, Adriana Roque, Rita Costa e Sousa, Duarte Pacheco Silva, Mariana Baptista Ferreira, Carolina Afonso, Bárbara Marques, Sara Duarte, Catarina Geraldes, Marília Gomes</p>
+            <p class="abstract-meta-info mt-2">EHA 2025 Congress | Abstract #PB3310 | Publication Only</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-x-8 gap-y-6">
+            <div>
+                <div class="abstract-card">
+                    <h2 class="abstract-section-title">Background</h2>
+                    <ul class="list-disc list-inside text-sm space-y-1 pl-2">
+                        <li>In DLBCL first-line therapy with R-CHOP can cure 60-65% of patients (pts); the remaining 35-40% of pts are primary refractory or relapse after an initial response, and have a very dismal prognosis.</li>
+                        <li>Second-line chemotherapy with hematopoietic stem cell transplantation (ASCT) is effective in less than half of the cases that proceed to ASCT.</li>
+                        <li>CAR-T cell therapy is a promising strategy for those who are chemorefractory or relapse after ASCT.</li>
+                        <li>Prognostic indexes are well established for newly diagnosed DLBCL but less studied in relapsed/refractory cases.</li>
+                        <li>Better predictive scores are needed to identify patients who may benefit more from immunotherapy.</li>
+                    </ul>
+                </div>
+
+                <div class="abstract-card">
+                    <h2 class="abstract-section-title">Aims</h2>
+                    <p class="text-sm mb-1">To compare predictive performance of six indexes - International Prognostic Index (IPI), revised IPI (R-IPI), National Comprehensive Cancer Network (NCCN-IPI), age-adjusted IPI (aaIPI), second-line IPI (sIPI) and second-line age-adjusted IPI (sAAIPI) - in assessing response, progression-free survival (PFS) and overall survival (OS) in pts eligible for ASCT.</p>
+                </div>
+
+                <div class="abstract-card">
+                    <h2 class="abstract-section-title">Methods & Study Design</h2>
+                    <ul class="list-disc list-inside text-sm space-y-1 mb-3 pl-2">
+                        <li>Retrospective analysis of pts with DLCBL diagnosed between 2007 and 2021, primary refractory or relapsed and eligible for ASCT.</li>
+                        <li>Survival was estimated using the Kaplan-Meier method and differences between risk groups compared with the log-rank test.</li>
+                        <li>Cox proportional hazard models were used to calculate hazard ratios with 95% confidence intervals (CI).</li>
+                        <li>Model fit was assessed using the Akaike Information Criterion (AIC) and Bayesian Information Criterion (BIC), where lower values indicate a better fit.</li>
+                        <li>The concordance index (C-index) measured model discrimination.</li>
+                        <li>A p-value < 0.05 was considered statistically significant.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div>
+                <div class="abstract-card">
+                    <h2 class="abstract-section-title">Patient Characteristics (N=42)</h2>
+                    <ul class="list-disc list-inside text-sm space-y-1 pl-2">
+                        <li>Median age: 50 years (range, 24-65).</li>
+                        <li>Male: 71%.</li>
+                        <li>Stage III-IV disease: 88%.</li>
+                        <li>Extranodal involvement: 64%.</li>
+                        <li>All patients received a rituximab/anthracycline-based regimen as first-line therapy.</li>
+                        <li>Median number of treatment lines: three (range, 2-5).</li>
+                        <li>Primary refractory: 67%.</li>
+                        <li>Second line setting: 38% received a rituximab/cytarabine-based regimen.</li>
+                        <li>Consolidation with ASCT: 39%.</li>
+                        <li>Median follow-up from start of second-line therapy: 32.6 months.</li>
+                        <li>Median Overall Survival (OS): 40.8 months.</li>
+                        <li>Median Progression-Free Survival (PFS): 9.0 months.</li>
+                    </ul>
+                </div>
+
+                 <div class="abstract-card">
+                    <h2 class="abstract-section-title">Results: Prognostic Performance of Indices for Overall Survival</h2>
+                    <p class="text-sm mb-2">The following table summarizes the performance of various prognostic indices in predicting overall survival for patients with relapsed/refractory DLBCL (N=42).</p>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Score</th>
+                                    <th>Model Variables</th>
+                                    <th>Proportion of patients</th>
+                                    <th>Group Risk (Points)</th>
+                                    <th>Hazard Ratio (95% CI)</th>
+                                    <th>p-value</th>
+                                    <th>Akaike's Information Criterion (AIC)</th>
+                                    <th>Concordance Index (C-index) (95% CI)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>IPI</strong></td>
+                                    <td>Age > 60 anos (1)<br>ECOG PS > (1)<br>Stage III/IV (1)<br>Extra Nodal >1 (1)<br>LDH > ULN (1)</td>
+                                    <td>16.67<br>38.10<br>35.71<br>9.52</td>
+                                    <td>Low (0–1)<br>Intermediate-Low (2)<br>Intermediate-High (3)<br>High (4–5)</td>
+                                    <td>1.64 (1.02-2.64)</td>
+                                    <td>0.042</td>
+                                    <td>163.55</td>
+                                    <td>0.62</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>aaIPI</strong></td>
+                                    <td>StageIII/IV (1)<br>Extra Nodal >1 (1)<br>LDH > ULN (1)</td>
+                                    <td>9.52<br>33.33<br>50.00<br>7.14</td>
+                                    <td>Low (0)<br>Intermediate-Low (1)<br>Intermediate-High (2)<br>High (3)</td>
+                                    <td>1.11 (0.68-1.83)</td>
+                                    <td>0.675</td>
+                                    <td>166.57</td>
+                                    <td>0.55</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>NCCN-IPI</strong></td>
+                                    <td>Age ≤40 (0), 41–60 (1), 61–75 (2), >75 (3)<br>Stage III/IV (1)<br>ECOG PS > (1)<br>Extra Nodal>1 (1)<br>LDH >1-3xULN (1), >3xULN (2)</td>
+                                    <td>11.90<br>16.67<br>30.95<br>40.48</td>
+                                    <td>Low (0–1)<br>Intermediate-Low (2)<br>Intermediate-High (3)<br>High (4–5)</td>
+                                    <td>1.61 (1.02-2.52)</td>
+                                    <td>0.039</td>
+                                    <td>161.98</td>
+                                    <td>0.65</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>R-IPI</strong></td>
+                                    <td>Age >60 year (1)<br>ECOG PS > (1)<br>LDH > USL (1)</td>
+                                    <td>7.14<br>47.62<br>45.24</td>
+                                    <td>Very Good (0)<br>Good(1–2)<br>Bad (3–5)</td>
+                                    <td>1.25 (0.63-2.47)</td>
+                                    <td>0.517</td>
+                                    <td>167.58</td>
+                                    <td>0.56</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Second Line IPI (sIPI)</strong></td>
+                                    <td>Age >60 years (1)<br>ECOG PS > (1)<br>Stage III/IV (1)<br>Extra Nodal >1 (1)<br>LDH > ULN (1)</td>
+                                    <td>23.81<br>40.48<br>23.81<br>11.90</td>
+                                    <td>Low (0–1)<br>Intermediate-Low (2)<br>Intermediate-High (3)<br>High (4–5)</td>
+                                    <td>1.34 (0.88-2.05)</td>
+                                    <td>0.170</td>
+                                    <td>167.96</td>
+                                    <td>0.58</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Second Line aaIPI (sAAIPI)</strong></td>
+                                    <td>Stage III/IV (1)<br>Extra Nodal >1 (1)<br>LDH > ULN (1)</td>
+                                    <td>7.14<br>53.38<br>38.10<br>2.38</td>
+                                    <td>Low (0)<br>Intermediate-Low (1)<br>Intermediate-High (2)<br>High (3)</td>
+                                    <td>1.08 (0.60-1.92)</td>
+                                    <td>0.802</td>
+                                    <td>167.43</td>
+                                    <td>0.58</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="footnote-text mt-2">Table 1: Prognostic Performance of Second-Line and Classical Indices for Overall Survival in Relapsed/Refractory DLBCL after 2nd line therapy. Model Variables details points for risk factors. Proportion of patients indicates distribution across risk groups for each index. Group Risk (Points) indicates the point ranges for Low, Intermediate-Low, Intermediate-High, and High risk categories for each index. ULN: Upper Limit of Normal. USL: Upper Standard Limit.</p>
+                    </div>
+                    <p class="text-sm mt-3">Established indices such as NCCN-IPI and IPI showed better predictive accuracy, with lower AIC values and higher C-indices compared to sIPI and sAAIPI.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="abstract-card mt-6">
+            <h2 class="abstract-section-title">Summary & Conclusion</h2>
+            <ul class="list-disc list-inside text-sm space-y-1 pl-2">
+                <li>sIPI and sAAIPI demonstrated limited predictive value for OS in relapsed/refractory DLBCL.</li>
+                <li>Neither sIPI nor sAAIPI significantly outperformed established prognostic models like IPI and NCCN-IPI.</li>
+                <li>Second-line indexes, in their current form, may not be optimal for risk stratification in this patient population.</li>
+                <li>To improve prognostic assessment at relapse, future models should include clinical and molecular biomarkers or response-based strategies for better risk stratification. This could help identify patients unlikely to benefit from salvage chemotherapy and ASCT, supporting earlier use of alternatives like CAR-T cell therapy.</li>
+            </ul>
+        </div>
+
+        <div class="abstract-card mt-6 abbreviations-list">
+            <h2 class="abstract-section-title">Abbreviations</h2>
+            <p>aaIPI, Age-Adjusted International Prognostic Index; AIC, Akaike Information Criterion; ASCT, Autologous Stem Cell Transplantation; BIC, Bayesian Information Criterion; CAR-T, Chimeric Antigen Receptor T-cell therapy; CI, Confidence Interval; C-index, Concordance Index; DLBCL, Diffuse Large B-Cell Lymphoma; ECOG PS, Eastern Cooperative Oncology Group Performance Status; HR, Hazard Ratio; IPI, International Prognostic Index; LDH, Lactate Dehydrogenase; LoT, Lines of Therapy; M, Months; NCCN-IPI, National Comprehensive Cancer Network International Prognostic Index; OS, Overall Survival; PFS, Progression-Free Survival; Pts, Patients; R-CHOP, Rituximab, Cyclophosphamide, Doxorubicin, Vincristine, Prednisone; R-IPI, Revised International Prognostic Index; sAAIPI, Second-Line Age-Adjusted International Prognostic Index; sIPI, Second-Line International Prognostic Index; ULN, Upper Limit of Normal; USL, Upper Standard Limit.</p>
+        </div>
+
+        <div class="abstract-card mt-6 reference-section">
+            <h2 class="abstract-section-title">Reference</h2>
+            <p id="referenceSectionContent">Almeida Pais CR, Roque A, Costa e Sousa R, et al. Prognostic indices in diffuse large B-CELL lymphoma: Identifying the best index for first relapse assessment. Abstract #PB3310 presented at the European Hematology Association (EHA) Congress. June 12–15 2025, Milan, Italy.</p>
+        </div>
+
+        <div class="abstract-footer-info">
+            <p>EHA 2025 Congress | Abstract #PB3310 | Publication Only</p>
+            <p>Abstract Release: 05/14/25 | Presentation: 06/12/2025</p>
+            <p>For Research & Informational Purposes Only.</p>
+        </div>
+    </div>
+    <script defer src="abstract_features.js"></script>
+</body>
+</html>
