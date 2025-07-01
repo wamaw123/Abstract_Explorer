@@ -725,7 +725,9 @@ function resetAllFilters() {
 let studiesDataJsOriginal = [];
 
 // Enhanced initialization with better error handling
-document.addEventListener('DOMContentLoaded', () => {
+function forceInitialization() {
+    console.log('🔄 Force initialization called...');
+    
     try {
         // Deep clone studies_data.js to preserve original isFavorite states for full reset
         if (typeof studies !== 'undefined' && Array.isArray(studies)) {
@@ -735,14 +737,18 @@ document.addEventListener('DOMContentLoaded', () => {
         
         initializeApp();
         
-        // Show success message for GitHub Pages debugging
+        // Force call essential functions
         setTimeout(() => {
+            console.log('🔄 Forcing filter generation and display...');
+            generateFilterButtons();
+            displayStudies();
+            
             const initMsg = document.getElementById('initializationMessage');
             if (initMsg && initMsg.classList.contains('hidden')) {
                 console.log('✅ Conference Abstract Explorer initialized successfully!');
                 showToast(`Welcome! Loaded ${studies.length} abstracts`, 'success', 3000);
             }
-        }, 1000);
+        }, 500);
         
     } catch (error) {
         console.error('❌ Error initializing app:', error);
@@ -751,6 +757,32 @@ document.addEventListener('DOMContentLoaded', () => {
         if(initializationMessageEl) initializationMessageEl.classList.remove('hidden');
         showToast('Failed to initialize application', 'error');
     }
+}
+
+// Make force initialization available globally
+window.forceInitialization = forceInitialization;
+
+// Multiple initialization attempts
+document.addEventListener('DOMContentLoaded', forceInitialization);
+
+// Backup initialization
+setTimeout(() => {
+    const resultsContainer = document.getElementById('studyResults');
+    if (!resultsContainer || resultsContainer.children.length === 0) {
+        console.warn('⚠️ No abstracts detected, trying backup initialization...');
+        forceInitialization();
+    }
+}, 2000);
+
+// Another backup for GitHub Pages
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        const resultsContainer = document.getElementById('studyResults');
+        if (!resultsContainer || resultsContainer.children.length === 0) {
+            console.warn('⚠️ Still no abstracts after page load, final backup initialization...');
+            forceInitialization();
+        }
+    }, 1000);
 });
 
 // Add CSS for card animation
