@@ -6,40 +6,74 @@
     <title>Competitor Intelligence Dashboard</title>
     <meta name="description" content="Dashboard of medical competitor intelligence trends, authors, drugs, and more from conference abstracts.">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://d3js.org/d3.v7.min.js"></script>
     <link rel="stylesheet" href="explorer_styles.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
-<body class="bg-gray-50 font-inter min-h-screen">
-    <header class="bg-white shadow p-4 flex items-center justify-between">
-        <h1 class="text-2xl font-bold text-sobi-dark-blue">Competitor Intelligence Dashboard</h1>
-        <a href="Conference_Explorer.html" class="btn">Back to Explorer</a>
+<body class="flex flex-col min-h-screen">
+    <header class="main-header py-4" role="banner">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex items-center"> 
+            <div class="flex items-center flex-shrink-0">
+                <div id="lottie-container" style="width: 32px; height: 32px; margin-right: 0.75rem;">
+                    <lottie-player 
+                        src="https://lottie.host/embed/bb150a64-b726-4cde-8c51-1a3eaf6d2a81/6IwJTR6ana.lottie" 
+                        background="transparent" 
+                        speed="1" 
+                        style="width: 100%; height: 100%;" 
+                        loop 
+                        autoplay 
+                        class="header-icon"
+                        aria-hidden="true">
+                    </lottie-player>
+                </div>
+                <h1 class="text-2xl sm:text-3xl font-bold tracking-tight">
+                    Competitor Intelligence Dashboard
+                </h1>
+                <a href="Conference_Explorer.html" class="ml-6 btn bg-sobi-orange text-white hover:bg-sobi-dark-blue transition-colors" style="font-size:1rem; padding:0.5rem 1.25rem;">Back to Explorer</a>
+            </div>
+        </div>
     </header>
-    <main class="max-w-6xl mx-auto p-6 space-y-8">
-        <section>
-            <h2 class="text-xl font-semibold mb-2">Trends Over Time</h2>
-            <div id="trendChart" class="bg-white rounded shadow p-4 min-h-[300px]"></div>
-        </section>
-        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-                <h2 class="text-xl font-semibold mb-2">Top Authors</h2>
-                <div id="topAuthors" class="bg-white rounded shadow p-4 min-h-[200px]"></div>
-            </div>
-            <div>
-                <h2 class="text-xl font-semibold mb-2">Top Drugs/Regimens</h2>
-                <div id="topDrugs" class="bg-white rounded shadow p-4 min-h-[200px]"></div>
-            </div>
-        </section>
-        <section>
-            <h2 class="text-xl font-semibold mb-2">Abstracts by Cancer Type</h2>
-            <div id="cancerTypeChart" class="bg-white rounded shadow p-4 min-h-[200px]"></div>
-        </section>
-        <section>
-            <h2 class="text-xl font-semibold mb-2">Recent Abstracts</h2>
-            <div id="recentAbstracts" class="bg-white rounded shadow p-4 min-h-[200px]"></div>
+    <main class="container mx-auto p-4 sm:p-6 lg:p-8 flex-grow" id="main-content">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <section class="card">
+                <h2 class="section-title">Trends Over Time</h2>
+                <div id="trendChart" class="chart-container"></div>
+            </section>
+            <section class="card">
+                <h2 class="section-title">Top Authors</h2>
+                <div id="topAuthors" class="infographic-item teal-theme"></div>
+            </section>
+            <section class="card">
+                <h2 class="section-title">Top Drugs/Regimens</h2>
+                <div id="topDrugs" class="infographic-item orange-theme"></div>
+            </section>
+            <section class="card">
+                <h2 class="section-title">Abstracts by Cancer Type</h2>
+                <div id="cancerTypeChart" class="infographic-item"></div>
+            </section>
+        </div>
+        <section class="card mt-8">
+            <h2 class="section-title">Recent Abstracts</h2>
+            <div id="recentAbstracts"></div>
         </section>
     </main>
+    <footer class="main-footer text-center p-5 mt-auto" role="contentinfo">
+        <div class="max-w-4xl mx-auto">
+            <p class="text-sm">
+                Conference Abstract Explorer &copy; <span id="currentYear"></span>. 
+                For research and informational purposes only.
+            </p>
+            <nav aria-label="Footer navigation" class="mt-2">
+                <ul class="flex justify-center space-x-4 text-xs">
+                    <li><a href="#" class="text-sobi-light-gray-text hover:text-white transition-colors">Privacy Policy</a></li>
+                    <li><a href="#" class="text-sobi-light-gray-text hover:text-white transition-colors">Terms of Use</a></li>
+                    <li><a href="#" class="text-sobi-light-gray-text hover:text-white transition-colors">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
     <script src="studies_data.js"></script>
     <script src="competitor_intel_app.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script>document.getElementById('currentYear').textContent = new Date().getFullYear();</script>
 </body>
 </html>
