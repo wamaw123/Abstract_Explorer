@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Competitor Intelligence Dashboard</title>
+    <meta name="description" content="Dashboard of medical competitor intelligence trends, authors, drugs, and more from conference abstracts.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link rel="stylesheet" href="explorer_styles.css">
+</head>
+<body class="bg-gray-50 font-inter min-h-screen">
+    <header class="bg-white shadow p-4 flex items-center justify-between">
+        <h1 class="text-2xl font-bold text-sobi-dark-blue">Competitor Intelligence Dashboard</h1>
+        <a href="Conference_Explorer.html" class="btn">Back to Explorer</a>
+    </header>
+    <main class="max-w-6xl mx-auto p-6 space-y-8">
+        <section>
+            <h2 class="text-xl font-semibold mb-2">Trends Over Time</h2>
+            <div id="trendChart" class="bg-white rounded shadow p-4 min-h-[300px]"></div>
+        </section>
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+                <h2 class="text-xl font-semibold mb-2">Top Authors</h2>
+                <div id="topAuthors" class="bg-white rounded shadow p-4 min-h-[200px]"></div>
+            </div>
+            <div>
+                <h2 class="text-xl font-semibold mb-2">Top Drugs/Regimens</h2>
+                <div id="topDrugs" class="bg-white rounded shadow p-4 min-h-[200px]"></div>
+            </div>
+        </section>
+        <section>
+            <h2 class="text-xl font-semibold mb-2">Abstracts by Cancer Type</h2>
+            <div id="cancerTypeChart" class="bg-white rounded shadow p-4 min-h-[200px]"></div>
+        </section>
+        <section>
+            <h2 class="text-xl font-semibold mb-2">Recent Abstracts</h2>
+            <div id="recentAbstracts" class="bg-white rounded shadow p-4 min-h-[200px]"></div>
+        </section>
+    </main>
+    <script src="studies_data.js"></script>
+    <script src="competitor_intel_app.js"></script>
+</body>
+</html>
